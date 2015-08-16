@@ -18,7 +18,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		B04A4E971B8064C700EED0DF /* GrubbyWorm-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GrubbyWorm-Bridging-Header.h"; sourceTree = "<group>"; };
 		B04A4E991B806D1B00EED0DF /* SKColor-Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "SKColor-Extensions.swift"; path = "Extension/SKColor-Extensions.swift"; sourceTree = "<group>"; };
 		B0914D451B7C85DF008A796B /* DataStruct.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataStruct.swift; path = Share/DataStruct.swift; sourceTree = "<group>"; };
 		B0914D471B7C87A1008A796B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -51,6 +50,13 @@
 			name = Extension;
 			sourceTree = "<group>";
 		};
+		B04A4E9B1B806F1E00EED0DF /* State-Machines */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "State-Machines";
+			sourceTree = "<group>";
+		};
 		B0D88B311B7C84C7007ADABE = {
 			isa = PBXGroup;
 			children = (
@@ -71,8 +77,8 @@
 		B0D88B3C1B7C84C7007ADABE /* GrubbyWorm */ = {
 			isa = PBXGroup;
 			children = (
-				B04A4E971B8064C700EED0DF /* GrubbyWorm-Bridging-Header.h */,
 				B04A4E981B806D0000EED0DF /* Extension */,
+				B04A4E9B1B806F1E00EED0DF /* State-Machines */,
 				B0D88B531B7C852D007ADABE /* Share */,
 				B0D88B3D1B7C84C7007ADABE /* AppDelegate.swift */,
 				B0D88B431B7C84C7007ADABE /* GameViewController.swift */,
@@ -125,7 +131,7 @@
 				TargetAttributes = {
 					B0D88B391B7C84C7007ADABE = {
 						CreatedOnToolsVersion = 7.0;
-						DevelopmentTeam = 92852ZS52N;
+						DevelopmentTeam = UMQMHH9L4Q;
 					};
 				};
 			};
@@ -286,9 +292,13 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = GrubbyWorm/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.game-china.GrubbyWorm";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/GoogleAnalytics",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "org.game-china.grubbyworm";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "./GrubbyWorm/GrubbyWorm-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -301,9 +311,13 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = GrubbyWorm/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.game-china.GrubbyWorm";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/GoogleAnalytics",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "org.game-china.grubbyworm";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "./GrubbyWorm/GrubbyWorm-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 			};
 			name = Release;
 		};
