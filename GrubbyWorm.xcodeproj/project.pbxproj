@@ -14,6 +14,10 @@
 		B04A4EB21B807F8800EED0DF /* UIPauseState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04A4EB11B807F8800EED0DF /* UIPauseState.swift */; };
 		B04A4EB41B807FA200EED0DF /* UIGameOverState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04A4EB31B807FA200EED0DF /* UIGameOverState.swift */; };
 		B04A4EC21B808C9900EED0DF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B04A4EC41B808C9900EED0DF /* InfoPlist.strings */; };
+		B04A4ED01B8096D000EED0DF /* WormState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04A4ECF1B8096D000EED0DF /* WormState.swift */; };
+		B04A4ED21B8096E700EED0DF /* WormHappyState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04A4ED11B8096E700EED0DF /* WormHappyState.swift */; };
+		B04A4ED41B8096F900EED0DF /* WormCrazyState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04A4ED31B8096F900EED0DF /* WormCrazyState.swift */; };
+		B04A4ED61B80974500EED0DF /* WormDefeatedState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04A4ED51B80974500EED0DF /* WormDefeatedState.swift */; };
 		B0914D461B7C85DF008A796B /* DataStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0914D451B7C85DF008A796B /* DataStruct.swift */; };
 		B0D88B3E1B7C84C7007ADABE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D88B3D1B7C84C7007ADABE /* AppDelegate.swift */; };
 		B0D88B441B7C84C7007ADABE /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D88B431B7C84C7007ADABE /* GameViewController.swift */; };
@@ -39,6 +43,10 @@
 		B04A4ECC1B808CD200EED0DF /* ja */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = ja; path = ja.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B04A4ECD1B808CD200EED0DF /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B04A4ECE1B808CDB00EED0DF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B04A4ECF1B8096D000EED0DF /* WormState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WormState.swift; path = "State-Machines/WormState.swift"; sourceTree = "<group>"; };
+		B04A4ED11B8096E700EED0DF /* WormHappyState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WormHappyState.swift; path = "State-Machines/WormHappyState.swift"; sourceTree = "<group>"; };
+		B04A4ED31B8096F900EED0DF /* WormCrazyState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WormCrazyState.swift; path = "State-Machines/WormCrazyState.swift"; sourceTree = "<group>"; };
+		B04A4ED51B80974500EED0DF /* WormDefeatedState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WormDefeatedState.swift; path = "State-Machines/WormDefeatedState.swift"; sourceTree = "<group>"; };
 		B0914D451B7C85DF008A796B /* DataStruct.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataStruct.swift; path = Share/DataStruct.swift; sourceTree = "<group>"; };
 		B0914D471B7C87A1008A796B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		B0D88B3A1B7C84C7007ADABE /* GrubbyWorm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GrubbyWorm.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -76,6 +84,10 @@
 				B04A4EAF1B807F6E00EED0DF /* UIPlayingState.swift */,
 				B04A4EB11B807F8800EED0DF /* UIPauseState.swift */,
 				B04A4EB31B807FA200EED0DF /* UIGameOverState.swift */,
+				B04A4ECF1B8096D000EED0DF /* WormState.swift */,
+				B04A4ED11B8096E700EED0DF /* WormHappyState.swift */,
+				B04A4ED31B8096F900EED0DF /* WormCrazyState.swift */,
+				B04A4ED51B80974500EED0DF /* WormDefeatedState.swift */,
 			);
 			name = "State-Machines";
 			sourceTree = "<group>";
@@ -199,14 +211,18 @@
 			files = (
 				B04A4EAC1B807EF900EED0DF /* UITitleState.swift in Sources */,
 				B0914D461B7C85DF008A796B /* DataStruct.swift in Sources */,
+				B04A4ED41B8096F900EED0DF /* WormCrazyState.swift in Sources */,
 				B04A4EB01B807F6E00EED0DF /* UIPlayingState.swift in Sources */,
 				B0D88B551B7C855E007ADABE /* AppTheme.swift in Sources */,
 				B0D88B441B7C84C7007ADABE /* GameViewController.swift in Sources */,
 				B04A4EB41B807FA200EED0DF /* UIGameOverState.swift in Sources */,
 				B0D88B3E1B7C84C7007ADABE /* AppDelegate.swift in Sources */,
 				B04A4E9A1B806D1C00EED0DF /* SKColor-Extensions.swift in Sources */,
+				B04A4ED01B8096D000EED0DF /* WormState.swift in Sources */,
+				B04A4ED61B80974500EED0DF /* WormDefeatedState.swift in Sources */,
 				B04A4EAE1B807F4D00EED0DF /* UIState.swift in Sources */,
 				B04A4EB21B807F8800EED0DF /* UIPauseState.swift in Sources */,
+				B04A4ED21B8096E700EED0DF /* WormHappyState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
