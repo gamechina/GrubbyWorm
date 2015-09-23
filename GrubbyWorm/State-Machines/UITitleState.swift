@@ -8,6 +8,13 @@
 
 import GameplayKit
 
-class TitleState: UIState {
+class UITitleState: UIState {
     
+    override func didEnterWithPreviousState(previousState: GKState?) {
+        print("aaa")
+    }
+    
+    override func updateWithDeltaTime(seconds: NSTimeInterval) {
+        print("bbb")
+    }
 }

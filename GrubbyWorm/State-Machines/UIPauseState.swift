@@ -8,6 +8,6 @@
 
 import GameplayKit
 
-class PauseState: UIState {
+class UIPauseState: UIState {
 
 }

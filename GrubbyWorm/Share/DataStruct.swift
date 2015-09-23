@@ -6,4 +6,10 @@
 //  Copyright © 2015年 GAME-CHINA.ORG. All rights reserved.
 //
 
-import Foundation
+enum Direction {
+    case None
+    case Left
+    case Right
+    case Down
+    case Up
+}

@@ -8,6 +8,6 @@
 
 import GameplayKit
 
-class GameOverState: UIState {
+class UIGameOverState: UIState {
     
 }

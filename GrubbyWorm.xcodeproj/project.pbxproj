@@ -25,6 +25,9 @@
 		B0D88B491B7C84C7007ADABE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0D88B481B7C84C7007ADABE /* Assets.xcassets */; };
 		B0D88B4C1B7C84C7007ADABE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0D88B4A1B7C84C7007ADABE /* LaunchScreen.storyboard */; };
 		B0D88B551B7C855E007ADABE /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D88B541B7C855E007ADABE /* AppTheme.swift */; };
+		B0DD66E51BB27C35004D52B5 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DD66E41BB27C35004D52B5 /* Game.swift */; settings = {ASSET_TAGS = (); }; };
+		B0DD66E91BB284A0004D52B5 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DD66E81BB284A0004D52B5 /* Entity.swift */; settings = {ASSET_TAGS = (); }; };
+		B0DD66EB1BB285C9004D52B5 /* GameControlComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DD66EA1BB285C9004D52B5 /* GameControlComponent.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +58,9 @@
 		B0D88B481B7C84C7007ADABE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B0D88B4D1B7C84C7007ADABE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B0D88B541B7C855E007ADABE /* AppTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppTheme.swift; path = Share/AppTheme.swift; sourceTree = "<group>"; };
+		B0DD66E41BB27C35004D52B5 /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		B0DD66E81BB284A0004D52B5 /* Entity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Entity.swift; path = "Entity-Component/Entity.swift"; sourceTree = "<group>"; };
+		B0DD66EA1BB285C9004D52B5 /* GameControlComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameControlComponent.swift; path = "Entity-Component/GameControlComponent.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,16 +118,15 @@
 		B0D88B3C1B7C84C7007ADABE /* GrubbyWorm */ = {
 			isa = PBXGroup;
 			children = (
+				B0DD66E71BB28476004D52B5 /* Entity-Component */,
 				B04A4E981B806D0000EED0DF /* Extension */,
 				B04A4E9B1B806F1E00EED0DF /* State-Machines */,
 				B0D88B531B7C852D007ADABE /* Share */,
+				B0DD66E61BB27C4B004D52B5 /* Support-Files */,
+				B0D88B481B7C84C7007ADABE /* Assets.xcassets */,
 				B0D88B3D1B7C84C7007ADABE /* AppDelegate.swift */,
 				B0D88B431B7C84C7007ADABE /* GameViewController.swift */,
-				B0D88B451B7C84C7007ADABE /* Main.storyboard */,
-				B0D88B4A1B7C84C7007ADABE /* LaunchScreen.storyboard */,
-				B0D88B481B7C84C7007ADABE /* Assets.xcassets */,
-				B0D88B4D1B7C84C7007ADABE /* Info.plist */,
-				B04A4EC41B808C9900EED0DF /* InfoPlist.strings */,
+				B0DD66E41BB27C35004D52B5 /* Game.swift */,
 			);
 			path = GrubbyWorm;
 			sourceTree = "<group>";
@@ -133,6 +138,26 @@
 				B0914D451B7C85DF008A796B /* DataStruct.swift */,
 			);
 			name = Share;
+			sourceTree = "<group>";
+		};
+		B0DD66E61BB27C4B004D52B5 /* Support-Files */ = {
+			isa = PBXGroup;
+			children = (
+				B0D88B451B7C84C7007ADABE /* Main.storyboard */,
+				B0D88B4A1B7C84C7007ADABE /* LaunchScreen.storyboard */,
+				B0D88B4D1B7C84C7007ADABE /* Info.plist */,
+				B04A4EC41B808C9900EED0DF /* InfoPlist.strings */,
+			);
+			name = "Support-Files";
+			sourceTree = "<group>";
+		};
+		B0DD66E71BB28476004D52B5 /* Entity-Component */ = {
+			isa = PBXGroup;
+			children = (
+				B0DD66E81BB284A0004D52B5 /* Entity.swift */,
+				B0DD66EA1BB285C9004D52B5 /* GameControlComponent.swift */,
+			);
+			name = "Entity-Component";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -167,7 +192,6 @@
 				TargetAttributes = {
 					B0D88B391B7C84C7007ADABE = {
 						CreatedOnToolsVersion = 7.0;
-						DevelopmentTeam = UMQMHH9L4Q;
 					};
 				};
 			};
@@ -210,8 +234,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				B04A4EAC1B807EF900EED0DF /* UITitleState.swift in Sources */,
+				B0DD66E51BB27C35004D52B5 /* Game.swift in Sources */,
 				B0914D461B7C85DF008A796B /* DataStruct.swift in Sources */,
 				B04A4ED41B8096F900EED0DF /* WormCrazyState.swift in Sources */,
+				B0DD66E91BB284A0004D52B5 /* Entity.swift in Sources */,
+				B0DD66EB1BB285C9004D52B5 /* GameControlComponent.swift in Sources */,
 				B04A4EB01B807F6E00EED0DF /* UIPlayingState.swift in Sources */,
 				B0D88B551B7C855E007ADABE /* AppTheme.swift in Sources */,
 				B0D88B441B7C84C7007ADABE /* GameViewController.swift in Sources */,

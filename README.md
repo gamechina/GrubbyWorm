@@ -22,11 +22,7 @@ Hope you'll like it.
 
 ## Running Environment
 
-- Xcode Version 7.0 beta 5 (7A176x) 
+- Xcode Version 7.0 (7A220) 
 - iOS 9 SDK
 
-## GameplayKit
-
-### Entity and Component
-
-### State Machine
+## Blog for grubby Worm

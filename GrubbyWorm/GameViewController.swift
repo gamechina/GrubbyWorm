@@ -10,11 +10,12 @@ import UIKit
 import SpriteKit
 
 class GameViewController: UIViewController {
+    
+    var game: Game?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let scene = SKScene()
         // Configure the view.
         let skView = self.view as! SKView
         skView.showsFPS = true
@@ -23,12 +24,8 @@ class GameViewController: UIViewController {
         /* Sprite Kit applies additional optimizations to improve rendering performance */
         skView.ignoresSiblingOrder = true
         
-        /* Set the scale mode to scale to fit the window */
-        scene.scaleMode = .AspectFill
-        
-        scene.backgroundColor = AppTheme.scene_background_color
-        
-        skView.presentScene(scene)
+        game = Game()
+        skView.presentScene(game?.scene)
     }
 
     override func shouldAutorotate() -> Bool {

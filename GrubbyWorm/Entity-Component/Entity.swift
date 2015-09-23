@@ -1,13 +1,13 @@
 //
-//  PlayingState.swift
+//  Entity.swift
 //  GrubbyWorm
 //
-//  Created by Wayne on 15/8/16.
+//  Created by Wayne on 15/9/23.
 //  Copyright © 2015年 GAME-CHINA.ORG. All rights reserved.
 //
 
 import GameplayKit
 
-class UIPlayingState: UIState {
+class Entity: GKEntity {
 
 }
