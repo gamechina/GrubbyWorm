@@ -10,7 +10,7 @@ import GameplayKit
 
 class GameControlComponent: GKComponent {
     
-    private var _game: Game?
+    private weak var _game: Game?
     private var _ui: Entity?
     var stateMachine: GKStateMachine?
     

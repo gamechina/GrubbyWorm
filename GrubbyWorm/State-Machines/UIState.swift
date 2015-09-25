@@ -10,12 +10,12 @@ import GameplayKit
 
 class UIState: GKState {
     
-    private var _game: Game?
-    private var _ui: Entity?
+    var game: Game?
+    var ui: Entity?
     
     init(game: Game?, ui: Entity?) {
-        self._game = game
-        self._ui = ui
+        self.game = game
+        self.ui = ui
         
         super.init()
     }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B0417A621BB3F9CF0017B5D0 /* UISpriteComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0417A611BB3F9CF0017B5D0 /* UISpriteComponent.swift */; settings = {ASSET_TAGS = (); }; };
 		B04A4E9A1B806D1C00EED0DF /* SKColor-Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04A4E991B806D1B00EED0DF /* SKColor-Extensions.swift */; };
 		B04A4EAC1B807EF900EED0DF /* UITitleState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04A4EAB1B807EF900EED0DF /* UITitleState.swift */; };
 		B04A4EAE1B807F4D00EED0DF /* UIState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04A4EAD1B807F4D00EED0DF /* UIState.swift */; };
@@ -31,6 +32,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B0417A611BB3F9CF0017B5D0 /* UISpriteComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UISpriteComponent.swift; path = "Entity-Component/UISpriteComponent.swift"; sourceTree = "<group>"; };
 		B04A4E991B806D1B00EED0DF /* SKColor-Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "SKColor-Extensions.swift"; path = "Extension/SKColor-Extensions.swift"; sourceTree = "<group>"; };
 		B04A4EAB1B807EF900EED0DF /* UITitleState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UITitleState.swift; path = "State-Machines/UITitleState.swift"; sourceTree = "<group>"; };
 		B04A4EAD1B807F4D00EED0DF /* UIState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIState.swift; path = "State-Machines/UIState.swift"; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 			children = (
 				B0DD66E81BB284A0004D52B5 /* Entity.swift */,
 				B0DD66EA1BB285C9004D52B5 /* GameControlComponent.swift */,
+				B0417A611BB3F9CF0017B5D0 /* UISpriteComponent.swift */,
 			);
 			name = "Entity-Component";
 			sourceTree = "<group>";
@@ -233,6 +236,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0417A621BB3F9CF0017B5D0 /* UISpriteComponent.swift in Sources */,
 				B04A4EAC1B807EF900EED0DF /* UITitleState.swift in Sources */,
 				B0DD66E51BB27C35004D52B5 /* Game.swift in Sources */,
 				B0914D461B7C85DF008A796B /* DataStruct.swift in Sources */,

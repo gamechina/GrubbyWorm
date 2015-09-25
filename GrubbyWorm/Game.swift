@@ -14,6 +14,9 @@ class Game: NSObject {
     // reference the current scene instance, in grubby worm game, we have only one scene.
     var scene: SKScene?
     
+    // game ui, for play, pause and display.
+    var ui: Entity?
+    
     // reference the game logic level(in grubby worm it should be a map or playground).
     private var _level: NSObject?
     
@@ -22,9 +25,6 @@ class Game: NSObject {
     
     // player control worm, our leading role.
     private var _worm: Entity?
-    
-    // game ui, for play, pause and display.
-    private var _ui: Entity?
     
     // worm direction
     var wormDirection: Direction = .None
@@ -36,7 +36,7 @@ class Game: NSObject {
         super.init()
         
         initScene()
-        initUI()
+//        initUI()
     }
     
     // init the only game scene.
@@ -45,11 +45,22 @@ class Game: NSObject {
         
         scene?.scaleMode = .AspectFill
         scene?.backgroundColor = AppTheme.scene_background_color
+        
+        let aaa = SKLabelNode(text: "aaa")
+        aaa.fontSize = 25
+        aaa.fontColor = AppTheme.secondary_color
+        aaa.position = CGPointMake(100, 100)
+        scene?.addChild(aaa)
+        
+//        let spaceship = SKSpriteNode(imageNamed: "Spaceship")
+//        scene?.addChild(spaceship)
     }
     
     func initUI() {
-        _ui = Entity()
-        _ui?.addComponent(GameControlComponent(game: self, ui: _ui))
+        ui = Entity()
+        
+        ui?.addComponent(GameControlComponent(game: self, ui: ui))
+        ui?.addComponent(UISpriteComponent(game: self, ui: ui))
     }
     
 }

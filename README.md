@@ -25,4 +25,4 @@ Hope you'll like it.
 - Xcode Version 7.0 (7A220) 
 - iOS 9 SDK
 
-## Blog for grubby Worm
+## Blog for Grubby Worm
