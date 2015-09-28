@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  GrubbyWorm
 //
-//  Created by Wayne on 15/8/13.
+//  Created by Wayne on 15/9/28.
 //  Copyright © 2015年 GAME-CHINA.ORG. All rights reserved.
 //
 
@@ -16,7 +16,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-        
         return true
     }
 

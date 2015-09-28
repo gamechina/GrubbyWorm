@@ -9,10 +9,10 @@
 import SpriteKit
 import GameplayKit
 
-class Game: NSObject {
+class Game: NSObject, GameSceneDelegate {
     
     // reference the current scene instance, in grubby worm game, we have only one scene.
-    var scene: SKScene?
+    var scene: GameScene?
     
     // game ui, for play, pause and display.
     var ui: Entity?
@@ -36,24 +36,15 @@ class Game: NSObject {
         super.init()
         
         initScene()
-//        initUI()
     }
     
     // init the only game scene.
     func initScene() {
-        scene = SKScene()
+        scene = GameScene()
+        scene?.gameDelegate = self
         
         scene?.scaleMode = .AspectFill
-        scene?.backgroundColor = AppTheme.scene_background_color
-        
-        let aaa = SKLabelNode(text: "aaa")
-        aaa.fontSize = 25
-        aaa.fontColor = AppTheme.secondary_color
-        aaa.position = CGPointMake(100, 100)
-        scene?.addChild(aaa)
-        
-//        let spaceship = SKSpriteNode(imageNamed: "Spaceship")
-//        scene?.addChild(spaceship)
+//        scene?.backgroundColor = AppTheme.scene_background_color
     }
     
     func initUI() {
@@ -61,6 +52,29 @@ class Game: NSObject {
         
         ui?.addComponent(GameControlComponent(game: self, ui: ui))
         ui?.addComponent(UISpriteComponent(game: self, ui: ui))
+    }
+    
+    func didMoveToView(view: SKView) {
+//        initUI()
+        
+        let myLabel = SKLabelNode(fontNamed:"Chalkduster")
+        myLabel.text = "Hello, World!"
+        myLabel.fontSize = 45
+        myLabel.position = CGPoint(x:CGRectGetMidX(scene!.frame), y:CGRectGetMidY(scene!.frame))
+        
+        scene?.addChild(myLabel)
+        
+        let sprite = SKSpriteNode(imageNamed:"Spaceship")
+        
+        sprite.xScale = 0.5
+        sprite.yScale = 0.5
+        sprite.position = CGPoint(x:CGRectGetMidX(scene!.frame), y:CGRectGetMidY(scene!.frame))
+        
+        let action = SKAction.rotateByAngle(CGFloat(M_PI), duration:1)
+        
+        sprite.runAction(SKAction.repeatActionForever(action))
+        
+        scene?.addChild(sprite)
     }
     
 }
