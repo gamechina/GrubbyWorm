@@ -21,7 +21,7 @@ class GameViewController: UIViewController {
         skView.showsFPS = true
         skView.showsNodeCount = true
         
-        game = Game()
+        game = Game(view: skView)
         skView.presentScene(game?.scene)
     }
 

@@ -11,6 +11,8 @@ import GameplayKit
 
 class Game: NSObject, GameSceneDelegate {
     
+    private var _view: SKView
+    
     // reference the current scene instance, in grubby worm game, we have only one scene.
     var scene: GameScene?
     
@@ -32,19 +34,20 @@ class Game: NSObject, GameSceneDelegate {
     // random source
     var random: GKRandomSource?
     
-    override init() {
-        super.init()
+    init(view: SKView) {
+        self._view = view
         
+        super.init()
         initScene()
     }
     
     // init the only game scene.
     func initScene() {
-        scene = GameScene()
+        scene = GameScene(size: CGSizeMake(_view.frame.width, _view.frame.height))
         scene?.gameDelegate = self
         
         scene?.scaleMode = .AspectFill
-//        scene?.backgroundColor = AppTheme.scene_background_color
+        scene?.backgroundColor = AppTheme.scene_background_color
     }
     
     func initUI() {
@@ -55,26 +58,7 @@ class Game: NSObject, GameSceneDelegate {
     }
     
     func didMoveToView(view: SKView) {
-//        initUI()
-        
-        let myLabel = SKLabelNode(fontNamed:"Chalkduster")
-        myLabel.text = "Hello, World!"
-        myLabel.fontSize = 45
-        myLabel.position = CGPoint(x:CGRectGetMidX(scene!.frame), y:CGRectGetMidY(scene!.frame))
-        
-        scene?.addChild(myLabel)
-        
-        let sprite = SKSpriteNode(imageNamed:"Spaceship")
-        
-        sprite.xScale = 0.5
-        sprite.yScale = 0.5
-        sprite.position = CGPoint(x:CGRectGetMidX(scene!.frame), y:CGRectGetMidY(scene!.frame))
-        
-        let action = SKAction.rotateByAngle(CGFloat(M_PI), duration:1)
-        
-        sprite.runAction(SKAction.repeatActionForever(action))
-        
-        scene?.addChild(sprite)
+        initUI()
     }
     
 }

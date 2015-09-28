@@ -16,6 +16,8 @@ class GameScene: SKScene {
     var gameDelegate: GameSceneDelegate?
     
     override func didMoveToView(view: SKView) {
+        super.didMoveToView(view)
+        
         gameDelegate?.didMoveToView(view)
     }
 }
