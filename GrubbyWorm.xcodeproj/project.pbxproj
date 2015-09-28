@@ -13,7 +13,7 @@
 		B07F40C61BB8F824008F053E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B07F40C51BB8F824008F053E /* Assets.xcassets */; };
 		B07F40C91BB8F824008F053E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B07F40C71BB8F824008F053E /* LaunchScreen.storyboard */; };
 		B07F40D21BB8F87D008F053E /* SKColor-Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07F40D11BB8F87D008F053E /* SKColor-Extensions.swift */; settings = {ASSET_TAGS = (); }; };
-		B07F40D61BB8F883008F053E /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07F40D41BB8F883008F053E /* AppTheme.swift */; settings = {ASSET_TAGS = (); }; };
+		B07F40D61BB8F883008F053E /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07F40D41BB8F883008F053E /* Theme.swift */; settings = {ASSET_TAGS = (); }; };
 		B07F40D71BB8F883008F053E /* DataStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07F40D51BB8F883008F053E /* DataStruct.swift */; settings = {ASSET_TAGS = (); }; };
 		B07F40DA1BB8F889008F053E /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07F40D91BB8F889008F053E /* GameScene.swift */; settings = {ASSET_TAGS = (); }; };
 		B07F40E51BB8F88F008F053E /* UIGameOverState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07F40DC1BB8F88F008F053E /* UIGameOverState.swift */; settings = {ASSET_TAGS = (); }; };
@@ -29,6 +29,7 @@
 		B07F40F61BB8F8E4008F053E /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07F40F31BB8F8E4008F053E /* Entity.swift */; settings = {ASSET_TAGS = (); }; };
 		B07F40F71BB8F8E4008F053E /* GameControlComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07F40F41BB8F8E4008F053E /* GameControlComponent.swift */; settings = {ASSET_TAGS = (); }; };
 		B07F40F81BB8F8E4008F053E /* UISpriteComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07F40F51BB8F8E4008F053E /* UISpriteComponent.swift */; settings = {ASSET_TAGS = (); }; };
+		B0E590BD1BB9289A00FB98CC /* GWButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E590BC1BB9289A00FB98CC /* GWButton.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,7 +41,7 @@
 		B07F40C81BB8F824008F053E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B07F40CA1BB8F824008F053E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B07F40D11BB8F87D008F053E /* SKColor-Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SKColor-Extensions.swift"; sourceTree = "<group>"; };
-		B07F40D41BB8F883008F053E /* AppTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
+		B07F40D41BB8F883008F053E /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		B07F40D51BB8F883008F053E /* DataStruct.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataStruct.swift; sourceTree = "<group>"; };
 		B07F40D91BB8F889008F053E /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		B07F40DC1BB8F88F008F053E /* UIGameOverState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIGameOverState.swift; sourceTree = "<group>"; };
@@ -56,6 +57,7 @@
 		B07F40F31BB8F8E4008F053E /* Entity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
 		B07F40F41BB8F8E4008F053E /* GameControlComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameControlComponent.swift; sourceTree = "<group>"; };
 		B07F40F51BB8F8E4008F053E /* UISpriteComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UISpriteComponent.swift; sourceTree = "<group>"; };
+		B0E590BC1BB9289A00FB98CC /* GWButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GWButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				B07F40D11BB8F87D008F053E /* SKColor-Extensions.swift */,
+				B0E590BC1BB9289A00FB98CC /* GWButton.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -112,7 +115,7 @@
 		B07F40D31BB8F883008F053E /* Share */ = {
 			isa = PBXGroup;
 			children = (
-				B07F40D41BB8F883008F053E /* AppTheme.swift */,
+				B07F40D41BB8F883008F053E /* Theme.swift */,
 				B07F40D51BB8F883008F053E /* DataStruct.swift */,
 			);
 			path = Share;
@@ -250,8 +253,9 @@
 				B07F40EC1BB8F88F008F053E /* WormHappyState.swift in Sources */,
 				B07F40E71BB8F88F008F053E /* UIPlayingState.swift in Sources */,
 				B07F40E91BB8F88F008F053E /* UITitleState.swift in Sources */,
-				B07F40D61BB8F883008F053E /* AppTheme.swift in Sources */,
+				B07F40D61BB8F883008F053E /* Theme.swift in Sources */,
 				B07F40F11BB8F8BA008F053E /* Game.swift in Sources */,
+				B0E590BD1BB9289A00FB98CC /* GWButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -401,6 +405,7 @@
 				B07F40CF1BB8F824008F053E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

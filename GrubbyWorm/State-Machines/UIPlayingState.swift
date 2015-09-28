@@ -9,5 +9,8 @@
 import GameplayKit
 
 class UIPlayingState: UIState {
-
+    
+    override func didEnterWithPreviousState(previousState: GKState?) {
+        
+    }
 }

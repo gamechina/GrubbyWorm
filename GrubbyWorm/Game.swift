@@ -43,22 +43,26 @@ class Game: NSObject, GameSceneDelegate {
     
     // init the only game scene.
     func initScene() {
-        scene = GameScene(size: CGSizeMake(_view.frame.width, _view.frame.height))
+        scene = GameScene(size: _view.bounds.size)
         scene?.gameDelegate = self
         
         scene?.scaleMode = .AspectFill
-        scene?.backgroundColor = AppTheme.scene_background_color
+        scene?.backgroundColor = Theme.scene_background_color
     }
     
     func initUI() {
         ui = Entity()
         
-        ui?.addComponent(GameControlComponent(game: self, ui: ui))
         ui?.addComponent(UISpriteComponent(game: self, ui: ui))
+        ui?.addComponent(GameControlComponent(game: self, ui: ui))
     }
     
     func didMoveToView(view: SKView) {
         initUI()
+    }
+    
+    func startGame() {
+        
     }
     
 }

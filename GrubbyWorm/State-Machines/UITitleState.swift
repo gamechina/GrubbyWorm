@@ -12,10 +12,13 @@ import GameplayKit
 class UITitleState: UIState {
     
     override func didEnterWithPreviousState(previousState: GKState?) {
-        print("aaa")
+        let spriteComponent = ui?.componentForClass(UISpriteComponent)
+        spriteComponent?.usePlayingAppearance()
+        
+        game?.startGame()
     }
     
     override func updateWithDeltaTime(seconds: NSTimeInterval) {
-        print("bbb")
+        
     }
 }
