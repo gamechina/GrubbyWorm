@@ -49,7 +49,8 @@ class UISpriteComponent: GKComponent {
         camera?.runAction(move)
         
         let texture = SKTexture(imageNamed: "Spaceship")
-        let button = GWButtonNode(normalTexture: texture, selectedTexture: texture, disabledTexture: texture)
+        let selectedTexture = SKTexture(imageNamed: "Spaceship_h")
+        let button = GWButtonNode(normalTexture: texture, selectedTexture: selectedTexture, disabledTexture: texture)
         button.position = CGPointMake(300, 200)
         button.actionTouchUpInside = GWButtonTarget.aBlock({ () -> Void in
             print("button click")
