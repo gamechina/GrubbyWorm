@@ -11,6 +11,11 @@ import GameplayKit
 class UIPlayingState: UIState {
     
     override func didEnterWithPreviousState(previousState: GKState?) {
-        
+        if previousState != self {
+            let spriteComponent = ui?.componentForClass(UISpriteComponent)
+            spriteComponent?.usePlayingAppearance()
+            
+            game?.startGame()
+        }
     }
 }

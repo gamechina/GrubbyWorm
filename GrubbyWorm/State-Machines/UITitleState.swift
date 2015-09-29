@@ -13,9 +13,7 @@ class UITitleState: UIState {
     
     override func didEnterWithPreviousState(previousState: GKState?) {
         let spriteComponent = ui?.componentForClass(UISpriteComponent)
-        spriteComponent?.usePlayingAppearance()
-        
-        game?.startGame()
+        spriteComponent?.useTitleAppearance()
     }
     
     override func updateWithDeltaTime(seconds: NSTimeInterval) {

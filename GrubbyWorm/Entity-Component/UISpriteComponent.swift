@@ -17,7 +17,7 @@ class UISpriteComponent: GKComponent {
     var root: SKNode
     var logo: SKLabelNode?
     var menu: SKSpriteNode?
-    var camera: SKCameraNode?
+    var button: GWButtonNode?
     
     init(game: Game?, ui: Entity?) {
         self._game = game
@@ -42,29 +42,31 @@ class UISpriteComponent: GKComponent {
         menu?.setScale(0.5)
         root.addChild(menu!)
         
-        camera = SKCameraNode()
-        _game?.scene?.addChild(camera!)
-        
-        let move = SKAction.moveByX(10, y: 200, duration: 0.8)
-        camera?.runAction(move)
-        
         let texture = SKTexture(imageNamed: "Spaceship")
         let selectedTexture = SKTexture(imageNamed: "Spaceship_h")
-        let button = GWButtonNode(normalTexture: texture, selectedTexture: selectedTexture, disabledTexture: texture)
-        button.position = CGPointMake(300, 200)
-        button.actionTouchUpInside = GWButtonTarget.aBlock({ () -> Void in
+        button = GWButtonNode(normalTexture: texture, selectedTexture: selectedTexture, disabledTexture: texture)
+        button!.position = CGPointMake(300, 200)
+        button!.actionTouchUpInside = GWButtonTarget.aBlock({ () -> Void in
             print("button click")
+            self.entity?.componentForClass(GameControlComponent)?.stateMachine?.enterState(UIPlayingState)
         })
         
-        root.addChild(button)
+        root.addChild(button!)
     }
     
     func useTitleAppearance() {
-        
+        let action = SKAction.rotateByAngle(100, duration: 0.5)
+        logo?.runAction(action)
     }
     
     func usePlayingAppearance() {
-        
+        logo?.hidden = true
+        button?.hidden = true
+        let action = SKAction.moveBy(CGVectorMake(0, 500), duration: 0.5)
+        menu?.runAction(action) {
+            self.menu?.hidden = true
+            print("finished")
+        }
     }
     
     func usePauseAppearance() {
