@@ -20,4 +20,10 @@ class GameScene: SKScene {
         
         gameDelegate?.didMoveToView(view)
     }
+    
+    override func update(currentTime: NSTimeInterval) {
+        super.update(currentTime)
+        
+        gameDelegate?.update!(currentTime, forScene: self)
+    }
 }

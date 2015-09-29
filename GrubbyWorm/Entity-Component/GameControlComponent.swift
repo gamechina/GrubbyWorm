@@ -34,6 +34,6 @@ class GameControlComponent: GKComponent {
     }
     
     override func updateWithDeltaTime(seconds: NSTimeInterval) {
-        
+        stateMachine?.updateWithDeltaTime(seconds)
     }
 }

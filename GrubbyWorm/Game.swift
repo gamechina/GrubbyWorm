@@ -34,6 +34,8 @@ class Game: NSObject, GameSceneDelegate {
     // random source
     var random: GKRandomSource?
     
+    var prevUpdateTime: NSTimeInterval = 0
+    
     init(view: SKView) {
         self._view = view
         
@@ -59,6 +61,19 @@ class Game: NSObject, GameSceneDelegate {
     
     func didMoveToView(view: SKView) {
         initUI()
+    }
+    
+    func update(currentTime: NSTimeInterval, forScene scene: SKScene) {
+        
+        // Track the time delta since the last update.
+        if prevUpdateTime < 0 {
+            prevUpdateTime = currentTime
+        }
+        
+        let dt = currentTime - prevUpdateTime
+        prevUpdateTime = currentTime
+        
+        self.ui?.updateWithDeltaTime(dt)
     }
     
     func startGame() {

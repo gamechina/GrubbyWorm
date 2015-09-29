@@ -18,6 +18,8 @@ class UISpriteComponent: GKComponent {
     var logo: SKLabelNode?
     var menu: SKSpriteNode?
     var button: GWButtonNode?
+    var energyBar: EnergyBar!
+    var moodBar: MoodBar!
     
     init(game: Game?, ui: Entity?) {
         self._game = game
@@ -31,6 +33,7 @@ class UISpriteComponent: GKComponent {
     }
     
     func initItems() {
+        root.zPosition = 100
         _game?.scene?.addChild(root)
         
         logo = SKLabelNode(text: "Grubby Worm")
@@ -52,6 +55,14 @@ class UISpriteComponent: GKComponent {
         })
         
         root.addChild(button!)
+        
+        moodBar = MoodBar(width: (_game?.scene?.size.width)!)
+        moodBar.position = CGPointMake(0, -Theme.mood_bar_height)
+        root.addChild(moodBar)
+    }
+    
+    override func updateWithDeltaTime(seconds: NSTimeInterval) {
+        
     }
     
     func useTitleAppearance() {
@@ -66,6 +77,9 @@ class UISpriteComponent: GKComponent {
         menu?.runAction(action) {
             self.menu?.hidden = true
             print("finished")
+            
+            let action = SKAction.moveBy(CGVectorMake(0, Theme.mood_bar_height), duration: 0.5)
+            self.moodBar.runAction(action)
         }
     }
     

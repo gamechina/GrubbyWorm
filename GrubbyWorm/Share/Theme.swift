@@ -18,5 +18,9 @@ struct Theme {
     
     static let btn_play_color = SKColorWithRGB(200, g: 200, b: 200)
     
+    static let mood_bar_up_color = SKColorWithRGB(60, g: 140, b: 80)
+    
     // --------- Config ---------
+    
+    static let mood_bar_height: CGFloat = 4
 }

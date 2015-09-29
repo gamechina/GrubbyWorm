@@ -30,6 +30,8 @@
 		B07F40F71BB8F8E4008F053E /* GameControlComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07F40F41BB8F8E4008F053E /* GameControlComponent.swift */; settings = {ASSET_TAGS = (); }; };
 		B07F40F81BB8F8E4008F053E /* UISpriteComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07F40F51BB8F8E4008F053E /* UISpriteComponent.swift */; settings = {ASSET_TAGS = (); }; };
 		B0E590BD1BB9289A00FB98CC /* GWButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E590BC1BB9289A00FB98CC /* GWButton.swift */; settings = {ASSET_TAGS = (); }; };
+		B0E590BF1BBA3E3700FB98CC /* EnergyBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E590BE1BBA3E3700FB98CC /* EnergyBar.swift */; settings = {ASSET_TAGS = (); }; };
+		B0E590C11BBA3E5700FB98CC /* MoodBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E590C01BBA3E5700FB98CC /* MoodBar.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +60,8 @@
 		B07F40F41BB8F8E4008F053E /* GameControlComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameControlComponent.swift; sourceTree = "<group>"; };
 		B07F40F51BB8F8E4008F053E /* UISpriteComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UISpriteComponent.swift; sourceTree = "<group>"; };
 		B0E590BC1BB9289A00FB98CC /* GWButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GWButton.swift; sourceTree = "<group>"; };
+		B0E590BE1BBA3E3700FB98CC /* EnergyBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnergyBar.swift; sourceTree = "<group>"; };
+		B0E590C01BBA3E5700FB98CC /* MoodBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoodBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +129,8 @@
 			isa = PBXGroup;
 			children = (
 				B07F40D91BB8F889008F053E /* GameScene.swift */,
+				B0E590BE1BBA3E3700FB98CC /* EnergyBar.swift */,
+				B0E590C01BBA3E5700FB98CC /* MoodBar.swift */,
 			);
 			path = SpriteKit;
 			sourceTree = "<group>";
@@ -250,6 +256,8 @@
 				B07F40DA1BB8F889008F053E /* GameScene.swift in Sources */,
 				B07F40EB1BB8F88F008F053E /* WormDefeatedState.swift in Sources */,
 				B07F40F81BB8F8E4008F053E /* UISpriteComponent.swift in Sources */,
+				B0E590C11BBA3E5700FB98CC /* MoodBar.swift in Sources */,
+				B0E590BF1BBA3E3700FB98CC /* EnergyBar.swift in Sources */,
 				B07F40EC1BB8F88F008F053E /* WormHappyState.swift in Sources */,
 				B07F40E71BB8F88F008F053E /* UIPlayingState.swift in Sources */,
 				B07F40E91BB8F88F008F053E /* UITitleState.swift in Sources */,
