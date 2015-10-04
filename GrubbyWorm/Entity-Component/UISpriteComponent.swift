@@ -40,6 +40,7 @@ class UISpriteComponent: GKComponent {
         logo = SKLabelNode(text: "Grubby Worm")
         logo?.fontName = "Stiff Staff"
         logo?.position = CGPointMake(100, 100)
+        logo?.fontColor = Theme.temp_color
         root.addChild(logo!)
         
         menu = SKSpriteNode(imageNamed: "Spaceship")
@@ -74,6 +75,7 @@ class UISpriteComponent: GKComponent {
         score.position = CGPointMake(8, (_game?.scene?.size.height)! - Theme.energy_bar_height - 4)
         score.horizontalAlignmentMode = .Left
         score.verticalAlignmentMode = .Top
+        score.fontColor = Theme.temp_color
         root.addChild(score)
     }
     
