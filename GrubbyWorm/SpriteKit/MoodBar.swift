@@ -24,6 +24,7 @@ class MoodBar: SKNode {
     private var _down: SKSpriteNode!
     private var _up: SKSpriteNode!
     private var _mark: SKSpriteNode!
+    private var _value: SKLabelNode!
     
     init(width: CGFloat) {
         barWidth = width
@@ -44,6 +45,12 @@ class MoodBar: SKNode {
         _mark.position = CGPointMake(width, Theme.mood_bar_height + 2)
         _mark.hidden = true
         self.addChild(_mark)
+        
+        _value = SKLabelNode(fontNamed: "Stiff Staff")
+        _value.fontSize = 16
+        _value.position = CGPointMake(0, 14)
+        _value.fontColor = Theme.mood_bar_up_color
+        _mark.addChild(_value)
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -54,6 +61,8 @@ class MoodBar: SKNode {
         let width = (percent / 100) * barWidth
         _up.size = CGSizeMake(width, _up.size.height)
         _mark.position = CGPointMake(width, _mark.position.y)
+        
+        _value.text = String(Int(percent / 10) + 1)
         
         if percent == 0 || percent == 100 {
             _mark.hidden = true

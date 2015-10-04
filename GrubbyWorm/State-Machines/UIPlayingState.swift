@@ -23,10 +23,8 @@ class UIPlayingState: UIState {
     }
     
     override func updateWithDeltaTime(seconds: NSTimeInterval) {
-        print("playing ", seconds)
-        
         let spriteComponent = ui?.componentForClass(UISpriteComponent)
-        spriteComponent?.moodBar.percent -= 0.2
+        spriteComponent?.moodBar.percent -= CGFloat(seconds) * (100 / 10)
         
         super.updateWithDeltaTime(seconds)
     }

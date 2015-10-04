@@ -32,11 +32,11 @@ class EnergyBar: SKNode {
         
         super.init()
         
-        _down = SKSpriteNode(color: UIColor.blackColor(), size: CGSizeMake(width, Theme.mood_bar_height))
+        _down = SKSpriteNode(color: UIColor.blackColor(), size: CGSizeMake(width, Theme.energy_bar_height))
         _down.anchorPoint = CGPointMake(0, 0)
         self.addChild(_down)
         
-        _up = SKSpriteNode(color: Theme.mood_bar_up_color, size: CGSizeMake(width, Theme.mood_bar_height))
+        _up = SKSpriteNode(color: Theme.mood_bar_up_color, size: CGSizeMake(width, Theme.energy_bar_height))
         _up.anchorPoint = CGPointMake(0, 0)
         self.addChild(_up)
     }

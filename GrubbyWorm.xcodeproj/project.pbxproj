@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B00B8E851BC1436E00B1FDA7 /* Stiff Staff.otf in Resources */ = {isa = PBXBuildFile; fileRef = B00B8E841BC1436E00B1FDA7 /* Stiff Staff.otf */; settings = {ASSET_TAGS = (); }; };
 		B07F40BB1BB8F824008F053E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07F40BA1BB8F824008F053E /* AppDelegate.swift */; };
 		B07F40C11BB8F824008F053E /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07F40C01BB8F824008F053E /* GameViewController.swift */; };
 		B07F40C41BB8F824008F053E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B07F40C21BB8F824008F053E /* Main.storyboard */; };
@@ -35,6 +36,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B00B8E841BC1436E00B1FDA7 /* Stiff Staff.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Stiff Staff.otf"; sourceTree = "<group>"; };
 		B07F40B71BB8F824008F053E /* GrubbyWorm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GrubbyWorm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B07F40BA1BB8F824008F053E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B07F40C01BB8F824008F053E /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 		B07F40FA1BB8FA92008F053E /* Support-Files */ = {
 			isa = PBXGroup;
 			children = (
+				B00B8E841BC1436E00B1FDA7 /* Stiff Staff.otf */,
 				B07F40BA1BB8F824008F053E /* AppDelegate.swift */,
 				B07F40C21BB8F824008F053E /* Main.storyboard */,
 				B07F40C71BB8F824008F053E /* LaunchScreen.storyboard */,
@@ -231,6 +234,7 @@
 			files = (
 				B07F40C91BB8F824008F053E /* LaunchScreen.storyboard in Resources */,
 				B07F40C61BB8F824008F053E /* Assets.xcassets in Resources */,
+				B00B8E851BC1436E00B1FDA7 /* Stiff Staff.otf in Resources */,
 				B07F40C41BB8F824008F053E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

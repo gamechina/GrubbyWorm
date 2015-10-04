@@ -22,5 +22,7 @@ struct Theme {
     
     // --------- Config ---------
     
-    static let mood_bar_height: CGFloat = 4
+    static let mood_bar_height: CGFloat = 3
+    
+    static let energy_bar_height: CGFloat = 16
 }

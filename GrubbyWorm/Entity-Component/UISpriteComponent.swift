@@ -18,6 +18,7 @@ class UISpriteComponent: GKComponent {
     var logo: SKLabelNode?
     var menu: SKSpriteNode?
     var button: GWButtonNode?
+    
     var energyBar: EnergyBar!
     var moodBar: MoodBar!
     
@@ -37,6 +38,7 @@ class UISpriteComponent: GKComponent {
         _game?.scene?.addChild(root)
         
         logo = SKLabelNode(text: "Grubby Worm")
+        logo?.fontName = "Stiff Staff"
         logo?.position = CGPointMake(100, 100)
         root.addChild(logo!)
         
@@ -57,8 +59,22 @@ class UISpriteComponent: GKComponent {
         root.addChild(button!)
         
         moodBar = MoodBar(width: (_game?.scene?.size.width)!)
-        moodBar.position = CGPointMake(0, -Theme.mood_bar_height)
+        moodBar.position = CGPointMake(0, 0)
+        moodBar.hidden = true
         root.addChild(moodBar)
+        
+        energyBar = EnergyBar(width: (_game?.scene?.size.width)!)
+        energyBar.position = CGPointMake(0, (_game?.scene?.size.height)! - Theme.energy_bar_height)
+        energyBar.hidden = true
+        root.addChild(energyBar)
+        
+        let score = SKLabelNode(fontNamed: "Stiff Staff")
+        score.text = "286"
+        score.fontSize = 30
+        score.position = CGPointMake(8, (_game?.scene?.size.height)! - Theme.energy_bar_height - 4)
+        score.horizontalAlignmentMode = .Left
+        score.verticalAlignmentMode = .Top
+        root.addChild(score)
     }
     
     override func updateWithDeltaTime(seconds: NSTimeInterval) {
@@ -76,10 +92,9 @@ class UISpriteComponent: GKComponent {
         let action = SKAction.moveBy(CGVectorMake(0, 500), duration: 0.5)
         menu?.runAction(action) {
             self.menu?.hidden = true
+            self.moodBar.hidden = false
+            self.energyBar.hidden = false
             print("finished")
-            
-            let action = SKAction.moveBy(CGVectorMake(0, Theme.mood_bar_height), duration: 0.5)
-            self.moodBar.runAction(action)
         }
     }
     
