@@ -42,6 +42,7 @@ class MoodBar: SKNode {
         _mark = SKSpriteNode(color: Theme.mood_bar_up_color, size: CGSizeMake(10, 10))
         _mark.anchorPoint = CGPointMake(0.5, 0)
         _mark.position = CGPointMake(width, Theme.mood_bar_height + 2)
+        _mark.hidden = true
         self.addChild(_mark)
     }
 
@@ -53,5 +54,11 @@ class MoodBar: SKNode {
         let width = (percent / 100) * barWidth
         _up.size = CGSizeMake(width, _up.size.height)
         _mark.position = CGPointMake(width, _mark.position.y)
+        
+        if percent == 0 || percent == 100 {
+            _mark.hidden = true
+        } else {
+            _mark.hidden = false
+        }
     }
 }
