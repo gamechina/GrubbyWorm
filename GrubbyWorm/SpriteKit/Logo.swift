@@ -17,6 +17,12 @@ class Logo: SKNode {
         mark.position = CGPointMake(0, -100)
         mark.size = CGSizeMake(140, 80)
         self.addChild(mark)
+        
+        let rotate = SKAction.rotateByAngle(CGFloat(M_PI/2),
+            duration: 5, delay: 5,
+            usingSpringWithDamping: 0.2, initialSpringVelocity: 0)
+        
+        mark.runAction(rotate)
     }
 
     required init?(coder aDecoder: NSCoder) {
