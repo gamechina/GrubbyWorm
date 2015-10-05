@@ -15,7 +15,7 @@ class Logo: SKNode {
         
         let mark = SKSpriteNode(imageNamed: "Spaceship")
         mark.position = CGPointMake(0, -100)
-        mark.size = CGSizeMake(100, 100)
+        mark.size = CGSizeMake(140, 80)
         self.addChild(mark)
     }
 

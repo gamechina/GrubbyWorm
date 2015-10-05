@@ -90,6 +90,7 @@ class UISpriteComponent: GKComponent {
         root.addChild(moodBar)
         
         logo = Logo()
+        logo.position = CGPointMake(sceneSize.width / 2, sceneSize.height)
         root.addChild(logo)
         
         // play button
