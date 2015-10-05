@@ -25,19 +25,20 @@ class EnergyBar: SKNode {
     private var _down: SKSpriteNode!
     private var _up: SKSpriteNode!
     
-    
     init(width: CGFloat) {
-        barWidth = width
+        barWidth = width - Theme.energy_bar_margin * 2
         percent = 0
         
         super.init()
         
-        _down = SKSpriteNode(color: UIColor.blackColor(), size: CGSizeMake(width, Theme.energy_bar_height))
+        _down = SKSpriteNode(color: Theme.energy_bar_down_color, size: CGSizeMake(barWidth, Theme.energy_bar_height))
         _down.anchorPoint = CGPointMake(0, 0)
+        _down.position = CGPointMake(Theme.energy_bar_margin, (Theme.top_bar_board_height - Theme.energy_bar_height) / 2)
         self.addChild(_down)
         
-        _up = SKSpriteNode(color: Theme.mood_bar_up_color, size: CGSizeMake(width, Theme.energy_bar_height))
+        _up = SKSpriteNode(color: Theme.energy_bar_up_color, size: CGSizeMake(barWidth, Theme.energy_bar_height))
         _up.anchorPoint = CGPointMake(0, 0)
+        _up.position = CGPointMake(Theme.energy_bar_margin, (Theme.top_bar_board_height - Theme.energy_bar_height) / 2)
         self.addChild(_up)
     }
 

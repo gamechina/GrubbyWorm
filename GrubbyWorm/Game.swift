@@ -20,7 +20,7 @@ class Game: NSObject, GameSceneDelegate {
     var ui: Entity?
     
     // reference the game logic level(in grubby worm it should be a map or playground).
-    private var _level: NSObject?
+    var level: Level!
     
     // all triggers(include sugar, grubby, all have effect with the worm).
     private var _triggers: [Entity]?
@@ -77,7 +77,11 @@ class Game: NSObject, GameSceneDelegate {
     }
     
     func startGame() {
-        
+        initLevel()
+    }
+    
+    func initLevel() {
+        level = Level(size: _view.frame.size)
     }
     
 }

@@ -19,12 +19,16 @@ class UIPlayingState: UIState {
             game?.startGame()
         }
         
+        // test
+        let spriteComponent = ui?.componentForClass(UISpriteComponent)
+        spriteComponent?.moodBar.percent = 100
+        
         super.didEnterWithPreviousState(previousState)
     }
     
     override func updateWithDeltaTime(seconds: NSTimeInterval) {
         let spriteComponent = ui?.componentForClass(UISpriteComponent)
-        spriteComponent?.moodBar.percent -= CGFloat(seconds) * (100 / 10)
+        spriteComponent?.moodBar.percent -= CGFloat(seconds) * (100 / 5)
         
         super.updateWithDeltaTime(seconds)
     }

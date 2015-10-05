@@ -11,72 +11,123 @@ import SpriteKit
 
 class UISpriteComponent: GKComponent {
     
-    private weak var _game: Game?
+    // MARK: Static properties
+    
+    
+    // MARK: Private properties
+    
+    private var _game: Game
     private var _ui: Entity?
     
-    var root: SKNode
-    var logo: SKLabelNode?
-    var menu: SKSpriteNode?
-    var button: GWButtonNode?
+    // MARK: Properties
     
-    var energyBar: EnergyBar!
-    var moodBar: MoodBar!
+    // current scene size
+    var sceneSize: CGSize
     
-    init(game: Game?, ui: Entity?) {
-        self._game = game
-        self._ui = ui
-        
-        self.root = SKNode()
-        
-        super.init()
-        
-        initItems()
-    }
+    // all ui elements root node.
+    let root: SKNode
     
-    func initItems() {
+    // top root node for contain all top elements: score, energy bar, pause button.
+    let topRoot: SKNode
+    
+    // label show current score
+    var score: SKLabelNode
+    
+    // show the worm's current energy
+    var energyBar: EnergyBar
+    
+    // pause button
+    var pauseButton: GWButton
+    
+    // show the worm's mood :)
+    var moodBar: MoodBar
+    
+    // grubby worm logo
+    var logo: Logo
+    
+    // play button
+    var playButton: GWButton
+    
+    // MARK: Initializers
+    
+    init(game: Game, ui: Entity?) {
+        _game = game
+        _ui = ui
+        sceneSize = _game.scene!.size
+        
+        root = SKNode()
+        topRoot = SKNode()
+        topRoot.position = CGPointMake(0, sceneSize.height - Theme.top_bar_board_height)
+        
+        // base nodes tree
         root.zPosition = 100
-        _game?.scene?.addChild(root)
+        _game.scene?.addChild(root)
+        root.addChild(topRoot)
         
-        logo = SKLabelNode(text: "Grubby Worm")
-        logo?.fontName = "Stiff Staff"
-        logo?.position = CGPointMake(100, 100)
-        logo?.fontColor = Theme.temp_color
-        root.addChild(logo!)
+        let topBoard = SKSpriteNode(color: Theme.primary_color, size: CGSizeMake(sceneSize.width, Theme.top_bar_board_height))
+        topBoard.anchorPoint = CGPointMake(0, 0)
         
-        menu = SKSpriteNode(imageNamed: "Spaceship")
-        menu?.position = CGPointMake(200, 200)
-        menu?.setScale(0.5)
-        root.addChild(menu!)
+        score = SKLabelNode(fontNamed: "Stiff Staff")
+        score.text = "0"
+        score.verticalAlignmentMode = .Center
+        score.position = CGPointMake(Theme.energy_bar_margin / 2, Theme.top_bar_board_height / 2)
         
-        let texture = SKTexture(imageNamed: "Spaceship")
-        let selectedTexture = SKTexture(imageNamed: "Spaceship_h")
-        button = GWButtonNode(normalTexture: texture, selectedTexture: selectedTexture, disabledTexture: texture)
-        button!.position = CGPointMake(300, 200)
-        button!.actionTouchUpInside = GWButtonTarget.aBlock({ () -> Void in
-            print("button click")
-            self.entity?.componentForClass(GameControlComponent)?.stateMachine?.enterState(UIPlayingState)
-        })
+        energyBar = EnergyBar(width: sceneSize.width)
         
-        root.addChild(button!)
+        // pause button
+        pauseButton = GWButton(normalTexture: SKTexture(imageNamed: "Spaceship"))
+        pauseButton.size = CGSizeMake(30, 30)
+        pauseButton.position = CGPointMake(sceneSize.width - Theme.energy_bar_margin / 2, Theme.top_bar_board_height / 2)
         
-        moodBar = MoodBar(width: (_game?.scene?.size.width)!)
+        topRoot.addChild(topBoard)
+        topRoot.addChild(energyBar)
+        topRoot.addChild(score)
+        topRoot.addChild(pauseButton)
+        
+        moodBar = MoodBar(width: sceneSize.width)
         moodBar.position = CGPointMake(0, 0)
         moodBar.hidden = true
         root.addChild(moodBar)
         
-        energyBar = EnergyBar(width: (_game?.scene?.size.width)!)
-        energyBar.position = CGPointMake(0, (_game?.scene?.size.height)! - Theme.energy_bar_height)
-        energyBar.hidden = true
-        root.addChild(energyBar)
+        logo = Logo()
+        root.addChild(logo)
         
-        let score = SKLabelNode(fontNamed: "Stiff Staff")
-        score.text = "286"
-        score.fontSize = 30
-        score.position = CGPointMake(8, (_game?.scene?.size.height)! - Theme.energy_bar_height - 4)
-        score.horizontalAlignmentMode = .Left
-        score.verticalAlignmentMode = .Top
-        score.fontColor = Theme.temp_color
-        root.addChild(score)
+        // play button
+        playButton = GWButton(normalTexture: SKTexture(imageNamed: "Spaceship"))
+        playButton.size = CGSizeMake(100, 100)
+        playButton.position = CGPointMake(sceneSize.width / 2, sceneSize.height / 2)
+        root.addChild(playButton)
+        
+        super.init()
+        
+        // some style and callback
+        registerEvent()
+    }
+    
+    func registerEvent() {
+        pauseButton.actionTouchUpInside = GWButtonTarget.aBlock({ () -> Void in
+            print("click pause")
+            self.entity?.componentForClass(GameControlComponent)?.stateMachine?.enterState(UIPlayingState)
+        })
+    }
+    
+    func initItems() {
+        
+//        menu = SKSpriteNode(imageNamed: "Spaceship")
+//        menu?.position = CGPointMake(200, 200)
+//        menu?.setScale(0.5)
+//        root.addChild(menu!)
+//        
+//        let texture = SKTexture(imageNamed: "Spaceship")
+//        let selectedTexture = SKTexture(imageNamed: "Spaceship_h")
+//        button = GWButton(normalTexture: texture, selectedTexture: selectedTexture, disabledTexture: texture)
+//        button!.position = CGPointMake(300, 200)
+//        button!.actionTouchUpInside = GWButtonTarget.aBlock({ () -> Void in
+//            print("button click")
+//            self.entity?.componentForClass(GameControlComponent)?.stateMachine?.enterState(UIPlayingState)
+//        })
+//        
+//        root.addChild(button!)
     }
     
     override func updateWithDeltaTime(seconds: NSTimeInterval) {
@@ -84,20 +135,11 @@ class UISpriteComponent: GKComponent {
     }
     
     func useTitleAppearance() {
-        let action = SKAction.rotateByAngle(100, duration: 0.5)
-        logo?.runAction(action)
+        
     }
     
     func usePlayingAppearance() {
-        logo?.hidden = true
-        button?.hidden = true
-        let action = SKAction.moveBy(CGVectorMake(0, 500), duration: 0.5)
-        menu?.runAction(action) {
-            self.menu?.hidden = true
-            self.moodBar.hidden = false
-            self.energyBar.hidden = false
-            print("finished")
-        }
+        self.moodBar.hidden = false
     }
     
     func usePauseAppearance() {

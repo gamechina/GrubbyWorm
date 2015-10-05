@@ -14,7 +14,7 @@ enum GWButtonTarget {
     case aBlock(() -> Void)
 }
 
-class GWButtonNode: SKSpriteNode {
+class GWButton: SKSpriteNode {
     var actionTouchUp: GWButtonTarget?
     var actionTouchUpInside: GWButtonTarget?
     var actionTouchDown: GWButtonTarget?
@@ -41,6 +41,10 @@ class GWButtonNode: SKSpriteNode {
         fatalError("NSCoding not supported")
     }
     
+    convenience init(normalTexture defaultTexture: SKTexture!) {
+        self.init(normalTexture: defaultTexture, selectedTexture: defaultTexture, disabledTexture: defaultTexture)
+    }
+    
     init(normalTexture defaultTexture: SKTexture!, selectedTexture: SKTexture!, disabledTexture: SKTexture?) {
         self.defaultTexture = defaultTexture
         self.selectedTexture = selectedTexture
@@ -50,11 +54,11 @@ class GWButtonNode: SKSpriteNode {
         
         userInteractionEnabled = true
         
-        //        // Adding this node as an empty layer. Without it the touch functions are not being called
-        //        // The reason for this is unknown when this was implemented...?
-        //        let bugFixLayerNode = SKSpriteNode(texture: nil, color: nil, size: defaultTexture.size())
-        //        bugFixLayerNode.position = self.position
-        //        addChild(bugFixLayerNode)
+//        // Adding this node as an empty layer. Without it the touch functions are not being called
+//        // The reason for this is unknown when this was implemented...?
+//        let bugFixLayerNode = SKSpriteNode(color: SKColor.clearColor(), size: defaultTexture.size())
+//        bugFixLayerNode.position = self.position
+//        addChild(bugFixLayerNode)
     }
     
     func callTarget(buttonTarget: GWButtonTarget) {

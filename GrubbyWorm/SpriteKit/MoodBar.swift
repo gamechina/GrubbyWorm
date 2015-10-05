@@ -23,8 +23,8 @@ class MoodBar: SKNode {
     
     private var _down: SKSpriteNode!
     private var _up: SKSpriteNode!
-    private var _mark: SKSpriteNode!
-    private var _value: SKLabelNode!
+    private var _mark: SKNode!
+    private var _value: Tip!
     
     init(width: CGFloat) {
         barWidth = width
@@ -32,7 +32,7 @@ class MoodBar: SKNode {
         
         super.init()
         
-        _down = SKSpriteNode(color: UIColor.blackColor(), size: CGSizeMake(width, Theme.mood_bar_height))
+        _down = SKSpriteNode(color: Theme.mood_bar_down_color, size: CGSizeMake(width, Theme.mood_bar_height))
         _down.anchorPoint = CGPointMake(0, 0)
         self.addChild(_down)
         
@@ -40,15 +40,12 @@ class MoodBar: SKNode {
         _up.anchorPoint = CGPointMake(0, 0)
         self.addChild(_up)
         
-        _mark = SKSpriteNode(color: Theme.mood_bar_up_color, size: CGSizeMake(10, 10))
-        _mark.anchorPoint = CGPointMake(0.5, 0)
-        _mark.position = CGPointMake(width, Theme.mood_bar_height + 2)
+        _mark = SKNode()
+        _mark.position = CGPointMake(width, Theme.mood_bar_height + 10)
         _mark.hidden = true
         self.addChild(_mark)
         
-        _value = SKLabelNode(fontNamed: "Stiff Staff")
-        _value.fontSize = 16
-        _value.position = CGPointMake(0, 14)
+        _value = Tip(text: "")
         _value.fontColor = Theme.mood_bar_up_color
         _mark.addChild(_value)
     }
@@ -62,7 +59,7 @@ class MoodBar: SKNode {
         _up.size = CGSizeMake(width, _up.size.height)
         _mark.position = CGPointMake(width, _mark.position.y)
         
-        _value.text = String(Int(percent / 10) + 1)
+        _value.text = "连击"
         
         if percent == 0 || percent == 100 {
             _mark.hidden = true

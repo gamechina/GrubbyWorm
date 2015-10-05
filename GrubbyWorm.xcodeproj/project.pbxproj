@@ -30,6 +30,10 @@
 		B07F40F61BB8F8E4008F053E /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07F40F31BB8F8E4008F053E /* Entity.swift */; settings = {ASSET_TAGS = (); }; };
 		B07F40F71BB8F8E4008F053E /* GameControlComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07F40F41BB8F8E4008F053E /* GameControlComponent.swift */; settings = {ASSET_TAGS = (); }; };
 		B07F40F81BB8F8E4008F053E /* UISpriteComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07F40F51BB8F8E4008F053E /* UISpriteComponent.swift */; settings = {ASSET_TAGS = (); }; };
+		B0A6CF291BC16512002DCBC8 /* Trigger.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A6CF281BC16512002DCBC8 /* Trigger.swift */; settings = {ASSET_TAGS = (); }; };
+		B0A6CF2D1BC16B7C002DCBC8 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A6CF2C1BC16B7C002DCBC8 /* Level.swift */; settings = {ASSET_TAGS = (); }; };
+		B0A6CF2F1BC2555E002DCBC8 /* Tip.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A6CF2E1BC2555E002DCBC8 /* Tip.swift */; settings = {ASSET_TAGS = (); }; };
+		B0A6CF311BC2DE64002DCBC8 /* Logo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A6CF301BC2DE64002DCBC8 /* Logo.swift */; settings = {ASSET_TAGS = (); }; };
 		B0E590BD1BB9289A00FB98CC /* GWButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E590BC1BB9289A00FB98CC /* GWButton.swift */; settings = {ASSET_TAGS = (); }; };
 		B0E590BF1BBA3E3700FB98CC /* EnergyBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E590BE1BBA3E3700FB98CC /* EnergyBar.swift */; settings = {ASSET_TAGS = (); }; };
 		B0E590C11BBA3E5700FB98CC /* MoodBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E590C01BBA3E5700FB98CC /* MoodBar.swift */; settings = {ASSET_TAGS = (); }; };
@@ -61,6 +65,10 @@
 		B07F40F31BB8F8E4008F053E /* Entity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
 		B07F40F41BB8F8E4008F053E /* GameControlComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameControlComponent.swift; sourceTree = "<group>"; };
 		B07F40F51BB8F8E4008F053E /* UISpriteComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UISpriteComponent.swift; sourceTree = "<group>"; };
+		B0A6CF281BC16512002DCBC8 /* Trigger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trigger.swift; sourceTree = "<group>"; };
+		B0A6CF2C1BC16B7C002DCBC8 /* Level.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
+		B0A6CF2E1BC2555E002DCBC8 /* Tip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tip.swift; sourceTree = "<group>"; };
+		B0A6CF301BC2DE64002DCBC8 /* Logo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logo.swift; sourceTree = "<group>"; };
 		B0E590BC1BB9289A00FB98CC /* GWButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GWButton.swift; sourceTree = "<group>"; };
 		B0E590BE1BBA3E3700FB98CC /* EnergyBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnergyBar.swift; sourceTree = "<group>"; };
 		B0E590C01BBA3E5700FB98CC /* MoodBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoodBar.swift; sourceTree = "<group>"; };
@@ -104,6 +112,7 @@
 				B07F40D31BB8F883008F053E /* Share */,
 				B07F40C51BB8F824008F053E /* Assets.xcassets */,
 				B07F40F01BB8F8BA008F053E /* Game.swift */,
+				B0A6CF2C1BC16B7C002DCBC8 /* Level.swift */,
 				B07F40C01BB8F824008F053E /* GameViewController.swift */,
 			);
 			path = GrubbyWorm;
@@ -133,6 +142,8 @@
 				B07F40D91BB8F889008F053E /* GameScene.swift */,
 				B0E590BE1BBA3E3700FB98CC /* EnergyBar.swift */,
 				B0E590C01BBA3E5700FB98CC /* MoodBar.swift */,
+				B0A6CF2E1BC2555E002DCBC8 /* Tip.swift */,
+				B0A6CF301BC2DE64002DCBC8 /* Logo.swift */,
 			);
 			path = SpriteKit;
 			sourceTree = "<group>";
@@ -159,6 +170,7 @@
 				B07F40F31BB8F8E4008F053E /* Entity.swift */,
 				B07F40F41BB8F8E4008F053E /* GameControlComponent.swift */,
 				B07F40F51BB8F8E4008F053E /* UISpriteComponent.swift */,
+				B0A6CF281BC16512002DCBC8 /* Trigger.swift */,
 			);
 			path = "Entity-Component";
 			sourceTree = "<group>";
@@ -251,12 +263,16 @@
 				B07F40EA1BB8F88F008F053E /* WormCrazyState.swift in Sources */,
 				B07F40D21BB8F87D008F053E /* SKColor-Extensions.swift in Sources */,
 				B07F40D71BB8F883008F053E /* DataStruct.swift in Sources */,
+				B0A6CF291BC16512002DCBC8 /* Trigger.swift in Sources */,
+				B0A6CF2D1BC16B7C002DCBC8 /* Level.swift in Sources */,
+				B0A6CF2F1BC2555E002DCBC8 /* Tip.swift in Sources */,
 				B07F40C11BB8F824008F053E /* GameViewController.swift in Sources */,
 				B07F40E81BB8F88F008F053E /* UIState.swift in Sources */,
 				B07F40F61BB8F8E4008F053E /* Entity.swift in Sources */,
 				B07F40BB1BB8F824008F053E /* AppDelegate.swift in Sources */,
 				B07F40F71BB8F8E4008F053E /* GameControlComponent.swift in Sources */,
 				B07F40E51BB8F88F008F053E /* UIGameOverState.swift in Sources */,
+				B0A6CF311BC2DE64002DCBC8 /* Logo.swift in Sources */,
 				B07F40DA1BB8F889008F053E /* GameScene.swift in Sources */,
 				B07F40EB1BB8F88F008F053E /* WormDefeatedState.swift in Sources */,
 				B07F40F81BB8F8E4008F053E /* UISpriteComponent.swift in Sources */,
