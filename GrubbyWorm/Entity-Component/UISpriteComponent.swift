@@ -106,29 +106,16 @@ class UISpriteComponent: GKComponent {
     }
     
     func registerEvent() {
+        
         pauseButton.actionTouchUpInside = GWButtonTarget.aBlock({ () -> Void in
             print("click pause")
+            self.entity?.componentForClass(GameControlComponent)?.stateMachine?.enterState(UIPauseState)
+        })
+        
+        playButton.actionTouchUpInside = GWButtonTarget.aBlock({ () -> Void in
+            print("click play")
             self.entity?.componentForClass(GameControlComponent)?.stateMachine?.enterState(UIPlayingState)
         })
-    }
-    
-    func initItems() {
-        
-//        menu = SKSpriteNode(imageNamed: "Spaceship")
-//        menu?.position = CGPointMake(200, 200)
-//        menu?.setScale(0.5)
-//        root.addChild(menu!)
-//        
-//        let texture = SKTexture(imageNamed: "Spaceship")
-//        let selectedTexture = SKTexture(imageNamed: "Spaceship_h")
-//        button = GWButton(normalTexture: texture, selectedTexture: selectedTexture, disabledTexture: texture)
-//        button!.position = CGPointMake(300, 200)
-//        button!.actionTouchUpInside = GWButtonTarget.aBlock({ () -> Void in
-//            print("button click")
-//            self.entity?.componentForClass(GameControlComponent)?.stateMachine?.enterState(UIPlayingState)
-//        })
-//        
-//        root.addChild(button!)
     }
     
     override func updateWithDeltaTime(seconds: NSTimeInterval) {
