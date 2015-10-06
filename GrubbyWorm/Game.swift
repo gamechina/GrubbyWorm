@@ -82,6 +82,7 @@ class Game: NSObject, GameSceneDelegate {
     
     func initLevel() {
         level = Level(size: _view.frame.size)
+        scene.addChild(level.playground)
     }
     
 }

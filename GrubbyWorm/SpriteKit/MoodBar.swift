@@ -59,7 +59,7 @@ class MoodBar: SKNode {
         _up.size = CGSizeMake(width, _up.size.height)
         _mark.position = CGPointMake(width, _mark.position.y)
         
-        _value.text = "连击"
+        _value.text = "Combo"
         
         if percent == 0 || percent == 100 {
             _mark.hidden = true

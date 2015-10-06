@@ -39,6 +39,9 @@ class UISpriteComponent: GKComponent {
     // pause button
     var pauseButton: GWButton
     
+    // pause mask
+    var pauseMask: SKSpriteNode
+    
     // show the worm's mood :)
     var moodBar: MoodBar
     
@@ -80,6 +83,18 @@ class UISpriteComponent: GKComponent {
         pauseButton.size = CGSizeMake(30, 30)
         pauseButton.position = CGPointMake(sceneSize.width - Theme.energy_bar_margin / 2, Theme.top_bar_board_height / 2)
         
+        let pauseLabel = SKLabelNode(fontNamed: "FontAwesome")
+        pauseLabel.text = "\u{f04c}"
+        pauseLabel.fontSize = 20
+        pauseLabel.verticalAlignmentMode = .Center
+        pauseButton.addChild(pauseLabel)
+        
+        pauseMask = SKSpriteNode(color: Theme.mask_color, size: sceneSize)
+        pauseMask.anchorPoint = CGPointMake(0, 0)
+        pauseMask.zPosition = 1
+        pauseMask.hidden = true
+        root.addChild(pauseMask)
+        
         topRoot.addChild(topBoard)
         topRoot.addChild(energyBar)
         topRoot.addChild(score)
@@ -98,6 +113,7 @@ class UISpriteComponent: GKComponent {
         playButton = GWButton(normalTexture: SKTexture(imageNamed: "tip"))
         playButton.size = CGSizeMake(100, 100)
         playButton.position = CGPointMake(sceneSize.width / 2, sceneSize.height / 2 - 80)
+        playButton.zPosition = 2
         root.addChild(playButton)
         
         let playLabel = SKLabelNode(fontNamed: "Stiff Staff")
@@ -132,6 +148,7 @@ class UISpriteComponent: GKComponent {
         playButton.hidden = false
         moodBar.hidden = true
         topRoot.hidden = true
+        pauseMask.hidden = true
     }
     
     func usePlayingAppearance() {
@@ -139,10 +156,12 @@ class UISpriteComponent: GKComponent {
         playButton.hidden = true
         moodBar.hidden = false
         topRoot.hidden = false
+        pauseMask.hidden = true
     }
     
     func usePauseAppearance() {
         playButton.hidden = false
+        pauseMask.hidden = false
     }
     
     func useGameOverAppearance() {

@@ -14,8 +14,11 @@ class Level : NSObject {
     // the playground size
     var size: CGSize
     
+    var playground: Playground
+    
     init(size: CGSize) {
         self.size = size
+        playground = Playground(size: size)
         
         super.init()
     }
