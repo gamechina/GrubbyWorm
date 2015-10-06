@@ -23,7 +23,7 @@ class Tile: SKSpriteNode {
         self.style = style
         self.location = location
         
-        let size = CGSizeMake(30, 30)
+        let size = CGSizeMake(38, 38)
         
         super.init(texture: nil, color: SKColor.clearColor(), size: size)
         

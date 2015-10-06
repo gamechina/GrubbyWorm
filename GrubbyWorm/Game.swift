@@ -17,7 +17,7 @@ class Game: NSObject, GameSceneDelegate {
     var scene: GameScene
     
     // game ui, for play, pause and display.
-    var ui: Entity?
+    var ui: Entity
     
     // reference the game logic level(in grubby worm it should be a map or playground).
     var level: Level!
@@ -26,7 +26,7 @@ class Game: NSObject, GameSceneDelegate {
     private var _triggers: [Entity]?
     
     // player control worm, our leading role.
-    private var _worm: Entity?
+    var worm: Entity
     
     // worm direction
     var wormDirection: Direction = .None
@@ -40,7 +40,11 @@ class Game: NSObject, GameSceneDelegate {
         _view = view
         scene = GameScene(size: _view.bounds.size)
         
+        ui = Entity()
+        worm = Entity()
+        
         super.init()
+        
         initScene()
     }
     
@@ -49,18 +53,21 @@ class Game: NSObject, GameSceneDelegate {
         scene.gameDelegate = self
         
         scene.scaleMode = .AspectFill
-        scene.backgroundColor = Theme.scene_background_color
+        scene.backgroundColor = Theme.primary_color
     }
     
     func initUI() {
-        ui = Entity()
+        ui.addComponent(UISpriteComponent(game: self, ui: ui))
+        ui.addComponent(GameControlComponent(game: self, ui: ui))
+    }
+    
+    func initWorm() {
         
-        ui?.addComponent(UISpriteComponent(game: self, ui: ui))
-        ui?.addComponent(GameControlComponent(game: self, ui: ui))
     }
     
     func didMoveToView(view: SKView) {
         initUI()
+        initWorm()
     }
     
     func update(currentTime: NSTimeInterval, forScene scene: SKScene) {
@@ -73,7 +80,7 @@ class Game: NSObject, GameSceneDelegate {
         let dt = currentTime - prevUpdateTime
         prevUpdateTime = currentTime
         
-        self.ui?.updateWithDeltaTime(dt)
+        ui.updateWithDeltaTime(dt)
     }
     
     func startGame() {
@@ -82,6 +89,8 @@ class Game: NSObject, GameSceneDelegate {
     
     func initLevel() {
         level = Level(size: _view.frame.size)
+        let playground = level.playground
+        playground.position = CGPointMake(_view.frame.midX, _view.frame.midY)
         scene.addChild(level.playground)
     }
     

@@ -11,7 +11,7 @@ import SpriteKit
 struct Theme {
     
     // --------- Colors ---------
-    static let primary_color = SKColorWithRGB(20, g: 20, b: 20)
+    static let primary_color = SKColorWithRGB(251, g: 63, b: 72)
     static let secondary_color = SKColorWithRGB(200, g: 200, b: 200)
     
     static let temp_color = SKColorWithRGB(80, g: 180, b: 120)
