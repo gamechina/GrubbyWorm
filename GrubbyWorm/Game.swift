@@ -14,7 +14,7 @@ class Game: NSObject, GameSceneDelegate {
     private var _view: SKView
     
     // reference the current scene instance, in grubby worm game, we have only one scene.
-    var scene: GameScene?
+    var scene: GameScene
     
     // game ui, for play, pause and display.
     var ui: Entity?
@@ -37,7 +37,8 @@ class Game: NSObject, GameSceneDelegate {
     var prevUpdateTime: NSTimeInterval = 0
     
     init(view: SKView) {
-        self._view = view
+        _view = view
+        scene = GameScene(size: _view.bounds.size)
         
         super.init()
         initScene()
@@ -45,11 +46,10 @@ class Game: NSObject, GameSceneDelegate {
     
     // init the only game scene.
     func initScene() {
-        scene = GameScene(size: _view.bounds.size)
-        scene?.gameDelegate = self
+        scene.gameDelegate = self
         
-        scene?.scaleMode = .AspectFill
-        scene?.backgroundColor = Theme.scene_background_color
+        scene.scaleMode = .AspectFill
+        scene.backgroundColor = Theme.scene_background_color
     }
     
     func initUI() {

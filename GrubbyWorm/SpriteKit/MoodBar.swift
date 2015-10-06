@@ -15,7 +15,7 @@ class MoodBar: SKNode {
     var percent: CGFloat {
         didSet {
             if percent <= 0 {
-                percent = 0
+                percent = 100
             }
             renderProgress()
         }

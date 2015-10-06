@@ -53,7 +53,7 @@ class UISpriteComponent: GKComponent {
     init(game: Game, ui: Entity?) {
         _game = game
         _ui = ui
-        sceneSize = _game.scene!.size
+        sceneSize = _game.scene.size
         
         root = SKNode()
         topRoot = SKNode()
@@ -61,13 +61,14 @@ class UISpriteComponent: GKComponent {
         
         // base nodes tree
         root.zPosition = 100
-        _game.scene?.addChild(root)
+        _game.scene.addChild(root)
         root.addChild(topRoot)
         
         let topBoard = SKSpriteNode(color: Theme.primary_color, size: CGSizeMake(sceneSize.width, Theme.top_bar_board_height))
         topBoard.anchorPoint = CGPointMake(0, 0)
         
         score = SKLabelNode(fontNamed: "Stiff Staff")
+        score.fontSize = 26
         score.text = "0"
         score.verticalAlignmentMode = .Center
         score.position = CGPointMake(Theme.energy_bar_margin / 2, Theme.top_bar_board_height / 2)
@@ -75,7 +76,7 @@ class UISpriteComponent: GKComponent {
         energyBar = EnergyBar(width: sceneSize.width)
         
         // pause button
-        pauseButton = GWButton(normalTexture: SKTexture(imageNamed: "Spaceship"))
+        pauseButton = GWButton(normalTexture: SKTexture(imageNamed: "tip"))
         pauseButton.size = CGSizeMake(30, 30)
         pauseButton.position = CGPointMake(sceneSize.width - Theme.energy_bar_margin / 2, Theme.top_bar_board_height / 2)
         
@@ -94,10 +95,15 @@ class UISpriteComponent: GKComponent {
         root.addChild(logo)
         
         // play button
-        playButton = GWButton(normalTexture: SKTexture(imageNamed: "Spaceship"))
+        playButton = GWButton(normalTexture: SKTexture(imageNamed: "tip"))
         playButton.size = CGSizeMake(100, 100)
-        playButton.position = CGPointMake(sceneSize.width / 2, sceneSize.height / 2)
+        playButton.position = CGPointMake(sceneSize.width / 2, sceneSize.height / 2 - 80)
         root.addChild(playButton)
+        
+        let playLabel = SKLabelNode(fontNamed: "Stiff Staff")
+        playLabel.text = "PLAY"
+        playLabel.verticalAlignmentMode = .Center
+        playButton.addChild(playLabel)
         
         super.init()
         
@@ -123,15 +129,20 @@ class UISpriteComponent: GKComponent {
     }
     
     func useTitleAppearance() {
-        
+        playButton.hidden = false
+        moodBar.hidden = true
+        topRoot.hidden = true
     }
     
     func usePlayingAppearance() {
-        self.moodBar.hidden = false
+        logo.hidden = true
+        playButton.hidden = true
+        moodBar.hidden = false
+        topRoot.hidden = false
     }
     
     func usePauseAppearance() {
-        
+        playButton.hidden = false
     }
     
     func useGameOverAppearance() {

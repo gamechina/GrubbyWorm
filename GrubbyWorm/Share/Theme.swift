@@ -16,7 +16,7 @@ struct Theme {
     
     static let temp_color = SKColorWithRGB(80, g: 180, b: 120)
     
-    static let scene_background_color = SKColor.whiteColor() //SKColorWithRGB(200, g: 200, b: 80)
+    static let scene_background_color = SKColorWithRGB(200, g: 200, b: 80)
     
     static let btn_play_color = SKColorWithRGB(200, g: 200, b: 200)
     
@@ -34,5 +34,5 @@ struct Theme {
     
     static let top_bar_board_height: CGFloat = 32
     static let energy_bar_height: CGFloat = 22
-    static let energy_bar_margin: CGFloat = 100
+    static let energy_bar_margin: CGFloat = 80
 }

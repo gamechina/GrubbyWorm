@@ -14,7 +14,7 @@ class EnergyBar: SKNode {
     
     var percent: CGFloat {
         didSet {
-            if percent <= 0 {
+            if percent >= 100 {
                 percent = 0
             }
             renderProgress()
@@ -36,7 +36,7 @@ class EnergyBar: SKNode {
         _down.position = CGPointMake(Theme.energy_bar_margin, (Theme.top_bar_board_height - Theme.energy_bar_height) / 2)
         self.addChild(_down)
         
-        _up = SKSpriteNode(color: Theme.energy_bar_up_color, size: CGSizeMake(barWidth, Theme.energy_bar_height))
+        _up = SKSpriteNode(color: Theme.energy_bar_up_color, size: CGSizeMake(0, Theme.energy_bar_height))
         _up.anchorPoint = CGPointMake(0, 0)
         _up.position = CGPointMake(Theme.energy_bar_margin, (Theme.top_bar_board_height - Theme.energy_bar_height) / 2)
         self.addChild(_up)
@@ -47,7 +47,8 @@ class EnergyBar: SKNode {
     }
     
     func renderProgress() {
-        
+        let width = (percent / 100) * barWidth
+        _up.size = CGSizeMake(width, _up.size.height)
     }
     
 }
