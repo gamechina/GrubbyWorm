@@ -62,7 +62,7 @@ class Game: NSObject, GameSceneDelegate {
     }
     
     func initWorm() {
-        
+        worm.addComponent(WormControlComponent(game: self, ui: ui))
     }
     
     func didMoveToView(view: SKView) {

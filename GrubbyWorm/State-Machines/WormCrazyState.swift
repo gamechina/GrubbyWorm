@@ -10,4 +10,8 @@ import GameplayKit
 
 class WormCrazyState: WormState {
 
+    override func didEnterWithPreviousState(previousState: GKState?) {
+        
+        super.didEnterWithPreviousState(previousState)
+    }
 }

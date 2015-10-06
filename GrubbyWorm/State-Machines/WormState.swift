@@ -10,4 +10,13 @@ import GameplayKit
 
 class WormState: GKState {
 
+    var game: Game?
+    var ui: Entity?
+    
+    init(game: Game?, ui: Entity?) {
+        self.game = game
+        self.ui = ui
+        
+        super.init()
+    }
 }
