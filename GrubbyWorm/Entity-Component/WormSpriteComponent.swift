@@ -29,7 +29,7 @@ class WormSpriteComponent: GKComponent {
         playground = game.level.playground
         
         root = SKNode()
-        info = WormInfo(name: "Grubby Worm", speed: 0.1, foot: 5, type: .Grubby)
+        info = WormInfo(name: "Grubby Worm", speed: 0.25, foot: 5, type: .Grubby)
         direction = .Right
         somites = []
         locations = []
@@ -41,11 +41,17 @@ class WormSpriteComponent: GKComponent {
     }
     
     override func updateWithDeltaTime(seconds: NSTimeInterval) {
-        delta += seconds
-        
-        if delta >= info.speed {
-            delta = 0
-            doCrawl()
+        if let controlComponent = _ui?.componentForClass(GameControlComponent) {
+            if let state = controlComponent.stateMachine?.currentState {
+                if controlComponent.stateMachine?.stateForClass(UIPlayingState) == state {
+                    
+                    delta += seconds
+                    
+                    if delta >= info.speed {
+                        doCrawl()
+                    }
+                }
+            }
         }
     }
     
@@ -103,6 +109,8 @@ class WormSpriteComponent: GKComponent {
     }
     
     func doCrawl() {
+        delta = 0
+        
         var loc = [Location]()
         loc.append(getNextLocation(locations[0]))
         
@@ -112,5 +120,28 @@ class WormSpriteComponent: GKComponent {
         
         locations = loc
         renderNodesPosition()
+        
+        // make playground focus the worm
+        playground!.focusWorm()
+    }
+    
+    func turn(target: Direction) {
+        if let controlComponent = _ui?.componentForClass(GameControlComponent) {
+            if let state = controlComponent.stateMachine?.currentState {
+                if controlComponent.stateMachine?.stateForClass(UIPlayingState) == state {
+                    
+                    if direction == target.refect() {
+                        return
+                    }
+                    
+                    if direction == target {
+                        return
+                    }
+                    
+                    direction = target
+                    doCrawl()
+                }
+            }
+        }
     }
 }

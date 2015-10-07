@@ -10,12 +10,15 @@ import SpriteKit
 
 class MoodBar: SKNode {
     
+    var comboCount: Int = 0
+    
     var barWidth: CGFloat = 0
     
     var percent: CGFloat {
         didSet {
             if percent <= 0 {
                 percent = 100
+                comboCount++
             }
             renderProgress()
         }
@@ -59,7 +62,11 @@ class MoodBar: SKNode {
         _up.size = CGSizeMake(width, _up.size.height)
         _mark.position = CGPointMake(width, _mark.position.y)
         
-        _value.text = "连击"
+        if comboCount == 0 {
+            _value.text = "连击"
+        } else {
+            _value.text = String(comboCount)
+        }
         
         if percent == 0 || percent == 100 {
             _mark.hidden = true

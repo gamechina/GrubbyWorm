@@ -25,9 +25,16 @@ class Tip: SKNode {
         }
     }
     
+    var fontSize: CGFloat {
+        didSet {
+            _label.fontSize = fontSize
+        }
+    }
+    
     init(text: String) {
         self.text = text
         self.fontColor = SKColor.whiteColor()
+        self.fontSize = 13
         
         super.init()
         
@@ -35,9 +42,10 @@ class Tip: SKNode {
         _board.centerRect = CGRectMake(10/100, 10/100, 80/100, 80/100)
         _board.color = Theme.mood_bar_up_color
         
+        // "San Francisco"
         _label = SKLabelNode(fontNamed: "San Francisco")
         _label.text = text
-        _label.fontSize = 12
+        _label.fontSize = 13
         _label.verticalAlignmentMode = .Center
         _label.horizontalAlignmentMode = .Center
         

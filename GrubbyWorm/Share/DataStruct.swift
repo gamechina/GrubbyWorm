@@ -13,6 +13,19 @@ enum Direction {
     case Right
     case Down
     case Up
+    
+    func refect() -> Direction {
+        switch self {
+        case .Right:
+            return .Left
+        case .Down:
+            return .Up
+        case .Left:
+            return .Right
+        case .Up:
+            return .Down
+        }
+    }
 }
 
 struct Location {

@@ -19,9 +19,12 @@ class Tile: SKSpriteNode {
     
     var location: Location
     
+    var hasTrigger: Bool
+    
     init(location: Location, style: TileStyle = .Normal) {
         self.style = style
         self.location = location
+        hasTrigger = false
         
         let size = CGSizeMake(38, 38)
         

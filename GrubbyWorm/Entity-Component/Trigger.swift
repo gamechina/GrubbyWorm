@@ -10,5 +10,11 @@ import GameplayKit
 
 class Trigger : Entity {
     
+    var location: Location
     
+    init(location: Location) {
+        self.location = location
+        
+        super.init()
+    }
 }

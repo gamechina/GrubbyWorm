@@ -23,7 +23,7 @@ class Game: NSObject, GameSceneDelegate {
     var level: Level!
     
     // all triggers(include sugar, grubby, all have effect with the worm).
-    private var _triggers: [Entity]?
+    var triggers: [Trigger]
     
     // player control worm, our leading role.
     var worm: Entity
@@ -42,6 +42,8 @@ class Game: NSObject, GameSceneDelegate {
         
         ui = Entity()
         worm = Entity()
+        
+        triggers = []
         
         super.init()
         
@@ -90,6 +92,14 @@ class Game: NSObject, GameSceneDelegate {
     
     func startGame() {
         
+        // add some trigger
+        let a = Trigger(location: Location(row: 2, col: 2))
+        a.addComponent(TriggerSpriteComponent())
+        let b = Trigger(location: Location(row: 4, col: 4))
+        b.addComponent(TriggerSpriteComponent())
+        
+        addTrigger(a)
+        addTrigger(b)
     }
     
     func initLevel() {
@@ -97,6 +107,12 @@ class Game: NSObject, GameSceneDelegate {
         let playground = level.playground
         playground.position = CGPointMake(_view.frame.midX, _view.frame.midY)
         scene.addChild(level.playground)
+    }
+    
+    func addTrigger(trigger: Trigger) {
+        if level.playground.addTrigger(trigger) {
+            triggers.append(trigger)
+        }
     }
     
 }
