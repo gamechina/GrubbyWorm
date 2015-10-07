@@ -12,6 +12,7 @@
 		B0589B391BC4256000800875 /* Tile.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0589B381BC4256000800875 /* Tile.swift */; settings = {ASSET_TAGS = (); }; };
 		B0589B3B1BC4295400800875 /* Playground.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0589B3A1BC4295400800875 /* Playground.swift */; settings = {ASSET_TAGS = (); }; };
 		B0589B3D1BC42E8B00800875 /* WormControlComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0589B3C1BC42E8B00800875 /* WormControlComponent.swift */; settings = {ASSET_TAGS = (); }; };
+		B0589B3F1BC4C39500800875 /* WormSpriteComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0589B3E1BC4C39500800875 /* WormSpriteComponent.swift */; settings = {ASSET_TAGS = (); }; };
 		B07F40BB1BB8F824008F053E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07F40BA1BB8F824008F053E /* AppDelegate.swift */; };
 		B07F40C11BB8F824008F053E /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07F40C01BB8F824008F053E /* GameViewController.swift */; };
 		B07F40C41BB8F824008F053E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B07F40C21BB8F824008F053E /* Main.storyboard */; };
@@ -50,6 +51,7 @@
 		B0589B381BC4256000800875 /* Tile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tile.swift; sourceTree = "<group>"; };
 		B0589B3A1BC4295400800875 /* Playground.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Playground.swift; sourceTree = "<group>"; };
 		B0589B3C1BC42E8B00800875 /* WormControlComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WormControlComponent.swift; sourceTree = "<group>"; };
+		B0589B3E1BC4C39500800875 /* WormSpriteComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WormSpriteComponent.swift; sourceTree = "<group>"; };
 		B07F40B71BB8F824008F053E /* GrubbyWorm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GrubbyWorm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B07F40BA1BB8F824008F053E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B07F40C01BB8F824008F053E /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 				B07F40F51BB8F8E4008F053E /* UISpriteComponent.swift */,
 				B0A6CF281BC16512002DCBC8 /* Trigger.swift */,
 				B0589B3C1BC42E8B00800875 /* WormControlComponent.swift */,
+				B0589B3E1BC4C39500800875 /* WormSpriteComponent.swift */,
 			);
 			path = "Entity-Component";
 			sourceTree = "<group>";
@@ -287,6 +290,7 @@
 				B0A6CF2F1BC2555E002DCBC8 /* Tip.swift in Sources */,
 				B07F40C11BB8F824008F053E /* GameViewController.swift in Sources */,
 				B07F40E81BB8F88F008F053E /* UIState.swift in Sources */,
+				B0589B3F1BC4C39500800875 /* WormSpriteComponent.swift in Sources */,
 				B07F40F61BB8F8E4008F053E /* Entity.swift in Sources */,
 				B07F40BB1BB8F824008F053E /* AppDelegate.swift in Sources */,
 				B07F40F71BB8F8E4008F053E /* GameControlComponent.swift in Sources */,

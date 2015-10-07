@@ -69,4 +69,12 @@ class Playground: SKNode {
         
         return ret
     }
+    
+    func addWorm(worm: Entity, location: Location) {
+        if let wormSprite = worm.componentForClass(WormSpriteComponent) {
+            wormSprite.playground = self
+            wormSprite.initLocations(location)
+            addChild(wormSprite.root)
+        }
+    }
 }

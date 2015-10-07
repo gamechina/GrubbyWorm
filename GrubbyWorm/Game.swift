@@ -29,7 +29,7 @@ class Game: NSObject, GameSceneDelegate {
     var worm: Entity
     
     // worm direction
-    var wormDirection: Direction = .None
+    var wormDirection: Direction = .Right
     
     // random source
     var random: GKRandomSource?
@@ -53,7 +53,7 @@ class Game: NSObject, GameSceneDelegate {
         scene.gameDelegate = self
         
         scene.scaleMode = .AspectFill
-        scene.backgroundColor = Theme.primary_color
+        scene.backgroundColor = Theme.scene_background_color
     }
     
     func initUI() {
@@ -63,10 +63,14 @@ class Game: NSObject, GameSceneDelegate {
     
     func initWorm() {
         worm.addComponent(WormControlComponent(game: self, ui: ui))
+        worm.addComponent(WormSpriteComponent(game: self, ui: ui))
+        
+        level.playground.addWorm(worm, location: Location(row: 0, col: 0))
     }
     
     func didMoveToView(view: SKView) {
         initUI()
+        initLevel()
         initWorm()
     }
     
@@ -81,10 +85,11 @@ class Game: NSObject, GameSceneDelegate {
         prevUpdateTime = currentTime
         
         ui.updateWithDeltaTime(dt)
+        worm.updateWithDeltaTime(dt)
     }
     
     func startGame() {
-        initLevel()
+        
     }
     
     func initLevel() {

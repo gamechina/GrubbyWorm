@@ -6,8 +6,9 @@
 //  Copyright © 2015年 GAME-CHINA.ORG. All rights reserved.
 //
 
+import SpriteKit
+
 enum Direction {
-    case None
     case Left
     case Right
     case Down
@@ -72,4 +73,16 @@ typealias GridSize = Location
 struct GridSizeRange {
     var from: GridSize
     var to: GridSize
+}
+
+enum WormType {
+    case Normal
+    case Grubby
+}
+
+struct WormInfo {
+    var name: String?
+    var speed: NSTimeInterval
+    var foot: Int
+    var type: WormType
 }
