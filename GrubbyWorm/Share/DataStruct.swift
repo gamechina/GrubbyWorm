@@ -79,6 +79,10 @@ struct Location {
             return self.right()
         }
     }
+    
+    func equal(loc: Location) -> Bool {
+        return (self.row == loc.row && self.col == loc.col)
+    }
 }
 
 typealias GridSize = Location

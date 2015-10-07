@@ -17,4 +17,10 @@ class Trigger : Entity {
         
         super.init()
     }
+    
+    func fired() {
+        if let display = componentForClass(TriggerSpriteComponent) {
+            display.root.removeFromParent()
+        }
+    }
 }

@@ -26,7 +26,7 @@ class Game: NSObject, GameSceneDelegate {
     var triggers: [Trigger]
     
     // player control worm, our leading role.
-    var worm: Entity
+    var worm: Worm
     
     // worm direction
     var wormDirection: Direction = .Right
@@ -41,7 +41,7 @@ class Game: NSObject, GameSceneDelegate {
         scene = GameScene(size: _view.bounds.size)
         
         ui = Entity()
-        worm = Entity()
+        worm = Worm()
         
         triggers = []
         
@@ -88,6 +88,15 @@ class Game: NSObject, GameSceneDelegate {
         
         ui.updateWithDeltaTime(dt)
         worm.updateWithDeltaTime(dt)
+        
+        // check trigger
+        if let wormLoc = worm.componentForClass(WormSpriteComponent)?.locations[0] {
+            for trigger in triggers {
+                if trigger.location.equal(wormLoc) {
+                    fireTrigger(trigger)
+                }
+            }
+        }
     }
     
     func startGame() {
@@ -112,6 +121,15 @@ class Game: NSObject, GameSceneDelegate {
     func addTrigger(trigger: Trigger) {
         if level.playground.addTrigger(trigger) {
             triggers.append(trigger)
+        }
+    }
+    
+    func fireTrigger(trigger: Trigger) {
+        worm.fireTrigger(trigger)
+        trigger.fired()
+        
+        if let index = triggers.indexOf(trigger) {
+            triggers.removeAtIndex(index)
         }
     }
     
