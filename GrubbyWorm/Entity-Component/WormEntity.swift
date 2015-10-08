@@ -9,9 +9,19 @@
 import GameplayKit
 import SpriteKit
 
-class Worm: Entity {
+class WormEntity : Entity {
+    
+    var info: WormInfo
+    var direction: Direction
+    
+    override init() {
+        info = WormInfo(name: "Grubby Worm", speed: 0.25, foot: 5, type: .Grubby)
+        direction = .Right
+        
+        super.init()
+    }
 
-    func fireTrigger(trigger: Trigger) {
+    func fireTrigger(trigger: TriggerEntity) {
         if let control = componentForClass(WormControlComponent) {
             let ui = control._ui
             let spriteComponent = ui?.componentForClass(UISpriteComponent)

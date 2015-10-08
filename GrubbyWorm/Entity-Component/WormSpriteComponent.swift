@@ -41,7 +41,7 @@ class WormSpriteComponent: GKComponent {
     }
     
     override func updateWithDeltaTime(seconds: NSTimeInterval) {
-        if let controlComponent = _ui?.componentForClass(GameControlComponent) {
+        if let controlComponent = _ui?.componentForClass(UIControlComponent) {
             if let state = controlComponent.stateMachine?.currentState {
                 if controlComponent.stateMachine?.stateForClass(UIPlayingState) == state {
                     
@@ -126,7 +126,7 @@ class WormSpriteComponent: GKComponent {
     }
     
     func turn(target: Direction) {
-        if let controlComponent = _ui?.componentForClass(GameControlComponent) {
+        if let controlComponent = _ui?.componentForClass(UIControlComponent) {
             if let state = controlComponent.stateMachine?.currentState {
                 if controlComponent.stateMachine?.stateForClass(UIPlayingState) == state {
                     

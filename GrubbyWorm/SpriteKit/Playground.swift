@@ -91,7 +91,7 @@ class Playground: SKNode {
         }
     }
     
-    func addTrigger(trigger: Trigger) -> Bool {
+    func addTrigger(trigger: TriggerEntity) -> Bool {
         if let tile = tileByLocation(trigger.location) {
             if !tile.hasTrigger {
                 if let triggerSprite = trigger.componentForClass(TriggerSpriteComponent) {

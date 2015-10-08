@@ -8,7 +8,7 @@
 
 import GameplayKit
 
-class GameControlComponent: GKComponent {
+class UIControlComponent: GKComponent {
     
     private weak var _game: Game?
     private var _ui: Entity?

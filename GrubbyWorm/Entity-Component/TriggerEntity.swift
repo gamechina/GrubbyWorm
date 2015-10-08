@@ -8,7 +8,7 @@
 
 import GameplayKit
 
-class Trigger : Entity {
+class TriggerEntity : Entity {
     
     var location: Location
     

@@ -11,38 +11,46 @@ import GameplayKit
 
 class Game: NSObject, GameSceneDelegate {
     
+    // MARK: Private Properties
+    
+    // application view for running skscene.
     private var _view: SKView
+    
+    // MARK: Public Properties
     
     // reference the current scene instance, in grubby worm game, we have only one scene.
     var scene: GameScene
     
-    // game ui, for play, pause and display.
-    var ui: Entity
+    // game ui, for play, pause and display, show different ui states appearance.
+    var ui: UIEntity
     
     // reference the game logic level(in grubby worm it should be a map or playground).
-    var level: Level!
+    var level: Level
     
     // all triggers(include sugar, grubby, all have effect with the worm).
-    var triggers: [Trigger]
+    var triggers: [TriggerEntity]
     
-    // player control worm, our leading role.
-    var worm: Worm
+    // player controlled worm, our leading role.
+    var worm: WormEntity
     
     // worm direction
     var wormDirection: Direction = .Right
     
-    // random source
+    // random source, for generate triggers and worm's somites.
     var random: GKRandomSource?
     
+    // for caculate the delta time in update method.
     var prevUpdateTime: NSTimeInterval = 0
+    
+    // MARK: Initializers
     
     init(view: SKView) {
         _view = view
+        
         scene = GameScene(size: _view.bounds.size)
-        
-        ui = Entity()
-        worm = Worm()
-        
+        ui = UIEntity()
+        level = Level(size: _view.bounds.size)
+        worm = WormEntity()
         triggers = []
         
         super.init()
@@ -60,7 +68,7 @@ class Game: NSObject, GameSceneDelegate {
     
     func initUI() {
         ui.addComponent(UISpriteComponent(game: self, ui: ui))
-        ui.addComponent(GameControlComponent(game: self, ui: ui))
+        ui.addComponent(UIControlComponent(game: self, ui: ui))
     }
     
     func initWorm() {
@@ -102,9 +110,9 @@ class Game: NSObject, GameSceneDelegate {
     func startGame() {
         
         // add some trigger
-        let a = Trigger(location: Location(row: 2, col: 2))
+        let a = TriggerEntity(location: Location(row: 2, col: 2))
         a.addComponent(TriggerSpriteComponent())
-        let b = Trigger(location: Location(row: 4, col: 4))
+        let b = TriggerEntity(location: Location(row: 4, col: 4))
         b.addComponent(TriggerSpriteComponent())
         
         addTrigger(a)
@@ -112,19 +120,18 @@ class Game: NSObject, GameSceneDelegate {
     }
     
     func initLevel() {
-        level = Level(size: _view.frame.size)
         let playground = level.playground
         playground.position = CGPointMake(_view.frame.midX, _view.frame.midY)
         scene.addChild(level.playground)
     }
     
-    func addTrigger(trigger: Trigger) {
+    func addTrigger(trigger: TriggerEntity) {
         if level.playground.addTrigger(trigger) {
             triggers.append(trigger)
         }
     }
     
-    func fireTrigger(trigger: Trigger) {
+    func fireTrigger(trigger: TriggerEntity) {
         worm.fireTrigger(trigger)
         trigger.fired()
         

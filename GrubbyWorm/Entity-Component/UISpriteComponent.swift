@@ -131,12 +131,12 @@ class UISpriteComponent: GKComponent {
         
         pauseButton.actionTouchUpInside = GWButtonTarget.aBlock({ () -> Void in
             print("click pause")
-            self.entity?.componentForClass(GameControlComponent)?.stateMachine?.enterState(UIPauseState)
+            self.entity?.componentForClass(UIControlComponent)?.stateMachine?.enterState(UIPauseState)
         })
         
         playButton.actionTouchUpInside = GWButtonTarget.aBlock({ () -> Void in
             print("click play")
-            self.entity?.componentForClass(GameControlComponent)?.stateMachine?.enterState(UIPlayingState)
+            self.entity?.componentForClass(UIControlComponent)?.stateMachine?.enterState(UIPlayingState)
         })
     }
     
