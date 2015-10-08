@@ -4,10 +4,14 @@ A simple digital worm game made with latest iOS 9, SpriteKit, GameplayKit and Re
 
 ## Feature List
 
-- [ ] Gameplay logic
+- [x] SpriteKit Scene
+- [x] Entiy and Component
+- [x] State Machines
+- [x] FontAwesome in Use
+- [ ] Random Source
 - [ ] Replay and Share
 - [ ] Game Center
-- [ ] Game Juice
+- [ ] Juice
 
 ## What is Grubby Worm
 
