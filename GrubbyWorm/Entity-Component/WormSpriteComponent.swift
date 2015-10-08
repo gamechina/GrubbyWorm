@@ -58,7 +58,7 @@ class WormSpriteComponent: GKComponent {
         
         if let worm = entity as? WormEntity {
             for _ in 0..<worm.info.foot {
-                let node = SKSpriteNode(color: Theme.temp_color, size: size)
+                let node = SKSpriteNode(color: Theme.mask_color, size: size)
                 root.addChild(node)
                 somites.append(node)
             }

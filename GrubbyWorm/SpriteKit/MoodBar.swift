@@ -8,6 +8,11 @@
 
 import SpriteKit
 
+protocol MoodBarDelegate : NSObjectProtocol {
+    func onMoodProgressEmpty(bar: MoodBar)
+    func onMoodProgressFull(bar: MoodBar)
+}
+
 class MoodBar: SKNode {
     
     var comboCount: Int = 0
@@ -17,12 +22,14 @@ class MoodBar: SKNode {
     var percent: CGFloat {
         didSet {
             if percent <= 0 {
-                percent = 100
-                comboCount++
+                percent = 0
             }
+            
             renderProgress()
         }
     }
+    
+    var delegate: MoodBarDelegate?
     
     private var _down: SKSpriteNode!
     private var _up: SKSpriteNode!
@@ -31,7 +38,7 @@ class MoodBar: SKNode {
     
     init(width: CGFloat) {
         barWidth = width
-        percent = 100
+        percent = 0
         
         super.init()
         
@@ -72,6 +79,10 @@ class MoodBar: SKNode {
             _mark.hidden = true
         } else {
             _mark.hidden = false
+        }
+        
+        if percent == 0 {
+            delegate?.onMoodProgressEmpty(self)
         }
     }
 }

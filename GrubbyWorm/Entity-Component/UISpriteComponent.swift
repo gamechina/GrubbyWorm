@@ -9,7 +9,7 @@
 import GameplayKit
 import SpriteKit
 
-class UISpriteComponent: GKComponent {
+class UISpriteComponent: GKComponent, MoodBarDelegate {
     
     // MARK: Static properties
     
@@ -127,6 +127,8 @@ class UISpriteComponent: GKComponent {
     
     func registerEvent() {
         
+        moodBar.delegate = self
+        
         pauseButton.actionTouchUpInside = GWButtonTarget.aBlock({ () -> Void in
             print("click pause")
             self.entity?.componentForClass(UIControlComponent)?.stateMachine?.enterState(UIPauseState)
@@ -163,6 +165,14 @@ class UISpriteComponent: GKComponent {
     }
     
     func useGameOverAppearance() {
+        
+    }
+    
+    func onMoodProgressEmpty(bar: MoodBar) {
+        _game.worm.comboFail()
+    }
+    
+    func onMoodProgressFull(bar: MoodBar) {
         
     }
 }

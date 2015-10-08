@@ -36,8 +36,13 @@ class Game: NSObject, GameSceneDelegate {
     // worm direction
     var wormDirection: Direction = .Right
     
-    // random source, for generate triggers and worm's somites.
-    var random: GKRandomSource?
+    // random distribution, for generate triggers locations.
+    var rowRandom: GKRandomDistribution?
+    
+    // random distribution, for generate triggers locations.
+    var colRandom: GKRandomDistribution?
+    
+    var locationRandomSplit: NSTimeInterval = 0.01
     
     // for caculate the delta time in update method.
     var prevUpdateTime: NSTimeInterval = 0
@@ -50,7 +55,7 @@ class Game: NSObject, GameSceneDelegate {
         scene = GameScene(size: _view.bounds.size)
         ui = UIEntity()
         level = Level(size: _view.bounds.size)
-        worm = WormEntity()
+        worm = WormEntity(ui: ui)
         triggers = []
         
         super.init()
@@ -81,6 +86,7 @@ class Game: NSObject, GameSceneDelegate {
     func didMoveToView(view: SKView) {
         initUI()
         initLevel()
+        initRandomSource()
     }
     
     func update(currentTime: NSTimeInterval, forScene scene: SKScene) {
@@ -143,6 +149,30 @@ class Game: NSObject, GameSceneDelegate {
         if let index = triggers.indexOf(trigger) {
             triggers.removeAtIndex(index)
         }
+    }
+    
+    func initRandomSource() {
+        let playground = level.playground
+        let range = playground.getGridSizeRange()
+        rowRandom = GKRandomDistribution(lowestValue: range.from.row, highestValue: range.to.row)
+        colRandom = GKRandomDistribution(lowestValue: range.from.col, highestValue: range.to.col)
+    }
+    
+    func getRandomLocation() -> Location {
+        if rowRandom != nil && colRandom != nil {
+            return Location(row: rowRandom!.nextInt(), col: colRandom!.nextInt())
+        }
+        
+        return Location(row: 0, col: 0)
+    }
+    
+    func addRandomTrigger() {
+        let loc = getRandomLocation()
+        
+        let t = TriggerEntity(location: loc)
+        t.addComponent(TriggerSpriteComponent())
+        
+        addTrigger(t)
     }
     
 }

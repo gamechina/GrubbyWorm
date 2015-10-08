@@ -29,13 +29,19 @@ class UIPlayingState: UIState {
     
     override func updateWithDeltaTime(seconds: NSTimeInterval) {
         let spriteComponent = ui?.componentForClass(UISpriteComponent)
-        spriteComponent?.moodBar.percent -= CGFloat(seconds) * (100 / 6)
-        spriteComponent?.energyBar.percent += CGFloat(seconds) * (100 / 10)
-        let score = Int((spriteComponent?.score.text)!)
-        spriteComponent?.score.text = String(score! + 1)
         
-        if(spriteComponent?.score.frame.size.width >= (Theme.energy_bar_margin - 10)) {
-            spriteComponent?.score.fontSize--
+        // moodbar progress
+        if spriteComponent?.moodBar.percent != 0 {
+            spriteComponent?.moodBar.percent -= CGFloat(seconds) * (100 / 6)
+        }
+
+        spriteComponent?.energyBar.percent += CGFloat(seconds) * (100 / 10)
+        
+        if game?.locationRandomSplit < 0 {
+            game?.locationRandomSplit = 0.01
+            game?.addRandomTrigger()
+        } else {
+            game?.locationRandomSplit -= seconds
         }
         
         super.updateWithDeltaTime(seconds)
