@@ -177,15 +177,15 @@
 		B07F40DB1BB8F88F008F053E /* State-Machines */ = {
 			isa = PBXGroup;
 			children = (
-				B07F40DC1BB8F88F008F053E /* UIGameOverState.swift */,
-				B07F40DD1BB8F88F008F053E /* UIPauseState.swift */,
-				B07F40DE1BB8F88F008F053E /* UIPlayingState.swift */,
 				B07F40DF1BB8F88F008F053E /* UIState.swift */,
 				B07F40E01BB8F88F008F053E /* UITitleState.swift */,
+				B07F40DE1BB8F88F008F053E /* UIPlayingState.swift */,
+				B07F40DD1BB8F88F008F053E /* UIPauseState.swift */,
+				B07F40DC1BB8F88F008F053E /* UIGameOverState.swift */,
+				B07F40E41BB8F88F008F053E /* WormState.swift */,
+				B07F40E31BB8F88F008F053E /* WormHappyState.swift */,
 				B07F40E11BB8F88F008F053E /* WormCrazyState.swift */,
 				B07F40E21BB8F88F008F053E /* WormDefeatedState.swift */,
-				B07F40E31BB8F88F008F053E /* WormHappyState.swift */,
-				B07F40E41BB8F88F008F053E /* WormState.swift */,
 			);
 			path = "State-Machines";
 			sourceTree = "<group>";
