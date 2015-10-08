@@ -81,7 +81,6 @@ class Game: NSObject, GameSceneDelegate {
     func didMoveToView(view: SKView) {
         initUI()
         initLevel()
-        initWorm()
     }
     
     func update(currentTime: NSTimeInterval, forScene scene: SKScene) {
@@ -117,6 +116,12 @@ class Game: NSObject, GameSceneDelegate {
         
         addTrigger(a)
         addTrigger(b)
+        
+        initWorm()
+    }
+    
+    func resumeGame() {
+        
     }
     
     func initLevel() {

@@ -16,7 +16,12 @@ class UIPlayingState: UIState {
             let spriteComponent = ui?.componentForClass(UISpriteComponent)
             spriteComponent?.usePlayingAppearance()
             
-            game?.startGame()
+            let controlComponent = ui?.componentForClass(UIControlComponent)
+            if controlComponent?.stateMachine?.stateForClass(UITitleState) == previousState {
+                game?.startGame()
+            } else {
+                game?.resumeGame()
+            }
         }
         
         super.didEnterWithPreviousState(previousState)

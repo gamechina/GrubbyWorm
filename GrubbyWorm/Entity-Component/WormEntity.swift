@@ -14,7 +14,7 @@ class WormEntity : Entity {
     var info: WormInfo
     
     override init() {
-        info = WormInfo(name: "Grubby Worm", speed: 0.25, foot: 5, type: .Grubby)
+        info = WormInfo(name: "Grubby Worm", speed: 0.45, foot: 5, type: .Grubby)
         
         super.init()
     }
@@ -30,5 +30,7 @@ class WormEntity : Entity {
                 spriteComponent?.score.fontSize--
             }
         }
+        
+        info.speed -= 0.1
     }
 }
