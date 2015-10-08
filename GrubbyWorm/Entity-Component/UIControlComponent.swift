@@ -11,10 +11,10 @@ import GameplayKit
 class UIControlComponent: GKComponent {
     
     private weak var _game: Game?
-    private var _ui: Entity?
+    private var _ui: UIEntity?
     var stateMachine: GKStateMachine?
     
-    init(game: Game?, ui: Entity?) {
+    init(game: Game?, ui: UIEntity?) {
         self._game = game
         self._ui = ui
         

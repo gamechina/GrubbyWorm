@@ -67,7 +67,7 @@ class Game: NSObject, GameSceneDelegate {
     }
     
     func initUI() {
-        ui.addComponent(UISpriteComponent(game: self, ui: ui))
+        ui.addComponent(UISpriteComponent(game: self))
         ui.addComponent(UIControlComponent(game: self, ui: ui))
     }
     

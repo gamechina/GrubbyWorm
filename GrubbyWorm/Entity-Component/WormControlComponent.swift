@@ -11,10 +11,10 @@ import GameplayKit
 class WormControlComponent: GKComponent {
     
     weak var _game: Game?
-    var _ui: Entity?
+    var _ui: UIEntity?
     var stateMachine: GKStateMachine?
     
-    init(game: Game?, ui: Entity?) {
+    init(game: Game?, ui: UIEntity?) {
         self._game = game
         self._ui = ui
         

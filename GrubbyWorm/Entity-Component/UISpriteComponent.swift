@@ -17,7 +17,6 @@ class UISpriteComponent: GKComponent {
     // MARK: Private properties
     
     private var _game: Game
-    private var _ui: Entity?
     
     // MARK: Properties
     
@@ -53,9 +52,8 @@ class UISpriteComponent: GKComponent {
     
     // MARK: Initializers
     
-    init(game: Game, ui: Entity?) {
+    init(game: Game) {
         _game = game
-        _ui = ui
         sceneSize = _game.scene.size
         
         root = SKNode()
