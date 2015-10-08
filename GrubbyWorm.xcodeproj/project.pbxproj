@@ -39,6 +39,7 @@
 		B07F40F71BB8F8E4008F053E /* GameControlComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07F40F41BB8F8E4008F053E /* GameControlComponent.swift */; settings = {ASSET_TAGS = (); }; };
 		B07F40F81BB8F8E4008F053E /* UISpriteComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07F40F51BB8F8E4008F053E /* UISpriteComponent.swift */; settings = {ASSET_TAGS = (); }; };
 		B088712B1BC2ED6800E82AA5 /* SpriteKit-Spring.swift in Sources */ = {isa = PBXBuildFile; fileRef = B088712A1BC2ED6800E82AA5 /* SpriteKit-Spring.swift */; settings = {ASSET_TAGS = (); }; };
+		B0A1484D1BC6263F00BA5F43 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = B0A1484C1BC6263F00BA5F43 /* README.md */; settings = {ASSET_TAGS = (); }; };
 		B0A6CF291BC16512002DCBC8 /* Trigger.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A6CF281BC16512002DCBC8 /* Trigger.swift */; settings = {ASSET_TAGS = (); }; };
 		B0A6CF2D1BC16B7C002DCBC8 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A6CF2C1BC16B7C002DCBC8 /* Level.swift */; settings = {ASSET_TAGS = (); }; };
 		B0A6CF2F1BC2555E002DCBC8 /* Tip.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A6CF2E1BC2555E002DCBC8 /* Tip.swift */; settings = {ASSET_TAGS = (); }; };
@@ -83,6 +84,7 @@
 		B07F40F41BB8F8E4008F053E /* GameControlComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameControlComponent.swift; sourceTree = "<group>"; };
 		B07F40F51BB8F8E4008F053E /* UISpriteComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UISpriteComponent.swift; sourceTree = "<group>"; };
 		B088712A1BC2ED6800E82AA5 /* SpriteKit-Spring.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SpriteKit-Spring.swift"; sourceTree = "<group>"; };
+		B0A1484C1BC6263F00BA5F43 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		B0A6CF281BC16512002DCBC8 /* Trigger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trigger.swift; sourceTree = "<group>"; };
 		B0A6CF2C1BC16B7C002DCBC8 /* Level.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
 		B0A6CF2E1BC2555E002DCBC8 /* Tip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tip.swift; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 		B07F40FA1BB8FA92008F053E /* Support-Files */ = {
 			isa = PBXGroup;
 			children = (
+				B0A1484C1BC6263F00BA5F43 /* README.md */,
 				B0589B361BC41CDE00800875 /* FontAwesome.otf */,
 				B00B8E841BC1436E00B1FDA7 /* Stiff Staff.otf */,
 				B07F40BA1BB8F824008F053E /* AppDelegate.swift */,
@@ -303,6 +306,7 @@
 				B0589B3F1BC4C39500800875 /* WormSpriteComponent.swift in Sources */,
 				B07F40F61BB8F8E4008F053E /* Entity.swift in Sources */,
 				B07F40BB1BB8F824008F053E /* AppDelegate.swift in Sources */,
+				B0A1484D1BC6263F00BA5F43 /* README.md in Sources */,
 				B07F40F71BB8F8E4008F053E /* GameControlComponent.swift in Sources */,
 				B0589B461BC5666F00800875 /* Worm.swift in Sources */,
 				B07F40E51BB8F88F008F053E /* UIGameOverState.swift in Sources */,
