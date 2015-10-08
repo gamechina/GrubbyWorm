@@ -12,11 +12,9 @@ import SpriteKit
 class WormEntity : Entity {
     
     var info: WormInfo
-    var direction: Direction
     
     override init() {
         info = WormInfo(name: "Grubby Worm", speed: 0.25, foot: 5, type: .Grubby)
-        direction = .Right
         
         super.init()
     }

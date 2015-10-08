@@ -16,7 +16,6 @@ class WormSpriteComponent: GKComponent {
     
     var playground: Playground?
     var root: SKNode
-    var info: WormInfo
     var direction: Direction
     var somites: [SKSpriteNode]
     var locations: [Location]
@@ -29,15 +28,12 @@ class WormSpriteComponent: GKComponent {
         playground = game.level.playground
         
         root = SKNode()
-        info = WormInfo(name: "Grubby Worm", speed: 0.25, foot: 5, type: .Grubby)
         direction = .Right
         somites = []
         locations = []
         delta = 0
         
         super.init()
-        
-        renderWorm()
     }
     
     override func updateWithDeltaTime(seconds: NSTimeInterval) {
@@ -47,27 +43,34 @@ class WormSpriteComponent: GKComponent {
                     
                     delta += seconds
                     
-                    if delta >= info.speed {
-                        doCrawl()
+                    if let worm = entity as? WormEntity {
+                        if delta >= worm.info.speed {
+                            doCrawl()
+                        }
                     }
                 }
             }
         }
     }
     
-    func renderWorm() {
+    func renderSomites() {
         let size = CGSizeMake(36, 36)
-        for _ in 0..<info.foot {
-            let node = SKSpriteNode(color: Theme.temp_color, size: size)
-            root.addChild(node)
-            somites.append(node)
+        
+        if let worm = entity as? WormEntity {
+            for _ in 0..<worm.info.foot {
+                let node = SKSpriteNode(color: Theme.temp_color, size: size)
+                root.addChild(node)
+                somites.append(node)
+            }
         }
     }
     
     func renderNodesPosition() {
-        for i in 0..<info.foot {
-            if let tile = playground?.tileByLocation(locations[i]) {
-                somites[i].position = tile.position
+        if let worm = entity as? WormEntity {
+            for i in 0..<worm.info.foot {
+                if let tile = playground?.tileByLocation(locations[i]) {
+                    somites[i].position = tile.position
+                }
             }
         }
     }
@@ -114,8 +117,10 @@ class WormSpriteComponent: GKComponent {
         var loc = [Location]()
         loc.append(getNextLocation(locations[0]))
         
-        for i in 1..<info.foot {
-            loc.append(locations[i - 1])
+        if let worm = entity as? WormEntity {
+            for i in 1..<worm.info.foot {
+                loc.append(locations[i - 1])
+            }
         }
         
         locations = loc

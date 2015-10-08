@@ -18,7 +18,7 @@ class Playground: SKNode {
     var tiles: [Tile]
     var contentSize: CGSize
     
-    weak var worm: Entity?
+    weak var worm: WormEntity?
     
     init(size: CGSize) {
         self.size = size
@@ -81,11 +81,12 @@ class Playground: SKNode {
         return ret
     }
     
-    func addWorm(worm: Entity, location: Location) {
+    func addWorm(worm: WormEntity, location: Location) {
         self.worm = worm
         
         if let wormSprite = worm.componentForClass(WormSpriteComponent) {
             wormSprite.playground = self
+            wormSprite.renderSomites()
             wormSprite.initLocations(location)
             addChild(wormSprite.root)
         }
@@ -132,7 +133,7 @@ class Playground: SKNode {
             
 //            print(moveTo)
             
-            let action = SKAction.moveTo(moveTo, duration: wormSprite.info.speed)
+            let action = SKAction.moveTo(moveTo, duration: worm!.info.speed)
             self.runAction(action, withKey: focusMoveActionKey)
         }
     }
