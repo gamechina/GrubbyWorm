@@ -52,7 +52,7 @@ class WormEntity : Entity {
         }
         
         if info.speed >= 0.1 {
-            info.speed -= 0.02
+            info.speed -= 0.01
         }
     }
     

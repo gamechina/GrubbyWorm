@@ -97,6 +97,7 @@ class Playground: SKNode {
             if !tile.hasTrigger {
                 if let triggerSprite = trigger.componentForClass(TriggerSpriteComponent) {
                     tile.addChild(triggerSprite.root)
+                    tile.hasTrigger = true
                     
                     return true
                 }

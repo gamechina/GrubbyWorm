@@ -139,6 +139,8 @@ class Game: NSObject, GameSceneDelegate {
     func addTrigger(trigger: TriggerEntity) {
         if level.playground.addTrigger(trigger) {
             triggers.append(trigger)
+            
+            print("triggers: \(triggers.count)")
         }
     }
     
@@ -148,6 +150,10 @@ class Game: NSObject, GameSceneDelegate {
         
         if let index = triggers.indexOf(trigger) {
             triggers.removeAtIndex(index)
+        }
+        
+        if let tile = level.playground.tileByLocation(trigger.location) {
+            tile.hasTrigger = false
         }
     }
     

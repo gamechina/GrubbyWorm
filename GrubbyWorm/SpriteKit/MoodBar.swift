@@ -56,7 +56,7 @@ class MoodBar: SKNode {
         self.addChild(_mark)
         
         _value = Tip(text: "")
-        _value.fontColor = Theme.mood_bar_up_color
+        _value.fontColor = SKColor.blackColor()
         _mark.addChild(_value)
     }
 
