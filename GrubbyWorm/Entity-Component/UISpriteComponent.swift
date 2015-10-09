@@ -53,6 +53,9 @@ class UISpriteComponent: GKComponent, MoodBarDelegate {
     // preview button
     var previewButton: GWButton
     
+    // game center button
+    var gameCenterButton: GWButton
+    
     // MARK: Initializers
     
     init(game: Game) {
@@ -128,6 +131,12 @@ class UISpriteComponent: GKComponent, MoodBarDelegate {
         previewButton.zPosition = 2
         root.addChild(previewButton)
         
+        gameCenterButton = GWButton(normalTexture: SKTexture(imageNamed: "tip"))
+        gameCenterButton.size = CGSizeMake(60, 60)
+        gameCenterButton.position = playButton.position + CGPointMake(-120, 120)
+        gameCenterButton.zPosition = 2
+        root.addChild(gameCenterButton)
+        
         super.init()
         
         // some style and callback
@@ -160,6 +169,12 @@ class UISpriteComponent: GKComponent, MoodBarDelegate {
             
             rootViewController.presentViewController(previewViewController, animated: true, completion:nil)
         })
+        
+        gameCenterButton.actionTouchUpInside = GWButtonTarget.aBlock({ () -> Void in
+            print("click game center")
+            
+            EasyGameCenter.showGameCenterAchievements()
+        })
     }
     
     override func updateWithDeltaTime(seconds: NSTimeInterval) {
@@ -168,6 +183,7 @@ class UISpriteComponent: GKComponent, MoodBarDelegate {
     
     func useTitleAppearance() {
         playButton.hidden = false
+        gameCenterButton.hidden = false
         previewButton.hidden = true
         moodBar.hidden = true
         topRoot.hidden = true
@@ -177,6 +193,7 @@ class UISpriteComponent: GKComponent, MoodBarDelegate {
     func usePlayingAppearance() {
         logo.hidden = true
         playButton.hidden = true
+        gameCenterButton.hidden = true
         previewButton.hidden = true
         moodBar.hidden = false
         topRoot.hidden = false
@@ -185,6 +202,7 @@ class UISpriteComponent: GKComponent, MoodBarDelegate {
     
     func usePauseAppearance() {
         playButton.hidden = false
+        gameCenterButton.hidden = false
         previewButton.hidden = false
         pauseMask.hidden = false
     }
