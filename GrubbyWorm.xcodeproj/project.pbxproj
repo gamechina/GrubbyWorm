@@ -42,6 +42,11 @@
 		B0A1484E1BC6426000BA5F43 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = B0A1484C1BC6263F00BA5F43 /* README.md */; };
 		B0A148501BC6430E00BA5F43 /* UIEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A1484F1BC6430E00BA5F43 /* UIEntity.swift */; settings = {ASSET_TAGS = (); }; };
 		B0A148521BC7807700BA5F43 /* GameScene+ScreenRecording.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A148511BC7807700BA5F43 /* GameScene+ScreenRecording.swift */; settings = {ASSET_TAGS = (); }; };
+		B0A148541BC799C700BA5F43 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0A148531BC799C700BA5F43 /* GameKit.framework */; };
+		B0A148571BC79BD600BA5F43 /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0A148561BC79BD600BA5F43 /* SpriteKit.framework */; };
+		B0A148591BC79BDC00BA5F43 /* GameplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0A148581BC79BDC00BA5F43 /* GameplayKit.framework */; };
+		B0A1485B1BC79BE200BA5F43 /* ReplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0A1485A1BC79BE200BA5F43 /* ReplayKit.framework */; };
+		B0A1485D1BC7A54A00BA5F43 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A1485C1BC7A54A00BA5F43 /* Constant.swift */; settings = {ASSET_TAGS = (); }; };
 		B0A6CF291BC16512002DCBC8 /* TriggerEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A6CF281BC16512002DCBC8 /* TriggerEntity.swift */; settings = {ASSET_TAGS = (); }; };
 		B0A6CF2D1BC16B7C002DCBC8 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A6CF2C1BC16B7C002DCBC8 /* Level.swift */; settings = {ASSET_TAGS = (); }; };
 		B0A6CF2F1BC2555E002DCBC8 /* Tip.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A6CF2E1BC2555E002DCBC8 /* Tip.swift */; settings = {ASSET_TAGS = (); }; };
@@ -89,6 +94,11 @@
 		B0A1484C1BC6263F00BA5F43 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		B0A1484F1BC6430E00BA5F43 /* UIEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIEntity.swift; sourceTree = "<group>"; };
 		B0A148511BC7807700BA5F43 /* GameScene+ScreenRecording.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GameScene+ScreenRecording.swift"; sourceTree = "<group>"; };
+		B0A148531BC799C700BA5F43 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
+		B0A148561BC79BD600BA5F43 /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
+		B0A148581BC79BDC00BA5F43 /* GameplayKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameplayKit.framework; path = System/Library/Frameworks/GameplayKit.framework; sourceTree = SDKROOT; };
+		B0A1485A1BC79BE200BA5F43 /* ReplayKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReplayKit.framework; path = System/Library/Frameworks/ReplayKit.framework; sourceTree = SDKROOT; };
+		B0A1485C1BC7A54A00BA5F43 /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		B0A6CF281BC16512002DCBC8 /* TriggerEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TriggerEntity.swift; sourceTree = "<group>"; };
 		B0A6CF2C1BC16B7C002DCBC8 /* Level.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
 		B0A6CF2E1BC2555E002DCBC8 /* Tip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tip.swift; sourceTree = "<group>"; };
@@ -103,6 +113,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0A1485B1BC79BE200BA5F43 /* ReplayKit.framework in Frameworks */,
+				B0A148591BC79BDC00BA5F43 /* GameplayKit.framework in Frameworks */,
+				B0A148571BC79BD600BA5F43 /* SpriteKit.framework in Frameworks */,
+				B0A148541BC799C700BA5F43 /* GameKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +126,7 @@
 		B07F40AE1BB8F824008F053E = {
 			isa = PBXGroup;
 			children = (
+				B0A148551BC799FD00BA5F43 /* Framework */,
 				B07F40B91BB8F824008F053E /* GrubbyWorm */,
 				B07F40B81BB8F824008F053E /* Products */,
 			);
@@ -159,6 +174,7 @@
 			children = (
 				B07F40D41BB8F883008F053E /* Theme.swift */,
 				B07F40D51BB8F883008F053E /* DataStruct.swift */,
+				B0A1485C1BC7A54A00BA5F43 /* Constant.swift */,
 			);
 			path = Share;
 			sourceTree = "<group>";
@@ -223,6 +239,17 @@
 			name = "Support-Files";
 			sourceTree = "<group>";
 		};
+		B0A148551BC799FD00BA5F43 /* Framework */ = {
+			isa = PBXGroup;
+			children = (
+				B0A1485A1BC79BE200BA5F43 /* ReplayKit.framework */,
+				B0A148581BC79BDC00BA5F43 /* GameplayKit.framework */,
+				B0A148561BC79BD600BA5F43 /* SpriteKit.framework */,
+				B0A148531BC799C700BA5F43 /* GameKit.framework */,
+			);
+			name = Framework;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -254,6 +281,12 @@
 				TargetAttributes = {
 					B07F40B61BB8F824008F053E = {
 						CreatedOnToolsVersion = 7.0;
+						DevelopmentTeam = UMQMHH9L4Q;
+						SystemCapabilities = {
+							com.apple.GameCenter = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -301,6 +334,7 @@
 				B0589B421BC51E7900800875 /* CGPoint-Extensions.swift in Sources */,
 				B07F40EA1BB8F88F008F053E /* WormCrazyState.swift in Sources */,
 				B0589B391BC4256000800875 /* Tile.swift in Sources */,
+				B0A1485D1BC7A54A00BA5F43 /* Constant.swift in Sources */,
 				B07F40D21BB8F87D008F053E /* SKColor-Extensions.swift in Sources */,
 				B07F40D71BB8F883008F053E /* DataStruct.swift in Sources */,
 				B0589B3D1BC42E8B00800875 /* WormControlComponent.swift in Sources */,
@@ -444,10 +478,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = GrubbyWorm/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.game-china.GrubbyWorm";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.game-china.grubby-worm";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -455,10 +492,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = GrubbyWorm/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.game-china.GrubbyWorm";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.game-china.grubby-worm";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
