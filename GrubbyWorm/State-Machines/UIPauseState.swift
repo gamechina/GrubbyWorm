@@ -18,6 +18,8 @@ class UIPauseState: UIState {
             game?.scene.stopScreenRecordingWithHandler({ () -> Void in
                 print("recorded")
             })
+            
+            EasyGameCenter.reportScoreLeaderboard(leaderboardIdentifier: Constant.leaderboard_id, score: 100)
         }
         
         super.didEnterWithPreviousState(previousState)

@@ -12,12 +12,12 @@ A simple digital worm game made with latest iOS 9, SpriteKit, GameplayKit and Re
 - [x] FontAwesome in Use
 - [x] Simple Random Source
 - [x] Replay and Share
-- [ ] Game Center
+- [x] Game Center (powered by [Ease Game Center](https://github.com/DaRkD0G/Easy-Game-Center-Swift))
 - [ ] Juice
 
 ## What is Grubby Worm
 
-- 🐛 eat 🍬
+- 🐛 eat 🍬 
 - 🐛 shit 💩
 - when 🐛 eat 🍬 feel 😀
 - if 🐛 eat 🍬🍬🍬🍬🍬🍬🍬🍬🍬 feel 😈

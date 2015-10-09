@@ -10,7 +10,7 @@ import UIKit
 import SpriteKit
 import ReplayKit
 
-class GameViewController: UIViewController {
+class GameViewController: UIViewController, EasyGameCenterDelegate {
     
     var game: Game?
     
@@ -29,6 +29,19 @@ class GameViewController: UIViewController {
         
         game = Game(view: skView)
         skView.presentScene(game?.scene)
+        
+        /*** Set Delegate UIViewController ***/
+        EasyGameCenter.sharedInstance(self)
+        
+        /*** If you want not message just delete this ligne ***/
+        EasyGameCenter.debugMode = true
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        /*** Set View Controller delegate, that's when you change UIViewController ***/
+        EasyGameCenter.delegate = self
     }
 
     override func shouldAutorotate() -> Bool {
@@ -50,6 +63,11 @@ class GameViewController: UIViewController {
 
     override func prefersStatusBarHidden() -> Bool {
         return true
+    }
+    
+    func easyGameCenterAuthentified() {
+        print("\nPlayer Authentified\n")
+        EasyGameCenter.showGameCenterLeaderboard(leaderboardIdentifier: Constant.leaderboard_id)
     }
     
     @IBAction func swipeUp(sender: UISwipeGestureRecognizer) {
