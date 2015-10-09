@@ -14,6 +14,10 @@ class UIPauseState: UIState {
         if previousState != self {
             let spriteComponent = ui?.componentForClass(UISpriteComponent)
             spriteComponent?.usePauseAppearance()
+            
+            game?.scene.stopScreenRecordingWithHandler({ () -> Void in
+                print("recorded")
+            })
         }
         
         super.didEnterWithPreviousState(previousState)

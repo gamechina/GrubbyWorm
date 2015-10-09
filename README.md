@@ -11,7 +11,7 @@ A simple digital worm game made with latest iOS 9, SpriteKit, GameplayKit and Re
 - [x] State Machines
 - [x] FontAwesome in Use
 - [x] Simple Random Source
-- [ ] Replay and Share
+- [x] Replay and Share
 - [ ] Game Center
 - [ ] Juice
 

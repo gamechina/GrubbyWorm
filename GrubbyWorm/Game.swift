@@ -42,7 +42,7 @@ class Game: NSObject, GameSceneDelegate {
     // random distribution, for generate triggers locations.
     var colRandom: GKRandomDistribution?
     
-    var locationRandomSplit: NSTimeInterval = 0.01
+    var locationRandomSplit: NSTimeInterval = 0.5
     
     // for caculate the delta time in update method.
     var prevUpdateTime: NSTimeInterval = 0

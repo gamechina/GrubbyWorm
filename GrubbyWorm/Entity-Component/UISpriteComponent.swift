@@ -50,6 +50,9 @@ class UISpriteComponent: GKComponent, MoodBarDelegate {
     // play button
     var playButton: GWButton
     
+    // preview button
+    var previewButton: GWButton
+    
     // MARK: Initializers
     
     init(game: Game) {
@@ -119,6 +122,12 @@ class UISpriteComponent: GKComponent, MoodBarDelegate {
         playLabel.verticalAlignmentMode = .Center
         playButton.addChild(playLabel)
         
+        previewButton = GWButton(normalTexture: SKTexture(imageNamed: "tip"))
+        previewButton.size = CGSizeMake(60, 60)
+        previewButton.position = playButton.position + CGPointMake(120, 120)
+        previewButton.zPosition = 2
+        root.addChild(previewButton)
+        
         super.init()
         
         // some style and callback
@@ -138,6 +147,19 @@ class UISpriteComponent: GKComponent, MoodBarDelegate {
             print("click play")
             self.entity?.componentForClass(UIControlComponent)?.stateMachine?.enterState(UIPlayingState)
         })
+        
+        previewButton.actionTouchUpInside = GWButtonTarget.aBlock({ () -> Void in
+            print("click preview")
+            
+            guard let previewViewController = self._game.scene.previewViewController else { fatalError("The user requested playback, but a valid preview controller does not exist.") }
+            
+            guard let rootViewController = self._game.scene.view?.window?.rootViewController else { fatalError("The scene must be contained in a window with e root view controller.") }
+            
+            // `RPPreviewViewController` only supports full screen modal presentation.
+            previewViewController.modalPresentationStyle = UIModalPresentationStyle.FullScreen
+            
+            rootViewController.presentViewController(previewViewController, animated: true, completion:nil)
+        })
     }
     
     override func updateWithDeltaTime(seconds: NSTimeInterval) {
@@ -146,6 +168,7 @@ class UISpriteComponent: GKComponent, MoodBarDelegate {
     
     func useTitleAppearance() {
         playButton.hidden = false
+        previewButton.hidden = true
         moodBar.hidden = true
         topRoot.hidden = true
         pauseMask.hidden = true
@@ -154,6 +177,7 @@ class UISpriteComponent: GKComponent, MoodBarDelegate {
     func usePlayingAppearance() {
         logo.hidden = true
         playButton.hidden = true
+        previewButton.hidden = true
         moodBar.hidden = false
         topRoot.hidden = false
         pauseMask.hidden = true
@@ -161,6 +185,7 @@ class UISpriteComponent: GKComponent, MoodBarDelegate {
     
     func usePauseAppearance() {
         playButton.hidden = false
+        previewButton.hidden = false
         pauseMask.hidden = false
     }
     

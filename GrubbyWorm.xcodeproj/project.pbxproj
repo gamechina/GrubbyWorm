@@ -41,6 +41,7 @@
 		B088712B1BC2ED6800E82AA5 /* SpriteKit-Spring.swift in Sources */ = {isa = PBXBuildFile; fileRef = B088712A1BC2ED6800E82AA5 /* SpriteKit-Spring.swift */; settings = {ASSET_TAGS = (); }; };
 		B0A1484E1BC6426000BA5F43 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = B0A1484C1BC6263F00BA5F43 /* README.md */; };
 		B0A148501BC6430E00BA5F43 /* UIEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A1484F1BC6430E00BA5F43 /* UIEntity.swift */; settings = {ASSET_TAGS = (); }; };
+		B0A148521BC7807700BA5F43 /* GameScene+ScreenRecording.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A148511BC7807700BA5F43 /* GameScene+ScreenRecording.swift */; settings = {ASSET_TAGS = (); }; };
 		B0A6CF291BC16512002DCBC8 /* TriggerEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A6CF281BC16512002DCBC8 /* TriggerEntity.swift */; settings = {ASSET_TAGS = (); }; };
 		B0A6CF2D1BC16B7C002DCBC8 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A6CF2C1BC16B7C002DCBC8 /* Level.swift */; settings = {ASSET_TAGS = (); }; };
 		B0A6CF2F1BC2555E002DCBC8 /* Tip.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A6CF2E1BC2555E002DCBC8 /* Tip.swift */; settings = {ASSET_TAGS = (); }; };
@@ -87,6 +88,7 @@
 		B088712A1BC2ED6800E82AA5 /* SpriteKit-Spring.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SpriteKit-Spring.swift"; sourceTree = "<group>"; };
 		B0A1484C1BC6263F00BA5F43 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		B0A1484F1BC6430E00BA5F43 /* UIEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIEntity.swift; sourceTree = "<group>"; };
+		B0A148511BC7807700BA5F43 /* GameScene+ScreenRecording.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GameScene+ScreenRecording.swift"; sourceTree = "<group>"; };
 		B0A6CF281BC16512002DCBC8 /* TriggerEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TriggerEntity.swift; sourceTree = "<group>"; };
 		B0A6CF2C1BC16B7C002DCBC8 /* Level.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
 		B0A6CF2E1BC2555E002DCBC8 /* Tip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tip.swift; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 				B088712A1BC2ED6800E82AA5 /* SpriteKit-Spring.swift */,
 				B07F40D11BB8F87D008F053E /* SKColor-Extensions.swift */,
 				B0E590BC1BB9289A00FB98CC /* GWButton.swift */,
+				B0A148511BC7807700BA5F43 /* GameScene+ScreenRecording.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -307,6 +310,7 @@
 				B088712B1BC2ED6800E82AA5 /* SpriteKit-Spring.swift in Sources */,
 				B0A6CF2F1BC2555E002DCBC8 /* Tip.swift in Sources */,
 				B07F40C11BB8F824008F053E /* GameViewController.swift in Sources */,
+				B0A148521BC7807700BA5F43 /* GameScene+ScreenRecording.swift in Sources */,
 				B07F40E81BB8F88F008F053E /* UIState.swift in Sources */,
 				B0589B3F1BC4C39500800875 /* WormSpriteComponent.swift in Sources */,
 				B07F40F61BB8F8E4008F053E /* Entity.swift in Sources */,

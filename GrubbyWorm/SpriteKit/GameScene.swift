@@ -7,13 +7,17 @@
 //
 
 import SpriteKit
+import ReplayKit
 
 protocol GameSceneDelegate : SKSceneDelegate {
     func didMoveToView(view: SKView)
 }
 
 class GameScene: SKScene {
+    
     var gameDelegate: GameSceneDelegate?
+    
+    var previewViewController: RPPreviewViewController?
     
     override func didMoveToView(view: SKView) {
         super.didMoveToView(view)
