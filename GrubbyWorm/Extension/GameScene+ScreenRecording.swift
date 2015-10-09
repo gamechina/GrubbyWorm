@@ -31,6 +31,8 @@ extension GameScene: RPPreviewViewControllerDelegate, RPScreenRecorderDelegate {
             if let error = error {
                 self.showScreenRecordingAlert(error.localizedDescription)
             }
+            
+            print("record started")
         }
     }
     

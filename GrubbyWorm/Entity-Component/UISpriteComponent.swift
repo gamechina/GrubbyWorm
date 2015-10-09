@@ -127,13 +127,13 @@ class UISpriteComponent: GKComponent, MoodBarDelegate {
         
         previewButton = GWButton(normalTexture: SKTexture(imageNamed: "tip"))
         previewButton.size = CGSizeMake(60, 60)
-        previewButton.position = playButton.position + CGPointMake(120, 120)
+        previewButton.position = playButton.position + CGPointMake(120, -10)
         previewButton.zPosition = 2
         root.addChild(previewButton)
         
         gameCenterButton = GWButton(normalTexture: SKTexture(imageNamed: "tip"))
         gameCenterButton.size = CGSizeMake(60, 60)
-        gameCenterButton.position = playButton.position + CGPointMake(-120, 120)
+        gameCenterButton.position = playButton.position + CGPointMake(-120, -10)
         gameCenterButton.zPosition = 2
         root.addChild(gameCenterButton)
         

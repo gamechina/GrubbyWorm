@@ -13,6 +13,7 @@ A simple digital worm game made with latest iOS 9, SpriteKit, GameplayKit and Re
 - [x] Simple Random Source
 - [x] Replay and Share
 - [x] Game Center (powered by [Ease Game Center](https://github.com/DaRkD0G/Easy-Game-Center-Swift))
+- [ ] Rule System
 - [ ] Juice
 
 ## What is Grubby Worm
