@@ -66,8 +66,9 @@ class GameViewController: UIViewController, EasyGameCenterDelegate {
     }
     
     func easyGameCenterAuthentified() {
-        print("\nPlayer Authentified\n")
-        EasyGameCenter.showGameCenterLeaderboard(leaderboardIdentifier: Constant.leaderboard_id)
+        if let uiSprite = game?.ui.componentForClass(UISpriteComponent) {
+            uiSprite.gameCenterButton.isEnabled = true
+        }
     }
     
     @IBAction func swipeUp(sender: UISwipeGestureRecognizer) {

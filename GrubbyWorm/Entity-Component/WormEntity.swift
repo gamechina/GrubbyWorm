@@ -22,7 +22,7 @@ class WormEntity : Entity {
     init(ui: UIEntity?) {
         self.ui = ui
         
-        info = WormInfo(name: "Grubby Worm", speed: 0.15, foot: 5, type: .Grubby)
+        info = WormInfo(name: "Grubby Worm", speed: 0.35, foot: 5, type: .Grubby)
         
         super.init()
     }
@@ -46,9 +46,9 @@ class WormEntity : Entity {
             let addScore = comboCount == 0 ? 1 : comboCount
             spriteComponent?.score.text = String(score! + addScore)
             
-            if(spriteComponent?.score.frame.size.width >= (Theme.energy_bar_margin - 10)) {
-                spriteComponent?.score.fontSize--
-            }
+//            if(spriteComponent?.score.frame.size.width >= (Theme.energy_bar_margin - 10)) {
+//                spriteComponent?.score.fontSize--
+//            }
         }
         
         if info.speed >= 0.12 {
@@ -58,6 +58,7 @@ class WormEntity : Entity {
     
     func comboFail() {
         print("combo fail.")
+        
         willCombo = false
         comboCount = 0
     }

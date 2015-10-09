@@ -114,26 +114,26 @@ class UISpriteComponent: GKComponent, MoodBarDelegate {
         root.addChild(logo)
         
         // play button
-        playButton = GWButton(normalTexture: SKTexture(imageNamed: "tip"))
-        playButton.size = CGSizeMake(100, 100)
-        playButton.position = CGPointMake(sceneSize.width / 2, sceneSize.height / 2 - 80)
+        playButton = GWButton(normalTexture: SKTexture(imageNamed: "btn_play"))
+        playButton.size = CGSizeMake(120, 120)
+        playButton.position = CGPointMake(sceneSize.width / 2, sceneSize.height / 2 - 90)
         playButton.zPosition = 2
         root.addChild(playButton)
         
-        let playLabel = SKLabelNode(fontNamed: "Stiff Staff")
-        playLabel.text = "PLAY"
-        playLabel.verticalAlignmentMode = .Center
-        playButton.addChild(playLabel)
-        
-        previewButton = GWButton(normalTexture: SKTexture(imageNamed: "tip"))
+        let previewNormalTexture = SKTexture(imageNamed: "icon_replay_normal")
+        let previewDisabledTexture = SKTexture(imageNamed: "icon_replay_disabled")
+        previewButton = GWButton(normalTexture: previewNormalTexture, selectedTexture: previewNormalTexture, disabledTexture: previewDisabledTexture)
         previewButton.size = CGSizeMake(60, 60)
-        previewButton.position = playButton.position + CGPointMake(120, -10)
+        previewButton.position = playButton.position + CGPointMake(140, 0)
         previewButton.zPosition = 2
         root.addChild(previewButton)
         
-        gameCenterButton = GWButton(normalTexture: SKTexture(imageNamed: "tip"))
+        let gameCenterNormalTexture = SKTexture(imageNamed: "icon_game_center_normal")
+        let gameCenterDisabledTexture = SKTexture(imageNamed: "icon_game_center_disabled")
+        gameCenterButton = GWButton(normalTexture: gameCenterNormalTexture, selectedTexture: gameCenterNormalTexture, disabledTexture: gameCenterDisabledTexture)
         gameCenterButton.size = CGSizeMake(60, 60)
-        gameCenterButton.position = playButton.position + CGPointMake(-120, -10)
+        gameCenterButton.position = playButton.position + CGPointMake(-140, 0)
+        gameCenterButton.isEnabled = false
         gameCenterButton.zPosition = 2
         root.addChild(gameCenterButton)
         
@@ -175,7 +175,7 @@ class UISpriteComponent: GKComponent, MoodBarDelegate {
         gameCenterButton.actionTouchUpInside = GWButtonTarget.aBlock({ () -> Void in
             print("click game center")
             
-            EasyGameCenter.showGameCenterAchievements()
+            EasyGameCenter.showGameCenterLeaderboard(leaderboardIdentifier: Constant.leaderboard_id)
         })
     }
     
@@ -186,6 +186,17 @@ class UISpriteComponent: GKComponent, MoodBarDelegate {
     func useTitleAppearance() {
         playButton.hidden = false
         gameCenterButton.hidden = false
+        
+        let posA = playButton.position
+        playButton.position -= CGPointMake(0, 300)
+        let moveUp = SKAction.moveToY(posA.y, duration: 1.5, delay: 0, usingSpringWithDamping: 0.55, initialSpringVelocity: 0.3)
+        playButton.runAction(moveUp)
+        
+        let posB = gameCenterButton.position
+        gameCenterButton.position -= CGPointMake(200, 300)
+        let moveUpRight = SKAction.moveTo(posB, duration: 1.5, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0.55)
+        gameCenterButton.runAction(moveUpRight)
+        
         previewButton.hidden = true
         moodBar.hidden = true
         topRoot.hidden = true
@@ -205,6 +216,18 @@ class UISpriteComponent: GKComponent, MoodBarDelegate {
     func usePauseAppearance() {
         playButton.hidden = false
         gameCenterButton.hidden = false
+        
+        let posA = playButton.position
+        playButton.position -= CGPointMake(0, 300)
+        let moveUp = SKAction.moveToY(posA.y, duration: 1.5, delay: 0, usingSpringWithDamping: 0.55, initialSpringVelocity: 0.3)
+        playButton.runAction(moveUp)
+        
+        let posB = gameCenterButton.position
+        gameCenterButton.position -= CGPointMake(200, 300)
+        let moveUpRight = SKAction.moveTo(posB, duration: 1.5, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0.55)
+        gameCenterButton.runAction(moveUpRight)
+        
+        
         previewButton.hidden = false
         pauseMask.hidden = false
     }

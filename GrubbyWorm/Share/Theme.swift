@@ -26,7 +26,7 @@ struct Theme {
     static let energy_bar_up_color = SKColorWithRGB(245, g: 245, b: 245)
     static let energy_bar_down_color = SKColorWithRGB(180, g: 20, b: 20)
     
-    static let mask_color = SKColorWithRGBA(0, g: 0, b: 0, a: 160)
+    static let mask_color = SKColorWithRGBA(0, g: 0, b: 0, a: 190)
     
     static let tile_normal_color = SKColorWithRGB(250, g: 250, b: 250)
     static let tile_marble_color = SKColorWithRGB(245, g: 245, b: 245)
