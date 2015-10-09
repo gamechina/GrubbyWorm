@@ -2,13 +2,15 @@
 
 A simple digital worm game made with latest iOS 9, SpriteKit, GameplayKit and ReplayKit, written in Swift 2.
 
+**QQ交流群(Swift 游戏开发交流组)：453564812**
+
 ## Feature List
 
 - [x] SpriteKit Scene
 - [x] Entiy and Component
 - [x] State Machines
 - [x] FontAwesome in Use
-- [ ] Random Source
+- [x] Simple Random Source
 - [ ] Replay and Share
 - [ ] Game Center
 - [ ] Juice
