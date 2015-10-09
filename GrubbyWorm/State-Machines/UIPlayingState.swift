@@ -19,10 +19,8 @@ class UIPlayingState: UIState {
             let controlComponent = ui?.componentForClass(UIControlComponent)
             if controlComponent?.stateMachine?.stateForClass(UITitleState) == previousState {
                 game?.startGame()
-                game?.scene.startScreenRecording()
             } else {
                 game?.resumeGame()
-                game?.scene.startScreenRecording()
             }
         }
         

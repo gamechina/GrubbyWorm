@@ -54,7 +54,7 @@ class WormSpriteComponent: GKComponent {
     }
     
     func renderSomites() {
-        let size = CGSizeMake(36, 36)
+        let size = CGSizeMake(38, 38)
         
         if let worm = entity as? WormEntity {
             for _ in 0..<worm.info.foot {
@@ -69,7 +69,12 @@ class WormSpriteComponent: GKComponent {
         if let worm = entity as? WormEntity {
             for i in 0..<worm.info.foot {
                 if let tile = playground?.tileByLocation(locations[i]) {
-                    somites[i].position = tile.position
+                    
+                    // interesting
+                    somites[i].removeActionForKey("crawl")
+                    let to = SKAction.moveTo(tile.position, duration: worm.info.speed)
+                    somites[i].runAction(to, withKey: "crawl")
+//                    somites[i].position = tile.position
                 }
             }
         }

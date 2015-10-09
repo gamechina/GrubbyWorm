@@ -12,7 +12,7 @@ class Playground: SKNode {
     
     let focusMoveActionKey = "focusMove"
     
-    let gridSize = GridSize(row: 32, col: 32)
+    let gridSize = GridSize(row: 24, col: 24)
     
     var size: CGSize
     var tiles: [Tile]

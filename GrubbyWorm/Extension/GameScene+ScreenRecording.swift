@@ -18,7 +18,7 @@ extension GameScene: RPPreviewViewControllerDelegate, RPScreenRecorderDelegate {
     
     // MARK: Start/Stop Screen Recording
     
-    func startScreenRecording() {
+    func startScreenRecording(handler: (() -> Void)) {
         // Do nothing if screen recording hasn't been enabled.
         guard screenRecordingToggleEnabled else { return }
         
@@ -33,6 +33,8 @@ extension GameScene: RPPreviewViewControllerDelegate, RPScreenRecorderDelegate {
             }
             
             print("record started")
+            
+            handler()
         }
     }
     

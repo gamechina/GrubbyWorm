@@ -22,7 +22,7 @@ class WormEntity : Entity {
     init(ui: UIEntity?) {
         self.ui = ui
         
-        info = WormInfo(name: "Grubby Worm", speed: 0.45, foot: 5, type: .Grubby)
+        info = WormInfo(name: "Grubby Worm", speed: 0.15, foot: 5, type: .Grubby)
         
         super.init()
     }
@@ -51,7 +51,7 @@ class WormEntity : Entity {
             }
         }
         
-        if info.speed >= 0.1 {
+        if info.speed >= 0.12 {
             info.speed -= 0.01
         }
     }
