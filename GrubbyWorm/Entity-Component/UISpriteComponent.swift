@@ -154,9 +154,10 @@ class UISpriteComponent: GKComponent, MoodBarDelegate {
         
         playButton.actionTouchUpInside = GWButtonTarget.aBlock({ () -> Void in
             print("click play")
-            self._game.scene.startScreenRecording({ () -> Void in
-                self.entity?.componentForClass(UIControlComponent)?.stateMachine?.enterState(UIPlayingState)
-            })
+            self.entity?.componentForClass(UIControlComponent)?.stateMachine?.enterState(UIPlayingState)
+//            self._game.scene.startScreenRecording({ () -> Void in
+//                self.entity?.componentForClass(UIControlComponent)?.stateMachine?.enterState(UIPlayingState)
+//            })
         })
         
         previewButton.actionTouchUpInside = GWButtonTarget.aBlock({ () -> Void in
