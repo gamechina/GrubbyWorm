@@ -50,11 +50,14 @@ class UISpriteComponent: GKComponent, MoodBarDelegate {
     // play button
     var playButton: GWButton
     
-    // preview button
-    var previewButton: GWButton
+    // how button
+    var howButton: GWButton
     
     // game center button
     var gameCenterButton: GWButton
+    
+    // restart button
+    var restartButton: GWButton
     
     // MARK: Initializers
     
@@ -120,13 +123,12 @@ class UISpriteComponent: GKComponent, MoodBarDelegate {
         playButton.zPosition = 2
         root.addChild(playButton)
         
-        let previewNormalTexture = SKTexture(imageNamed: "icon_replay_normal")
-        let previewDisabledTexture = SKTexture(imageNamed: "icon_replay_disabled")
-        previewButton = GWButton(normalTexture: previewNormalTexture, selectedTexture: previewNormalTexture, disabledTexture: previewDisabledTexture)
-        previewButton.size = CGSizeMake(60, 60)
-        previewButton.position = playButton.position + CGPointMake(140, 0)
-        previewButton.zPosition = 2
-        root.addChild(previewButton)
+        let howNormalTexture = SKTexture(imageNamed: "icon_how")
+        howButton = GWButton(normalTexture: howNormalTexture)
+        howButton.size = CGSizeMake(60, 60)
+        howButton.position = playButton.position + CGPointMake(140, 0)
+        howButton.zPosition = 2
+        root.addChild(howButton)
         
         let gameCenterNormalTexture = SKTexture(imageNamed: "icon_game_center_normal")
         let gameCenterDisabledTexture = SKTexture(imageNamed: "icon_game_center_disabled")
@@ -136,6 +138,12 @@ class UISpriteComponent: GKComponent, MoodBarDelegate {
         gameCenterButton.isEnabled = false
         gameCenterButton.zPosition = 2
         root.addChild(gameCenterButton)
+        
+        restartButton = GWButton(normalTexture: SKTexture(imageNamed: "icon_restart"))
+        restartButton.size = CGSizeMake(60, 60)
+        restartButton.position = playButton.position + CGPointMake(0, 140)
+        restartButton.zPosition = 2
+        root.addChild(restartButton)
         
         super.init()
         
@@ -160,23 +168,29 @@ class UISpriteComponent: GKComponent, MoodBarDelegate {
 //            })
         })
         
-        previewButton.actionTouchUpInside = GWButtonTarget.aBlock({ () -> Void in
-            print("click preview")
+        howButton.actionTouchUpInside = GWButtonTarget.aBlock({ () -> Void in
+            print("click how")
             
-            guard let previewViewController = self._game.scene.previewViewController else { fatalError("The user requested playback, but a valid preview controller does not exist.") }
-            
-            guard let rootViewController = self._game.scene.view?.window?.rootViewController else { fatalError("The scene must be contained in a window with e root view controller.") }
-            
-            // `RPPreviewViewController` only supports full screen modal presentation.
-            previewViewController.modalPresentationStyle = UIModalPresentationStyle.FullScreen
-            
-            rootViewController.presentViewController(previewViewController, animated: true, completion:nil)
+//            guard let previewViewController = self._game.scene.previewViewController else { fatalError("The user requested playback, but a valid preview controller does not exist.") }
+//            
+//            guard let rootViewController = self._game.scene.view?.window?.rootViewController else { fatalError("The scene must be contained in a window with e root view controller.") }
+//            
+//            // `RPPreviewViewController` only supports full screen modal presentation.
+//            previewViewController.modalPresentationStyle = UIModalPresentationStyle.FullScreen
+//            
+//            rootViewController.presentViewController(previewViewController, animated: true, completion:nil)
         })
         
         gameCenterButton.actionTouchUpInside = GWButtonTarget.aBlock({ () -> Void in
             print("click game center")
             
             EasyGameCenter.showGameCenterLeaderboard(leaderboardIdentifier: Constant.leaderboard_id)
+        })
+        
+        restartButton.actionTouchUpInside = GWButtonTarget.aBlock({ () -> Void in
+            print("click restart")
+            
+            
         })
     }
     
@@ -187,6 +201,7 @@ class UISpriteComponent: GKComponent, MoodBarDelegate {
     func useTitleAppearance() {
         playButton.hidden = false
         gameCenterButton.hidden = false
+        howButton.hidden = false
         
         let posA = playButton.position
         playButton.position -= CGPointMake(0, 300)
@@ -198,7 +213,12 @@ class UISpriteComponent: GKComponent, MoodBarDelegate {
         let moveUpRight = SKAction.moveTo(posB, duration: 1.5, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0.55)
         gameCenterButton.runAction(moveUpRight)
         
-        previewButton.hidden = true
+        let posC = howButton.position
+        howButton.position -= CGPointMake(-200, 300)
+        let moveUpLeft = SKAction.moveTo(posC, duration: 1.5, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0.55)
+        howButton.runAction(moveUpLeft)
+        
+        restartButton.hidden = true
         moodBar.hidden = true
         topRoot.hidden = true
         pauseMask.hidden = true
@@ -208,7 +228,8 @@ class UISpriteComponent: GKComponent, MoodBarDelegate {
         logo.hidden = true
         playButton.hidden = true
         gameCenterButton.hidden = true
-        previewButton.hidden = true
+        howButton.hidden = true
+        restartButton.hidden = true
         moodBar.hidden = false
         topRoot.hidden = false
         pauseMask.hidden = true
@@ -217,6 +238,8 @@ class UISpriteComponent: GKComponent, MoodBarDelegate {
     func usePauseAppearance() {
         playButton.hidden = false
         gameCenterButton.hidden = false
+        howButton.hidden = false
+        restartButton.hidden = false
         
         let posA = playButton.position
         playButton.position -= CGPointMake(0, 300)
@@ -228,8 +251,16 @@ class UISpriteComponent: GKComponent, MoodBarDelegate {
         let moveUpRight = SKAction.moveTo(posB, duration: 1.5, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0.55)
         gameCenterButton.runAction(moveUpRight)
         
+        let posC = howButton.position
+        howButton.position -= CGPointMake(-200, 300)
+        let moveUpLeft = SKAction.moveTo(posC, duration: 1.5, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0.55)
+        howButton.runAction(moveUpLeft)
         
-        previewButton.hidden = false
+        let posD = restartButton.position
+        restartButton.position -= CGPointMake(0, -300)
+        let moveDown = SKAction.moveTo(posD, duration: 1.5, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0.55)
+        restartButton.runAction(moveDown)
+        
         pauseMask.hidden = false
     }
     
