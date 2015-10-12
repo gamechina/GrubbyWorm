@@ -12,7 +12,7 @@ class Playground: SKNode {
     
     let focusMoveActionKey = "focusMove"
     
-    let gridSize = GridSize(row: 24, col: 24)
+    let gridSize = GridSize(row: 30, col: 30)
     
     var size: CGSize
     var tiles: [Tile]
@@ -64,8 +64,8 @@ class Playground: SKNode {
         }
         
         // content size
-        contentSize.width = (Theme.tile_interval + 38) * CGFloat(range.from.row) + Theme.tile_interval
-        contentSize.height = (Theme.tile_interval + 38) * CGFloat(range.from.col) + Theme.tile_interval
+        contentSize.width = (Theme.tile_interval + 38) * CGFloat(gridSize.row) + Theme.tile_interval
+        contentSize.height = (Theme.tile_interval + 38) * CGFloat(gridSize.col) + Theme.tile_interval
     }
     
     func tileByLocation(location: Location) -> Tile? {
