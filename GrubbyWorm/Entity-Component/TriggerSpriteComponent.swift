@@ -54,15 +54,14 @@ class TriggerSpriteComponent: GKComponent {
     
     private func giveBirth() {
         switch type {
-        case .Sugar, .Candy, .Grubby:
+        case .Sugar, .Candy:
             sugarBorn({ (Void) -> () in
                 self.renderDisplay()
             })
             break
-            //            case .Grubby:
-            //                entity.born = true
-            //                renderDisplay()
-            //                break
+        case .Grubby:
+            renderDisplay()
+            break
         }
     }
     

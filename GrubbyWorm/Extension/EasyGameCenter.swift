@@ -1324,11 +1324,7 @@ public class EasyGameCenter: NSObject, GKGameCenterControllerDelegate, GKMatchma
             /* Connected */
         case .StateConnected:
             if theMatch.expectedPlayerCount == 0 {
-                if #available(iOS 8.0, *) {
-                    self.lookupPlayers()
-                } else {
-                    // Fallback on earlier versions
-                }
+                self.lookupPlayers()
             }
             
             /* Lost deconnection */
@@ -1368,11 +1364,7 @@ public class EasyGameCenter: NSObject, GKGameCenterControllerDelegate, GKMatchma
         self.match = theMatch
         self.match!.delegate = self
         if match!.expectedPlayerCount == 0 {
-            if #available(iOS 8.0, *) {
-                self.lookupPlayers()
-            } else {
-                // Fallback on earlier versions
-            }
+            self.lookupPlayers()
         }
     }
     
