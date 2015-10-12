@@ -121,6 +121,7 @@ class UISpriteComponent: GKComponent, MoodBarDelegate {
         playButton.size = CGSizeMake(120, 120)
         playButton.position = CGPointMake(sceneSize.width / 2, sceneSize.height / 2 - 90)
         playButton.zPosition = 2
+        playButton.setRawPosition()
         root.addChild(playButton)
         
         let howNormalTexture = SKTexture(imageNamed: "icon_how")
@@ -128,6 +129,7 @@ class UISpriteComponent: GKComponent, MoodBarDelegate {
         howButton.size = CGSizeMake(60, 60)
         howButton.position = playButton.position + CGPointMake(140, 0)
         howButton.zPosition = 2
+        howButton.setRawPosition()
         root.addChild(howButton)
         
         let gameCenterNormalTexture = SKTexture(imageNamed: "icon_game_center_normal")
@@ -137,12 +139,14 @@ class UISpriteComponent: GKComponent, MoodBarDelegate {
         gameCenterButton.position = playButton.position + CGPointMake(-140, 0)
         gameCenterButton.isEnabled = false
         gameCenterButton.zPosition = 2
+        gameCenterButton.setRawPosition()
         root.addChild(gameCenterButton)
         
         restartButton = GWButton(normalTexture: SKTexture(imageNamed: "icon_restart"))
         restartButton.size = CGSizeMake(60, 60)
         restartButton.position = playButton.position + CGPointMake(0, 140)
         restartButton.zPosition = 2
+        restartButton.setRawPosition()
         root.addChild(restartButton)
         
         super.init()
@@ -162,10 +166,15 @@ class UISpriteComponent: GKComponent, MoodBarDelegate {
         
         playButton.actionTouchUpInside = GWButtonTarget.aBlock({ () -> Void in
             print("click play")
-            self.entity?.componentForClass(UIControlComponent)?.stateMachine?.enterState(UIPlayingState)
-//            self._game.scene.startScreenRecording({ () -> Void in
-//                self.entity?.componentForClass(UIControlComponent)?.stateMachine?.enterState(UIPlayingState)
-//            })
+            
+            self.moveOutButtons({ (Void) -> () in
+                self.entity?.componentForClass(UIControlComponent)?.stateMachine?.enterState(UIPlayingState)
+                //            self._game.scene.startScreenRecording({ () -> Void in
+                //                self.entity?.componentForClass(UIControlComponent)?.stateMachine?.enterState(UIPlayingState)
+                //            })
+            })
+            
+            
         })
         
         howButton.actionTouchUpInside = GWButtonTarget.aBlock({ () -> Void in
@@ -203,20 +212,17 @@ class UISpriteComponent: GKComponent, MoodBarDelegate {
         gameCenterButton.hidden = false
         howButton.hidden = false
         
-        let posA = playButton.position
-        playButton.position -= CGPointMake(0, 300)
-        let moveUp = SKAction.moveToY(posA.y, duration: 1.5, delay: 0, usingSpringWithDamping: 0.55, initialSpringVelocity: 0.3)
-        playButton.runAction(moveUp)
+        let posA = playButton.getRawPosition()
+        playButton.position = posA - CGPointMake(0, 300)
+        playButton.quickMoveTo(posA)
         
-        let posB = gameCenterButton.position
-        gameCenterButton.position -= CGPointMake(200, 300)
-        let moveUpRight = SKAction.moveTo(posB, duration: 1.5, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0.55)
-        gameCenterButton.runAction(moveUpRight)
+        let posB = gameCenterButton.getRawPosition()
+        gameCenterButton.position = posB - CGPointMake(200, 300)
+        gameCenterButton.slowMoveTo(posB)
         
-        let posC = howButton.position
-        howButton.position -= CGPointMake(-200, 300)
-        let moveUpLeft = SKAction.moveTo(posC, duration: 1.5, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0.55)
-        howButton.runAction(moveUpLeft)
+        let posC = howButton.getRawPosition()
+        howButton.position = posC - CGPointMake(-200, 300)
+        howButton.slowMoveTo(posC)
         
         restartButton.hidden = true
         moodBar.hidden = true
@@ -241,25 +247,21 @@ class UISpriteComponent: GKComponent, MoodBarDelegate {
         howButton.hidden = false
         restartButton.hidden = false
         
-        let posA = playButton.position
-        playButton.position -= CGPointMake(0, 300)
-        let moveUp = SKAction.moveToY(posA.y, duration: 1.5, delay: 0, usingSpringWithDamping: 0.55, initialSpringVelocity: 0.3)
-        playButton.runAction(moveUp)
+        let posA = playButton.getRawPosition()
+        playButton.position = posA - CGPointMake(0, 300)
+        playButton.quickMoveTo(posA)
         
-        let posB = gameCenterButton.position
-        gameCenterButton.position -= CGPointMake(200, 300)
-        let moveUpRight = SKAction.moveTo(posB, duration: 1.5, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0.55)
-        gameCenterButton.runAction(moveUpRight)
+        let posB = gameCenterButton.getRawPosition()
+        gameCenterButton.position = posB - CGPointMake(200, 300)
+        gameCenterButton.slowMoveTo(posB)
         
-        let posC = howButton.position
-        howButton.position -= CGPointMake(-200, 300)
-        let moveUpLeft = SKAction.moveTo(posC, duration: 1.5, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0.55)
-        howButton.runAction(moveUpLeft)
+        let posC = howButton.getRawPosition()
+        howButton.position = posC - CGPointMake(-200, 300)
+        howButton.slowMoveTo(posC)
         
-        let posD = restartButton.position
-        restartButton.position -= CGPointMake(0, -300)
-        let moveDown = SKAction.moveTo(posD, duration: 1.5, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0.55)
-        restartButton.runAction(moveDown)
+        let posD = restartButton.getRawPosition()
+        restartButton.position = posD - CGPointMake(0, -300)
+        restartButton.slowMoveTo(posD)
         
         pauseMask.hidden = false
     }
@@ -274,5 +276,24 @@ class UISpriteComponent: GKComponent, MoodBarDelegate {
     
     func onMoodProgressFull(bar: MoodBar) {
         
+    }
+    
+    func moveOutButtons(handler: (Void -> ())) {
+        let posA = playButton.position - CGPointMake(0, 300)
+        playButton.quickMoveTo(posA)
+        
+        let posB = gameCenterButton.position - CGPointMake(200, 300)
+        gameCenterButton.slowMoveTo(posB)
+        
+        let posC = howButton.position - CGPointMake(-200, 300)
+        howButton.slowMoveTo(posC)
+        
+        let posD = restartButton.position - CGPointMake(0, -300)
+        restartButton.slowMoveTo(posD)
+        
+        let triggerTime = (Int64(NSEC_PER_MSEC) * 500)
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, triggerTime), dispatch_get_main_queue(), { () -> Void in
+            handler()
+        })
     }
 }

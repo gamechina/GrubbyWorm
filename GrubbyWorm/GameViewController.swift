@@ -28,6 +28,7 @@ class GameViewController: UIViewController, EasyGameCenterDelegate {
         skView.showsQuadCount = true
         
         game = Game(view: skView)
+        
         skView.presentScene(game?.scene)
         
         /*** Set Delegate UIViewController ***/
@@ -48,13 +49,13 @@ class GameViewController: UIViewController, EasyGameCenterDelegate {
         return true
     }
 
-//    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
-//        if UIDevice.currentDevice().userInterfaceIdiom == .Phone {
-//            return .AllButUpsideDown
-//        } else {
-//            return .All
-//        }
-//    }
+    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+        if UIDevice.currentDevice().userInterfaceIdiom == .Phone {
+            return .AllButUpsideDown
+        } else {
+            return .All
+        }
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

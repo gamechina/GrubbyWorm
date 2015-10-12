@@ -11,9 +11,11 @@ import GameplayKit
 class TriggerEntity : Entity {
     
     var location: Location
+    var born: Bool
     
     init(location: Location) {
         self.location = location
+        self.born = false
         
         super.init()
     }

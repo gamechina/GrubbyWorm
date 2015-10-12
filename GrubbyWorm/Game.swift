@@ -61,6 +61,7 @@ class Game: NSObject, GameSceneDelegate {
         super.init()
         
         initScene()
+        addObservers()
     }
     
     // init the only game scene.
@@ -69,6 +70,14 @@ class Game: NSObject, GameSceneDelegate {
         
         scene.scaleMode = .AspectFill
         scene.backgroundColor = Theme.scene_background_color
+    }
+    
+    func addObservers() {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "enterBackground:", name: "enter background", object: nil)
+    }
+    
+    func enterBackground(notification: NSNotification) {
+        pause()
     }
     
     func initUI() {
@@ -105,7 +114,7 @@ class Game: NSObject, GameSceneDelegate {
         // check trigger
         if let wormLoc = worm.componentForClass(WormSpriteComponent)?.locations[0] {
             for trigger in triggers {
-                if trigger.location.equal(wormLoc) {
+                if trigger.location.equal(wormLoc) && trigger.born {
                     fireTrigger(trigger)
                 }
             }
@@ -113,16 +122,6 @@ class Game: NSObject, GameSceneDelegate {
     }
     
     func startGame() {
-        
-        // add some trigger
-        let a = TriggerEntity(location: Location(row: 2, col: 2))
-        a.addComponent(TriggerSpriteComponent())
-        let b = TriggerEntity(location: Location(row: 4, col: 4))
-        b.addComponent(TriggerSpriteComponent())
-        
-        addTrigger(a)
-        addTrigger(b)
-        
         initWorm()
     }
     
@@ -175,10 +174,17 @@ class Game: NSObject, GameSceneDelegate {
     func addRandomTrigger() {
         let loc = getRandomLocation()
         
-        let t = TriggerEntity(location: loc)
-        t.addComponent(TriggerSpriteComponent())
+        let t = SugarTriggerEntity(location: loc, style: .Maltose)
         
         addTrigger(t)
     }
     
+    // user action quick method
+    func pause() {
+        if let stateMachine = ui.componentForClass(UIControlComponent)?.stateMachine {
+            if stateMachine.currentState == stateMachine.stateForClass(UIPlayingState) {
+                stateMachine.enterState(UIPauseState)
+            }
+        }
+    }
 }

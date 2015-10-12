@@ -16,6 +16,10 @@
 		B0589B421BC51E7900800875 /* CGPoint-Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0589B411BC51E7900800875 /* CGPoint-Extensions.swift */; settings = {ASSET_TAGS = (); }; };
 		B0589B441BC5607F00800875 /* TriggerSpriteComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0589B431BC5607F00800875 /* TriggerSpriteComponent.swift */; settings = {ASSET_TAGS = (); }; };
 		B0589B461BC5666F00800875 /* WormEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0589B451BC5666F00800875 /* WormEntity.swift */; settings = {ASSET_TAGS = (); }; };
+		B073D4BF1BCB6C44003D8420 /* SugarTriggerEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B073D4BE1BCB6C44003D8420 /* SugarTriggerEntity.swift */; settings = {ASSET_TAGS = (); }; };
+		B073D4C11BCB6C68003D8420 /* GrubbyTriggerEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B073D4C01BCB6C68003D8420 /* GrubbyTriggerEntity.swift */; settings = {ASSET_TAGS = (); }; };
+		B073D4C91BCB95F5003D8420 /* CandyTriggerEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B073D4C81BCB95F5003D8420 /* CandyTriggerEntity.swift */; settings = {ASSET_TAGS = (); }; };
+		B073D4CD1BCBA1BB003D8420 /* SKSpriteNode-Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B073D4CC1BCBA1BB003D8420 /* SKSpriteNode-Extensions.swift */; settings = {ASSET_TAGS = (); }; };
 		B07F40BB1BB8F824008F053E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07F40BA1BB8F824008F053E /* AppDelegate.swift */; };
 		B07F40C11BB8F824008F053E /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07F40C01BB8F824008F053E /* GameViewController.swift */; };
 		B07F40C41BB8F824008F053E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B07F40C21BB8F824008F053E /* Main.storyboard */; };
@@ -68,6 +72,10 @@
 		B0589B411BC51E7900800875 /* CGPoint-Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGPoint-Extensions.swift"; sourceTree = "<group>"; };
 		B0589B431BC5607F00800875 /* TriggerSpriteComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TriggerSpriteComponent.swift; sourceTree = "<group>"; };
 		B0589B451BC5666F00800875 /* WormEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WormEntity.swift; sourceTree = "<group>"; };
+		B073D4BE1BCB6C44003D8420 /* SugarTriggerEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SugarTriggerEntity.swift; sourceTree = "<group>"; };
+		B073D4C01BCB6C68003D8420 /* GrubbyTriggerEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GrubbyTriggerEntity.swift; sourceTree = "<group>"; };
+		B073D4C81BCB95F5003D8420 /* CandyTriggerEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CandyTriggerEntity.swift; sourceTree = "<group>"; };
+		B073D4CC1BCBA1BB003D8420 /* SKSpriteNode-Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SKSpriteNode-Extensions.swift"; sourceTree = "<group>"; };
 		B07F40B71BB8F824008F053E /* GrubbyWorm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GrubbyWorm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B07F40BA1BB8F824008F053E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B07F40C01BB8F824008F053E /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
@@ -171,6 +179,7 @@
 				B07F40D11BB8F87D008F053E /* SKColor-Extensions.swift */,
 				B0E590BC1BB9289A00FB98CC /* GWButton.swift */,
 				B0A148511BC7807700BA5F43 /* GameScene+ScreenRecording.swift */,
+				B073D4CC1BCBA1BB003D8420 /* SKSpriteNode-Extensions.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -223,6 +232,9 @@
 				B07F40F41BB8F8E4008F053E /* UIControlComponent.swift */,
 				B07F40F51BB8F8E4008F053E /* UISpriteComponent.swift */,
 				B0A6CF281BC16512002DCBC8 /* TriggerEntity.swift */,
+				B073D4BE1BCB6C44003D8420 /* SugarTriggerEntity.swift */,
+				B073D4C81BCB95F5003D8420 /* CandyTriggerEntity.swift */,
+				B073D4C01BCB6C68003D8420 /* GrubbyTriggerEntity.swift */,
 				B0589B431BC5607F00800875 /* TriggerSpriteComponent.swift */,
 				B0589B451BC5666F00800875 /* WormEntity.swift */,
 				B0589B3C1BC42E8B00800875 /* WormControlComponent.swift */,
@@ -348,6 +360,7 @@
 				B0589B3D1BC42E8B00800875 /* WormControlComponent.swift in Sources */,
 				B0A148501BC6430E00BA5F43 /* UIEntity.swift in Sources */,
 				B0A6CF291BC16512002DCBC8 /* TriggerEntity.swift in Sources */,
+				B073D4CD1BCBA1BB003D8420 /* SKSpriteNode-Extensions.swift in Sources */,
 				B0A6CF2D1BC16B7C002DCBC8 /* Level.swift in Sources */,
 				B088712B1BC2ED6800E82AA5 /* SpriteKit-Spring.swift in Sources */,
 				B0A6CF2F1BC2555E002DCBC8 /* Tip.swift in Sources */,
@@ -360,6 +373,8 @@
 				B07F40F71BB8F8E4008F053E /* UIControlComponent.swift in Sources */,
 				B0589B461BC5666F00800875 /* WormEntity.swift in Sources */,
 				B07F40E51BB8F88F008F053E /* UIGameOverState.swift in Sources */,
+				B073D4C11BCB6C68003D8420 /* GrubbyTriggerEntity.swift in Sources */,
+				B073D4BF1BCB6C44003D8420 /* SugarTriggerEntity.swift in Sources */,
 				B0A6CF311BC2DE64002DCBC8 /* Logo.swift in Sources */,
 				B07F40DA1BB8F889008F053E /* GameScene.swift in Sources */,
 				B0589B3B1BC4295400800875 /* Playground.swift in Sources */,
@@ -373,6 +388,7 @@
 				B07F40D61BB8F883008F053E /* Theme.swift in Sources */,
 				B0589B441BC5607F00800875 /* TriggerSpriteComponent.swift in Sources */,
 				B07F40F11BB8F8BA008F053E /* Game.swift in Sources */,
+				B073D4C91BCB95F5003D8420 /* CandyTriggerEntity.swift in Sources */,
 				B0E590BD1BB9289A00FB98CC /* GWButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
