@@ -16,6 +16,12 @@ A simple digital worm game made with latest iOS 9, SpriteKit, GameplayKit and Re
 - [ ] Rule System
 - [ ] Juice
 
+## To Fix (on iPhone6 iOS 9.0.2)
+
+- [ ] Recording starting may cause dropped frames 
+- [ ] First play button touched need a long time to load
+- [ ] after open game center view, the game frames may drop from 60fps to 40fps
+
 ## What is Grubby Worm
 
 - 🐛 eat 🍬 
