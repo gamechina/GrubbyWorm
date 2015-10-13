@@ -19,6 +19,9 @@ class GWSwitch: SKSpriteNode {
     var isOpen: Bool = false {
         didSet {
             texture = isOpen ? openTexture : closeTexture
+            if let act = onChange {
+                act(self)
+            }
         }
     }
     
@@ -42,9 +45,6 @@ class GWSwitch: SKSpriteNode {
             
             if CGRectContainsPoint(frame, touchLocation) {
                 isOpen = !isOpen
-                if let act = onChange {
-                    act(self)
-                }
             }
         }
     }

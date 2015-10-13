@@ -13,7 +13,7 @@ extension GameScene: RPPreviewViewControllerDelegate, RPScreenRecorderDelegate {
     // MARK: Computed Properties
     
     var screenRecordingToggleEnabled: Bool {
-        return true //NSUserDefaults.standardUserDefaults().boolForKey("enable screen record")
+        return NSUserDefaults.standardUserDefaults().boolForKey(Constant.user_data_key_auto_recording)
     }
     
     // MARK: Start/Stop Screen Recording

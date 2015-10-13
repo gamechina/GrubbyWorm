@@ -132,11 +132,11 @@ class Game: NSObject, GameSceneDelegate {
     func startGame() {
         initWorm()
         
-        startRecord()
+        scene.startScreenRecording()
     }
     
     func resumeGame() {
-        startRecord()
+        scene.startScreenRecording()
     }
     
     func initLevel() {
@@ -191,14 +191,6 @@ class Game: NSObject, GameSceneDelegate {
     
     func reportScore() {
         EasyGameCenter.reportScoreLeaderboard(leaderboardIdentifier: Constant.leaderboard_id, score: score)
-    }
-    
-    func startRecord() {
-        if let autoRecording = NSUserDefaults.standardUserDefaults().valueForKey(Constant.user_data_key_auto_recording) as? Bool {
-            if autoRecording {
-                scene.startScreenRecording()
-            }
-        }
     }
     
     func stopRecord() {

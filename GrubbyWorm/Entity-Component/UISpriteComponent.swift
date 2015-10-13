@@ -124,16 +124,16 @@ class UISpriteComponent: GKComponent, MoodBarDelegate {
         
         // play button
         playButton = GWButton(normalTexture: SKTexture(imageNamed: "btn_play"))
-        playButton.size = CGSizeMake(120, 120)
-        playButton.position = CGPointMake(sceneSize.width / 2, sceneSize.height / 2 - 90)
+        playButton.size = CGSizeMake(100, 100)
+        playButton.position = CGPointMake(sceneSize.width / 2, sceneSize.height / 2 - 110)
         playButton.zPosition = 2
         playButton.setRawPosition()
         root.addChild(playButton)
         
         let howNormalTexture = SKTexture(imageNamed: "icon_how")
         howButton = GWButton(normalTexture: howNormalTexture)
-        howButton.size = CGSizeMake(60, 60)
-        howButton.position = playButton.position + CGPointMake(140, 0)
+        howButton.size = CGSizeMake(50, 50)
+        howButton.position = playButton.position + CGPointMake(110, 0)
         howButton.zPosition = 2
         howButton.setRawPosition()
         root.addChild(howButton)
@@ -141,16 +141,16 @@ class UISpriteComponent: GKComponent, MoodBarDelegate {
         let gameCenterNormalTexture = SKTexture(imageNamed: "icon_game_center_normal")
         let gameCenterDisabledTexture = SKTexture(imageNamed: "icon_game_center_disabled")
         gameCenterButton = GWButton(normalTexture: gameCenterNormalTexture, selectedTexture: gameCenterNormalTexture, disabledTexture: gameCenterDisabledTexture)
-        gameCenterButton.size = CGSizeMake(60, 60)
-        gameCenterButton.position = playButton.position + CGPointMake(-140, 0)
+        gameCenterButton.size = CGSizeMake(50, 50)
+        gameCenterButton.position = playButton.position + CGPointMake(-110, 0)
         gameCenterButton.isEnabled = false
         gameCenterButton.zPosition = 2
         gameCenterButton.setRawPosition()
         root.addChild(gameCenterButton)
         
         restartButton = GWButton(normalTexture: SKTexture(imageNamed: "icon_restart"))
-        restartButton.size = CGSizeMake(60, 60)
-        restartButton.position = playButton.position + CGPointMake(0, 140)
+        restartButton.size = CGSizeMake(50, 50)
+        restartButton.position = playButton.position + CGPointMake(0, 110)
         restartButton.zPosition = 2
         restartButton.setRawPosition()
         root.addChild(restartButton)
@@ -158,16 +158,24 @@ class UISpriteComponent: GKComponent, MoodBarDelegate {
         let openSwitch = SKTexture(imageNamed: "icon_record_on")
         let closeSwitch = SKTexture(imageNamed: "icon_record_off")
         recordSwitch = GWSwitch(openTexture: openSwitch, closeTexture: closeSwitch)
-        recordSwitch.position = playButton.position + CGPointMake(200, 200)
+        recordSwitch.position = CGPointMake(sceneSize.width - 50, sceneSize.height - 30)
         recordSwitch.zPosition = 2
-        recordSwitch.setScale(0.5)
+        recordSwitch.size = CGSizeMake(70, 28)
         root.addChild(recordSwitch)
         
+        let recordLabel = SKLabelNode(text: "record")
+        recordLabel.fontName = "San Francisco"
+        recordLabel.fontColor = SKColor.blackColor()
+        recordLabel.name = "record label"
+        recordLabel.fontSize = 13
+        recordLabel.verticalAlignmentMode = .Center
+        recordLabel.position = CGPointMake(7.5, 0)
+        recordSwitch.addChild(recordLabel)
+        
         replayButton = GWButton(normalTexture: SKTexture(imageNamed: "tip"))
-        replayButton.size = CGSizeMake(40, 40)
-        replayButton.position = recordSwitch.position - CGPointMake(0, 100)
+        replayButton.size = CGSizeMake(70, 70)
+        replayButton.position = recordSwitch.position - CGPointMake(0, 60)
         replayButton.zPosition = 2
-        replayButton.hidden = true
         root.addChild(replayButton)
         
         super.init()
@@ -210,14 +218,21 @@ class UISpriteComponent: GKComponent, MoodBarDelegate {
         })
         
         recordSwitch.onChange = { (sender: GWSwitch) -> Void in
-            print("click switch: \(sender.isOpen)")
+            print("switch change: \(sender.isOpen)")
             
             NSUserDefaults.standardUserDefaults().setValue(sender.isOpen, forKey: Constant.user_data_key_auto_recording)
             
             if !sender.isOpen {
                 self._game.scene.discardRecording()
             }
+            
+            if let recordLabel = self.recordSwitch.childNodeWithName("record label") as? SKLabelNode {
+                recordLabel.fontColor = (sender.isOpen ? SKColor.whiteColor() : SKColor.blackColor())
+            }
         }
+        
+        // set record by user default
+        recordSwitch.isOpen = NSUserDefaults.standardUserDefaults().boolForKey(Constant.user_data_key_auto_recording)
         
         replayButton.actionTouchUpInside = GWButtonTarget.aBlock({ () -> Void in
             print("click replay")
