@@ -25,7 +25,6 @@ class GameScene: SKScene {
     override func didMoveToView(view: SKView) {
         super.didMoveToView(view)
         
-//        userInteractionEnabled = true
         gameDelegate?.didMoveToView(view)
     }
     
@@ -51,11 +50,7 @@ class GameScene: SKScene {
             for touch in touches {
                 let now = touch.locationInNode(self)
                 let angle = (now - startLocation).angle * 57.29577951
-                
                 let distance = startLocation.distanceTo(now)
-                
-                print(startLocation.distanceTo(now))
-                print(angle)
                 
                 if distance >= 10 {
                     if (angle >= 45 && angle < 135) {
