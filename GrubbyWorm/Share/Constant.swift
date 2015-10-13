@@ -12,4 +12,6 @@ struct Constant {
     static let leaderboard_id = "LB_GrubbyWorm_2"
     
     static let user_data_key_raw_position = "raw position"
+    
+    static let user_data_key_auto_recording = "auto recording"
 }

@@ -11,6 +11,8 @@ import SpriteKit
 
 class WormEntity : Entity {
     
+    weak var game: Game?
+    
     weak var ui: UIEntity?
     
     var info: WormInfo
@@ -19,7 +21,8 @@ class WormEntity : Entity {
     
     var comboCount = 0
     
-    init(ui: UIEntity?) {
+    init(game: Game?, ui: UIEntity?) {
+        self.game = game
         self.ui = ui
         
         info = WormInfo(name: "Grubby Worm", speed: 0.35, foot: 5, type: .Grubby)
@@ -38,18 +41,8 @@ class WormEntity : Entity {
             willCombo = true
         }
         
-        if let control = componentForClass(WormControlComponent) {
-            let ui = control._ui
-            let spriteComponent = ui?.componentForClass(UISpriteComponent)
-            let score = Int((spriteComponent?.score.text)!)
-            
-            let addScore = comboCount == 0 ? 1 : comboCount
-            spriteComponent?.score.text = String(score! + addScore)
-            
-//            if(spriteComponent?.score.frame.size.width >= (Theme.energy_bar_margin - 10)) {
-//                spriteComponent?.score.fontSize--
-//            }
-        }
+        let addScore = (comboCount == 0 ? 1 : comboCount)
+        game?.score += addScore
         
         if info.speed >= 0.12 {
             info.speed -= 0.01

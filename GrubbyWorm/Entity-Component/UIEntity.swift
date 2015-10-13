@@ -10,4 +10,9 @@ import GameplayKit
 
 class UIEntity: Entity {
     
+    func renderScore(score: Int) {
+        if let spriteComponent = componentForClass(UISpriteComponent) {
+            spriteComponent.score.text = String(score)
+        }
+    }
 }

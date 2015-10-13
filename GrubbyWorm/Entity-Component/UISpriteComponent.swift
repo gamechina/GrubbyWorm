@@ -62,6 +62,9 @@ class UISpriteComponent: GKComponent, MoodBarDelegate {
     // recording switch
     var recordSwitch: GWSwitch
     
+    // replay button
+    var replayButton: GWButton
+    
     // MARK: Initializers
     
     init(game: Game) {
@@ -160,6 +163,13 @@ class UISpriteComponent: GKComponent, MoodBarDelegate {
         recordSwitch.setScale(0.5)
         root.addChild(recordSwitch)
         
+        replayButton = GWButton(normalTexture: SKTexture(imageNamed: "tip"))
+        replayButton.size = CGSizeMake(40, 40)
+        replayButton.position = recordSwitch.position - CGPointMake(0, 100)
+        replayButton.zPosition = 2
+        replayButton.hidden = true
+        root.addChild(replayButton)
+        
         super.init()
         
         // some style and callback
@@ -180,43 +190,47 @@ class UISpriteComponent: GKComponent, MoodBarDelegate {
             
             self.moveOutButtons({ (Void) -> () in
                 self.entity?.componentForClass(UIControlComponent)?.stateMachine?.enterState(UIPlayingState)
-                //            self._game.scene.startScreenRecording({ () -> Void in
-                //                self.entity?.componentForClass(UIControlComponent)?.stateMachine?.enterState(UIPlayingState)
-                //            })
             })
-            
-            
         })
         
         howButton.actionTouchUpInside = GWButtonTarget.aBlock({ () -> Void in
             print("click how")
             
-//            guard let previewViewController = self._game.scene.previewViewController else { fatalError("The user requested playback, but a valid preview controller does not exist.") }
-//            
-//            guard let rootViewController = self._game.scene.view?.window?.rootViewController else { fatalError("The scene must be contained in a window with e root view controller.") }
-//            
-//            // `RPPreviewViewController` only supports full screen modal presentation.
-//            previewViewController.modalPresentationStyle = UIModalPresentationStyle.FullScreen
-//            
-//            rootViewController.presentViewController(previewViewController, animated: true, completion:nil)
         })
         
         gameCenterButton.actionTouchUpInside = GWButtonTarget.aBlock({ () -> Void in
             print("click game center")
             
-            EasyGameCenter.showGameCenterLeaderboard(leaderboardIdentifier: Constant.leaderboard_id)
+            EasyGameCenter.showGameCenterAchievements()
         })
         
         restartButton.actionTouchUpInside = GWButtonTarget.aBlock({ () -> Void in
             print("click restart")
             
-            
         })
         
         recordSwitch.onChange = { (sender: GWSwitch) -> Void in
-            print(sender.isOpen)
+            print("click switch: \(sender.isOpen)")
             
+            NSUserDefaults.standardUserDefaults().setValue(sender.isOpen, forKey: Constant.user_data_key_auto_recording)
+            
+            if !sender.isOpen {
+                self._game.scene.discardRecording()
+            }
         }
+        
+        replayButton.actionTouchUpInside = GWButtonTarget.aBlock({ () -> Void in
+            print("click replay")
+            
+            guard let previewViewController = self._game.scene.previewViewController else { fatalError("The user requested playback, but a valid preview controller does not exist.") }
+            
+            guard let rootViewController = self._game.scene.view?.window?.rootViewController else { fatalError("The scene must be contained in a window with e root view controller.") }
+            
+            // `RPPreviewViewController` only supports full screen modal presentation.
+            previewViewController.modalPresentationStyle = UIModalPresentationStyle.FullScreen
+            
+            rootViewController.presentViewController(previewViewController, animated: true, completion:nil)
+        })
     }
     
     override func updateWithDeltaTime(seconds: NSTimeInterval) {
@@ -227,6 +241,8 @@ class UISpriteComponent: GKComponent, MoodBarDelegate {
         playButton.hidden = false
         gameCenterButton.hidden = false
         howButton.hidden = false
+        recordSwitch.hidden = false
+        replayButton.hidden = true
         
         let posA = playButton.getRawPosition()
         playButton.position = posA - CGPointMake(0, 300)
@@ -252,6 +268,8 @@ class UISpriteComponent: GKComponent, MoodBarDelegate {
         gameCenterButton.hidden = true
         howButton.hidden = true
         restartButton.hidden = true
+        recordSwitch.hidden = true
+        replayButton.hidden = true
         moodBar.hidden = false
         topRoot.hidden = false
         pauseMask.hidden = true
@@ -262,6 +280,8 @@ class UISpriteComponent: GKComponent, MoodBarDelegate {
         gameCenterButton.hidden = false
         howButton.hidden = false
         restartButton.hidden = false
+        recordSwitch.hidden = false
+        replayButton.hidden = true
         
         let posA = playButton.getRawPosition()
         playButton.position = posA - CGPointMake(0, 300)
@@ -287,7 +307,7 @@ class UISpriteComponent: GKComponent, MoodBarDelegate {
     }
     
     func onMoodProgressEmpty(bar: MoodBar) {
-        _game.worm.comboFail()
+        _game.worm?.comboFail()
     }
     
     func onMoodProgressFull(bar: MoodBar) {

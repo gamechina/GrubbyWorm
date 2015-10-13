@@ -71,28 +71,28 @@ class GameViewController: UIViewController, EasyGameCenterDelegate {
     
     @IBAction func swipeUp(sender: UISwipeGestureRecognizer) {
         print("up")
-        if let wormSprite = game?.worm.componentForClass(WormSpriteComponent) {
+        if let wormSprite = game?.worm?.componentForClass(WormSpriteComponent) {
             wormSprite.turn(.Up)
         }
     }
     
     @IBAction func swipeRight(sender: UISwipeGestureRecognizer) {
         print("right")
-        if let wormSprite = game?.worm.componentForClass(WormSpriteComponent) {
+        if let wormSprite = game?.worm?.componentForClass(WormSpriteComponent) {
             wormSprite.turn(.Right)
         }
     }
     
     @IBAction func swipeDown(sender: UISwipeGestureRecognizer) {
         print("down")
-        if let wormSprite = game?.worm.componentForClass(WormSpriteComponent) {
+        if let wormSprite = game?.worm?.componentForClass(WormSpriteComponent) {
             wormSprite.turn(.Down)
         }
     }
     
     @IBAction func swipeLeft(sender: UISwipeGestureRecognizer) {
         print("left")
-        if let wormSprite = game?.worm.componentForClass(WormSpriteComponent) {
+        if let wormSprite = game?.worm?.componentForClass(WormSpriteComponent) {
             wormSprite.turn(.Left)
         }
     }

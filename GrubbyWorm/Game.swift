@@ -31,7 +31,7 @@ class Game: NSObject, GameSceneDelegate {
     var triggers: [TriggerEntity]
     
     // player controlled worm, our leading role.
-    var worm: WormEntity
+    var worm: WormEntity?
     
     // worm direction
     var wormDirection: Direction = .Right
@@ -47,6 +47,13 @@ class Game: NSObject, GameSceneDelegate {
     // for caculate the delta time in update method.
     var prevUpdateTime: NSTimeInterval = 0
     
+    // score
+    var score = 0 {
+        didSet {
+            ui.renderScore(score)
+        }
+    }
+    
     // MARK: Initializers
     
     init(view: SKView) {
@@ -55,7 +62,6 @@ class Game: NSObject, GameSceneDelegate {
         scene = GameScene(size: _view.bounds.size)
         ui = UIEntity()
         level = Level(size: _view.bounds.size)
-        worm = WormEntity(ui: ui)
         triggers = []
         
         super.init()
@@ -86,11 +92,12 @@ class Game: NSObject, GameSceneDelegate {
     }
     
     func initWorm() {
-        worm.addComponent(WormControlComponent(game: self, ui: ui))
-        worm.addComponent(WormSpriteComponent(game: self, ui: ui))
-        worm.addComponent(WormDigestiveComponent(game: self))
+        worm = WormEntity(game: self, ui: ui)
+        worm?.addComponent(WormControlComponent(game: self, ui: ui))
+        worm?.addComponent(WormSpriteComponent(game: self, ui: ui))
+        worm?.addComponent(WormDigestiveComponent(game: self))
         
-        level.playground.addWorm(worm, location: Location(row: 0, col: 0))
+        level.playground.addWorm(worm!, location: Location(row: 0, col: 0))
     }
     
     func didMoveToView(view: SKView) {
@@ -110,10 +117,10 @@ class Game: NSObject, GameSceneDelegate {
         prevUpdateTime = currentTime
         
         ui.updateWithDeltaTime(dt)
-        worm.updateWithDeltaTime(dt)
+        worm?.updateWithDeltaTime(dt)
         
         // check trigger
-        if let wormLoc = worm.componentForClass(WormSpriteComponent)?.locations[0] {
+        if let wormLoc = worm?.componentForClass(WormSpriteComponent)?.locations[0] {
             for trigger in triggers {
                 if trigger.location.equal(wormLoc) && trigger.born {
                     fireTrigger(trigger)
@@ -124,10 +131,12 @@ class Game: NSObject, GameSceneDelegate {
     
     func startGame() {
         initWorm()
+        
+        startRecord()
     }
     
     func resumeGame() {
-        
+        startRecord()
     }
     
     func initLevel() {
@@ -145,7 +154,7 @@ class Game: NSObject, GameSceneDelegate {
     }
     
     func fireTrigger(trigger: TriggerEntity) {
-        worm.fireTrigger(trigger)
+        worm?.fireTrigger(trigger)
         trigger.fired()
         
         if let index = triggers.indexOf(trigger) {
@@ -178,6 +187,30 @@ class Game: NSObject, GameSceneDelegate {
         let t = SugarTriggerEntity(location: loc, style: .Maltose)
         
         addTrigger(t)
+    }
+    
+    func reportScore() {
+        EasyGameCenter.reportScoreLeaderboard(leaderboardIdentifier: Constant.leaderboard_id, score: score)
+    }
+    
+    func startRecord() {
+        if let autoRecording = NSUserDefaults.standardUserDefaults().valueForKey(Constant.user_data_key_auto_recording) as? Bool {
+            if autoRecording {
+                scene.startScreenRecording()
+            }
+        }
+    }
+    
+    func stopRecord() {
+        if let uiSprite = ui.componentForClass(UISpriteComponent) {
+            if uiSprite.recordSwitch.isOpen {
+                scene.stopScreenRecordingWithHandler({ () -> Void in
+                    print("recorded")
+                    
+                    uiSprite.replayButton.hidden = false
+                })
+            }
+        }
     }
     
     // user action quick method

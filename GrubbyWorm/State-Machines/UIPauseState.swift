@@ -15,11 +15,8 @@ class UIPauseState: UIState {
             let spriteComponent = ui?.componentForClass(UISpriteComponent)
             spriteComponent?.usePauseAppearance()
             
-            game?.scene.stopScreenRecordingWithHandler({ () -> Void in
-                print("recorded")
-            })
-            
-            EasyGameCenter.reportScoreLeaderboard(leaderboardIdentifier: Constant.leaderboard_id, score: 100)
+            game?.reportScore()
+            game?.stopRecord()
         }
         
         super.didEnterWithPreviousState(previousState)
