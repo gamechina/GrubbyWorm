@@ -59,6 +59,9 @@ class UISpriteComponent: GKComponent, MoodBarDelegate {
     // restart button
     var restartButton: GWButton
     
+    // recording switch
+    var recordSwitch: GWSwitch
+    
     // MARK: Initializers
     
     init(game: Game) {
@@ -149,6 +152,14 @@ class UISpriteComponent: GKComponent, MoodBarDelegate {
         restartButton.setRawPosition()
         root.addChild(restartButton)
         
+        let openSwitch = SKTexture(imageNamed: "icon_record_on")
+        let closeSwitch = SKTexture(imageNamed: "icon_record_off")
+        recordSwitch = GWSwitch(openTexture: openSwitch, closeTexture: closeSwitch)
+        recordSwitch.position = playButton.position + CGPointMake(200, 200)
+        recordSwitch.zPosition = 2
+        recordSwitch.setScale(0.5)
+        root.addChild(recordSwitch)
+        
         super.init()
         
         // some style and callback
@@ -201,6 +212,11 @@ class UISpriteComponent: GKComponent, MoodBarDelegate {
             
             
         })
+        
+        recordSwitch.onChange = { (sender: GWSwitch) -> Void in
+            print(sender.isOpen)
+            
+        }
     }
     
     override func updateWithDeltaTime(seconds: NSTimeInterval) {

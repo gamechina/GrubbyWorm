@@ -20,6 +20,8 @@
 		B073D4C11BCB6C68003D8420 /* GrubbyTriggerEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B073D4C01BCB6C68003D8420 /* GrubbyTriggerEntity.swift */; settings = {ASSET_TAGS = (); }; };
 		B073D4C91BCB95F5003D8420 /* CandyTriggerEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B073D4C81BCB95F5003D8420 /* CandyTriggerEntity.swift */; settings = {ASSET_TAGS = (); }; };
 		B073D4CD1BCBA1BB003D8420 /* SKSpriteNode-Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B073D4CC1BCBA1BB003D8420 /* SKSpriteNode-Extensions.swift */; settings = {ASSET_TAGS = (); }; };
+		B073D4CF1BCCBADE003D8420 /* WormDigestiveComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B073D4CE1BCCBADE003D8420 /* WormDigestiveComponent.swift */; settings = {ASSET_TAGS = (); }; };
+		B073D4D11BCCBC58003D8420 /* GWSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = B073D4D01BCCBC58003D8420 /* GWSwitch.swift */; settings = {ASSET_TAGS = (); }; };
 		B07F40BB1BB8F824008F053E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07F40BA1BB8F824008F053E /* AppDelegate.swift */; };
 		B07F40C11BB8F824008F053E /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07F40C01BB8F824008F053E /* GameViewController.swift */; };
 		B07F40C41BB8F824008F053E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B07F40C21BB8F824008F053E /* Main.storyboard */; };
@@ -76,6 +78,8 @@
 		B073D4C01BCB6C68003D8420 /* GrubbyTriggerEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GrubbyTriggerEntity.swift; sourceTree = "<group>"; };
 		B073D4C81BCB95F5003D8420 /* CandyTriggerEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CandyTriggerEntity.swift; sourceTree = "<group>"; };
 		B073D4CC1BCBA1BB003D8420 /* SKSpriteNode-Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SKSpriteNode-Extensions.swift"; sourceTree = "<group>"; };
+		B073D4CE1BCCBADE003D8420 /* WormDigestiveComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WormDigestiveComponent.swift; sourceTree = "<group>"; };
+		B073D4D01BCCBC58003D8420 /* GWSwitch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GWSwitch.swift; sourceTree = "<group>"; };
 		B07F40B71BB8F824008F053E /* GrubbyWorm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GrubbyWorm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B07F40BA1BB8F824008F053E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B07F40C01BB8F824008F053E /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
@@ -178,6 +182,7 @@
 				B088712A1BC2ED6800E82AA5 /* SpriteKit-Spring.swift */,
 				B07F40D11BB8F87D008F053E /* SKColor-Extensions.swift */,
 				B0E590BC1BB9289A00FB98CC /* GWButton.swift */,
+				B073D4D01BCCBC58003D8420 /* GWSwitch.swift */,
 				B0A148511BC7807700BA5F43 /* GameScene+ScreenRecording.swift */,
 				B073D4CC1BCBA1BB003D8420 /* SKSpriteNode-Extensions.swift */,
 			);
@@ -239,6 +244,7 @@
 				B0589B451BC5666F00800875 /* WormEntity.swift */,
 				B0589B3C1BC42E8B00800875 /* WormControlComponent.swift */,
 				B0589B3E1BC4C39500800875 /* WormSpriteComponent.swift */,
+				B073D4CE1BCCBADE003D8420 /* WormDigestiveComponent.swift */,
 			);
 			path = "Entity-Component";
 			sourceTree = "<group>";
@@ -349,6 +355,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B0A1485F1BC7A7F900BA5F43 /* EasyGameCenter.swift in Sources */,
+				B073D4D11BCCBC58003D8420 /* GWSwitch.swift in Sources */,
 				B07F40ED1BB8F88F008F053E /* WormState.swift in Sources */,
 				B07F40E61BB8F88F008F053E /* UIPauseState.swift in Sources */,
 				B0589B421BC51E7900800875 /* CGPoint-Extensions.swift in Sources */,
@@ -384,6 +391,7 @@
 				B0E590BF1BBA3E3700FB98CC /* EnergyBar.swift in Sources */,
 				B07F40EC1BB8F88F008F053E /* WormHappyState.swift in Sources */,
 				B07F40E71BB8F88F008F053E /* UIPlayingState.swift in Sources */,
+				B073D4CF1BCCBADE003D8420 /* WormDigestiveComponent.swift in Sources */,
 				B07F40E91BB8F88F008F053E /* UITitleState.swift in Sources */,
 				B07F40D61BB8F883008F053E /* Theme.swift in Sources */,
 				B0589B441BC5607F00800875 /* TriggerSpriteComponent.swift in Sources */,
@@ -509,6 +517,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.game-china.grubby-worm";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -523,6 +532,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.game-china.grubby-worm";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

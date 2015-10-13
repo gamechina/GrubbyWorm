@@ -88,6 +88,7 @@ class Game: NSObject, GameSceneDelegate {
     func initWorm() {
         worm.addComponent(WormControlComponent(game: self, ui: ui))
         worm.addComponent(WormSpriteComponent(game: self, ui: ui))
+        worm.addComponent(WormDigestiveComponent(game: self))
         
         level.playground.addWorm(worm, location: Location(row: 0, col: 0))
     }

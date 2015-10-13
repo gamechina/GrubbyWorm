@@ -33,9 +33,6 @@ class GameViewController: UIViewController, EasyGameCenterDelegate {
         
         /*** Set Delegate UIViewController ***/
         EasyGameCenter.sharedInstance(self)
-        
-        /*** If you want not message just delete this ligne ***/
-        EasyGameCenter.debugMode = true
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -49,13 +46,13 @@ class GameViewController: UIViewController, EasyGameCenterDelegate {
         return true
     }
 
-    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
-        if UIDevice.currentDevice().userInterfaceIdiom == .Phone {
-            return .AllButUpsideDown
-        } else {
-            return .All
-        }
-    }
+//    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+//        if UIDevice.currentDevice().userInterfaceIdiom == .Phone {
+//            return .AllButUpsideDown
+//        } else {
+//            return .All
+//        }
+//    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
