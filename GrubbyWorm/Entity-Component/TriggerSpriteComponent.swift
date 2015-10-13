@@ -104,10 +104,19 @@ class TriggerSpriteComponent: GKComponent {
         if let style = style {
             switch style {
             case .Maltose:
+                display.color = SKColor.blueColor()
+                display.colorBlendFactor = 0.6
+                
                 break
             case .Praline:
+                display.color = Theme.temp_color
+                display.colorBlendFactor = 0.5
+                
                 break
             case .Fondant:
+                display.color = SKColor.grayColor()
+                display.colorBlendFactor = 0.8
+                
                 break
             case .Crispy:
                 break
@@ -138,7 +147,8 @@ class TriggerSpriteComponent: GKComponent {
     }
     
     private func sugarBorn(handler: (Void -> ())) {
-        let born = SKSpriteNode(color: Theme.temp_color, size: TriggerSpriteComponent.triggerSize)
+        let born = SKSpriteNode(imageNamed: "somite")
+        born.size = TriggerSpriteComponent.triggerSize
         born.setScale(0.5)
         root.addChild(born)
         

@@ -18,35 +18,9 @@
                         <animations/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="1E8-Ie-HAv" appends="YES" id="BpI-tf-n6V"/>
-                            <outletCollection property="gestureRecognizers" destination="sb7-7g-RuK" appends="YES" id="S7Y-Jj-bJt"/>
-                            <outletCollection property="gestureRecognizers" destination="Bed-ei-suu" appends="YES" id="LvT-Oz-dec"/>
-                            <outletCollection property="gestureRecognizers" destination="hcn-Te-Z1b" appends="YES" id="5Ug-Zr-DEN"/>
-                        </connections>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
-                <swipeGestureRecognizer direction="up" id="hcn-Te-Z1b">
-                    <connections>
-                        <action selector="swipeUp:" destination="BV1-FR-VrT" id="F3T-sN-XV9"/>
-                    </connections>
-                </swipeGestureRecognizer>
-                <swipeGestureRecognizer direction="right" id="Bed-ei-suu">
-                    <connections>
-                        <action selector="swipeRight:" destination="BV1-FR-VrT" id="Ar1-eM-JPx"/>
-                    </connections>
-                </swipeGestureRecognizer>
-                <swipeGestureRecognizer direction="down" id="1E8-Ie-HAv">
-                    <connections>
-                        <action selector="swipeDown:" destination="BV1-FR-VrT" id="i5y-Db-itA"/>
-                    </connections>
-                </swipeGestureRecognizer>
-                <swipeGestureRecognizer direction="left" id="sb7-7g-RuK">
-                    <connections>
-                        <action selector="swipeLeft:" destination="BV1-FR-VrT" id="972-MU-oes"/>
-                    </connections>
-                </swipeGestureRecognizer>
             </objects>
         </scene>
     </scenes>

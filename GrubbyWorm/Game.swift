@@ -42,6 +42,9 @@ class Game: NSObject, GameSceneDelegate {
     // random distribution, for generate triggers locations.
     var colRandom: GKRandomDistribution?
     
+    // random rule system
+    var randomRuleSystem: GKRuleSystem?
+    
     var locationRandomSplit: NSTimeInterval = 0.5
     
     // for caculate the delta time in update method.
@@ -104,6 +107,12 @@ class Game: NSObject, GameSceneDelegate {
         initUI()
         initLevel()
         initRandomSource()
+    }
+    
+    func swipeTurnTo(direction: Direction) {
+        if let wormSprite = worm?.componentForClass(WormSpriteComponent) {
+            wormSprite.turn(direction)
+        }
     }
     
     func update(currentTime: NSTimeInterval, forScene scene: SKScene) {
@@ -169,8 +178,11 @@ class Game: NSObject, GameSceneDelegate {
     func initRandomSource() {
         let playground = level.playground
         let range = playground.getGridSizeRange()
+        
         rowRandom = GKRandomDistribution(lowestValue: range.from.row, highestValue: range.to.row)
         colRandom = GKRandomDistribution(lowestValue: range.from.col, highestValue: range.to.col)
+        
+        randomRuleSystem = GKRuleSystem()
     }
     
     func getRandomLocation() -> Location {
