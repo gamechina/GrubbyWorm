@@ -12,9 +12,23 @@ class WormDigestiveComponent: GKComponent {
 
     weak var game: Game?
     
+    var wantEat: [TriggerSugarStyle]?
+    
     init(game: Game?) {
         self.game = game
         
         super.init()
+    }
+    
+    func eat() {
+        
+    }
+    
+    func digest() {
+        
+    }
+    
+    func shit() {
+        
     }
 }
