@@ -39,4 +39,21 @@ extension SKSpriteNode {
             return CGPointZero
         }
     }
+    
+    func shake() {
+        if !hasActions() {
+            let rawXScale = self.xScale
+            let rawYScale = self.yScale
+            
+            self.xScale -= 0.2
+            self.yScale -= 0.2
+            
+            let action = SKAction.scaleXBy(0.2, y: 0.2, duration: 0.8, delay: 0, usingSpringWithDamping: 0.3, initialSpringVelocity: 0.2)
+            
+            self.runAction(action) { () -> Void in
+                self.xScale = rawXScale
+                self.yScale = rawYScale
+            }
+        }
+    }
 }

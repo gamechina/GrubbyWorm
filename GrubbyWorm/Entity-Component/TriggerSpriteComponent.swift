@@ -104,8 +104,8 @@ class TriggerSpriteComponent: GKComponent {
         if let style = style {
             switch style {
             case .Maltose:
-                display.color = SKColor.blueColor()
-                display.colorBlendFactor = 0.6
+                display.color = SKColor.grayColor()
+                display.colorBlendFactor = 1
                 
                 break
             case .Praline:

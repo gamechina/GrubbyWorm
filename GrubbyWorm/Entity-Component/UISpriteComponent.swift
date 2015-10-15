@@ -203,7 +203,6 @@ class UISpriteComponent: GKComponent, MoodBarDelegate {
         
         howButton.actionTouchUpInside = GWButtonTarget.aBlock({ () -> Void in
             print("click how")
-            
         })
         
         gameCenterButton.actionTouchUpInside = GWButtonTarget.aBlock({ () -> Void in

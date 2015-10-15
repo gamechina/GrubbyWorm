@@ -112,6 +112,7 @@ class GWButton: SKSpriteNode {
             
             if CGRectContainsPoint(frame, touchLocation) {
                 if let act = actionTouchUpInside {
+                    shake()
                     callTarget(act)
                 }
             }
