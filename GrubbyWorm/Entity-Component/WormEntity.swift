@@ -55,4 +55,10 @@ class WormEntity : Entity {
         willCombo = false
         comboCount = 0
     }
+    
+    func crazy() {
+        if let controlComponent = componentForClass(WormControlComponent) {
+            controlComponent.stateMachine?.enterState(WormCrazyState)
+        }
+    }
 }

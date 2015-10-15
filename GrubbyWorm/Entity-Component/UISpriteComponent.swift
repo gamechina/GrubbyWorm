@@ -9,7 +9,7 @@
 import GameplayKit
 import SpriteKit
 
-class UISpriteComponent: GKComponent, MoodBarDelegate {
+class UISpriteComponent: GKComponent, MoodBarDelegate, EnergyBarDelegate {
     
     // MARK: Static properties
     
@@ -326,6 +326,14 @@ class UISpriteComponent: GKComponent, MoodBarDelegate {
     
     func onMoodProgressFull(bar: MoodBar) {
         
+    }
+    
+    func onEnergyProgressEmpty(bar: EnergyBar) {
+        
+    }
+    
+    func onEnergyProgressFull(bar: EnergyBar) {
+        _game.worm?.crazy()
     }
     
     func moveOutButtons(handler: (Void -> ())) {

@@ -8,6 +8,11 @@
 
 import SpriteKit
 
+protocol EnergyBarDelegate: NSObjectProtocol {
+    func onEnergyProgressEmpty(bar: EnergyBar)
+    func onEnergyProgressFull(bar: EnergyBar)
+}
+
 class EnergyBar: SKNode {
     
     var barWidth: CGFloat = 0
@@ -17,9 +22,14 @@ class EnergyBar: SKNode {
             if percent >= 100 {
                 percent = 0
             }
+            
             renderProgress()
         }
     }
+    
+    var dropping: Bool = false
+    
+    var delegate: EnergyBarDelegate?
     
     private var _score: SKLabelNode!
     private var _down: SKSpriteNode!
@@ -49,6 +59,16 @@ class EnergyBar: SKNode {
     func renderProgress() {
         let width = (percent / 100) * barWidth
         _up.size = CGSizeMake(width, _up.size.height)
+        
+        if percent == 100 {
+            dropping = true
+            delegate?.onEnergyProgressFull(self)
+        }
+        
+        if percent == 0 {
+            dropping = false
+            delegate?.onEnergyProgressEmpty(self)
+        }
     }
     
 }
