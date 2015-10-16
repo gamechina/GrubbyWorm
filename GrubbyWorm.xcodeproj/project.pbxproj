@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		B00B8E851BC1436E00B1FDA7 /* Stiff Staff.otf in Resources */ = {isa = PBXBuildFile; fileRef = B00B8E841BC1436E00B1FDA7 /* Stiff Staff.otf */; settings = {ASSET_TAGS = (); }; };
-		B0589B371BC41CDE00800875 /* FontAwesome.otf in Resources */ = {isa = PBXBuildFile; fileRef = B0589B361BC41CDE00800875 /* FontAwesome.otf */; settings = {ASSET_TAGS = (); }; };
 		B0589B391BC4256000800875 /* Tile.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0589B381BC4256000800875 /* Tile.swift */; settings = {ASSET_TAGS = (); }; };
 		B0589B3B1BC4295400800875 /* Playground.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0589B3A1BC4295400800875 /* Playground.swift */; settings = {ASSET_TAGS = (); }; };
 		B0589B3D1BC42E8B00800875 /* WormControlComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0589B3C1BC42E8B00800875 /* WormControlComponent.swift */; settings = {ASSET_TAGS = (); }; };
@@ -66,7 +65,6 @@
 
 /* Begin PBXFileReference section */
 		B00B8E841BC1436E00B1FDA7 /* Stiff Staff.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Stiff Staff.otf"; sourceTree = "<group>"; };
-		B0589B361BC41CDE00800875 /* FontAwesome.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.otf; sourceTree = "<group>"; };
 		B0589B381BC4256000800875 /* Tile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tile.swift; sourceTree = "<group>"; };
 		B0589B3A1BC4295400800875 /* Playground.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Playground.swift; sourceTree = "<group>"; };
 		B0589B3C1BC42E8B00800875 /* WormControlComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WormControlComponent.swift; sourceTree = "<group>"; };
@@ -253,7 +251,6 @@
 			isa = PBXGroup;
 			children = (
 				B0A1484C1BC6263F00BA5F43 /* README.md */,
-				B0589B361BC41CDE00800875 /* FontAwesome.otf */,
 				B00B8E841BC1436E00B1FDA7 /* Stiff Staff.otf */,
 				B07F40BA1BB8F824008F053E /* AppDelegate.swift */,
 				B07F40C21BB8F824008F053E /* Main.storyboard */,
@@ -340,7 +337,6 @@
 			files = (
 				B0A1484E1BC6426000BA5F43 /* README.md in Resources */,
 				B07F40C91BB8F824008F053E /* LaunchScreen.storyboard in Resources */,
-				B0589B371BC41CDE00800875 /* FontAwesome.otf in Resources */,
 				B07F40C61BB8F824008F053E /* Assets.xcassets in Resources */,
 				B00B8E851BC1436E00B1FDA7 /* Stiff Staff.otf in Resources */,
 				B07F40C41BB8F824008F053E /* Main.storyboard in Resources */,

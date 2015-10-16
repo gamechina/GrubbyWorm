@@ -96,12 +96,6 @@ class UISpriteComponent: GKComponent, MoodBarDelegate, EnergyBarDelegate {
         pauseButton.size = CGSizeMake(24, 24)
         pauseButton.position = CGPointMake(sceneSize.width - Theme.energy_bar_margin / 2, Theme.top_bar_board_height / 2)
         
-        let pauseLabel = SKLabelNode(fontNamed: "FontAwesome")
-        pauseLabel.text = "\u{f04c}"
-        pauseLabel.fontSize = 18
-        pauseLabel.verticalAlignmentMode = .Center
-        pauseButton.addChild(pauseLabel)
-        
         pauseMask = SKSpriteNode(color: Theme.mask_color, size: sceneSize)
         pauseMask.anchorPoint = CGPointMake(0, 0)
         pauseMask.zPosition = 1
