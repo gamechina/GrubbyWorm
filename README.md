@@ -9,7 +9,7 @@ A simple digital worm game made with latest iOS 9, SpriteKit, GameplayKit and Re
 - [x] SpriteKit Scene
 - [x] Entiy and Component
 - [x] State Machines
-- [x] ~FontAwesome in Use~ (removed, will write a blog about this.)
+- [x] ~~FontAwesome in Use~~ (removed, will write a blog about this.)
 - [x] Simple Random Source
 - [x] Replay and Share
 - [x] Game Center (powered by [Ease Game Center](https://github.com/DaRkD0G/Easy-Game-Center-Swift))
