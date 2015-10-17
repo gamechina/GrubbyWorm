@@ -108,9 +108,9 @@ class Game: NSObject, GameSceneDelegate {
     
     func initWorm() {
         worm = WormEntity(game: self, ui: ui)
-        worm?.addComponent(WormControlComponent(game: self, ui: ui))
-        worm?.addComponent(WormSpriteComponent(game: self, ui: ui))
         worm?.addComponent(WormDigestiveComponent(game: self))
+        worm?.addComponent(WormControlComponent(game: self, worm: worm))
+        worm?.addComponent(WormSpriteComponent(game: self, ui: ui))
         
         level.playground.addWorm(worm!, location: Location(row: 0, col: 0))
     }
@@ -119,6 +119,7 @@ class Game: NSObject, GameSceneDelegate {
         initUI()
         initLevel()
         initRandomSource()
+        initWorm()
     }
     
     func swipeTurnTo(direction: Direction) {
@@ -141,9 +142,10 @@ class Game: NSObject, GameSceneDelegate {
         worm?.updateWithDeltaTime(dt)
         
         // check trigger
-        if let wormLoc = worm?.componentForClass(WormSpriteComponent)?.locations[0] {
-            for trigger in triggers {
-                if trigger.location.equal(wormLoc) && trigger.born {
+        for trigger in triggers {
+            if let worm = worm {
+                if trigger.location.equal(worm.headLocation()) && trigger.born {
+                    
                     fireTrigger(trigger)
                 }
             }
@@ -151,7 +153,9 @@ class Game: NSObject, GameSceneDelegate {
     }
     
     func startGame() {
-        initWorm()
+        if let wormStateMachine = worm?.componentForClass(WormControlComponent)?.stateMachine {
+            wormStateMachine.enterState(WormHappyState)
+        }
         
         scene.startScreenRecording()
     }
@@ -167,16 +171,19 @@ class Game: NSObject, GameSceneDelegate {
         scene.addChild(level.playground)
     }
     
-    func addTrigger(trigger: TriggerEntity) {
+    func addTrigger(trigger: TriggerEntity) -> Bool {
         if level.playground.addTrigger(trigger) {
             triggers.append(trigger)
             
             print("triggers: \(triggers.count)")
+            return true
+        } else {
+            return false
         }
     }
     
     func fireTrigger(trigger: TriggerEntity) {
-        worm?.fireTrigger(trigger)
+        worm?.eat(trigger)
         trigger.fired()
         
         if let index = triggers.indexOf(trigger) {

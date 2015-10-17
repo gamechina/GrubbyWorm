@@ -12,23 +12,50 @@ class WormDigestiveComponent: GKComponent {
 
     weak var game: Game?
     
-    var wantEat: [TriggerSugarStyle]?
+    var wantEat: [TriggerSugarStyle]
+    
+    var shitCount = 0 {
+        didSet {
+            if shitCount < 0 {
+                shitCount = 0
+            }
+        }
+    }
     
     init(game: Game?) {
         self.game = game
+        self.wantEat = [.Maltose, .Praline, .Fondant, .Crispy, .Chocolate]
         
         super.init()
     }
     
-    func eat() {
-        
+    func haveShit() -> Bool {
+        return shitCount != 0
     }
     
-    func digest() {
+    func eat(trigger: TriggerEntity) {
+        _digest(trigger)
+        
+        // if state is happy
+        if let stateMachine = entity?.componentForClass(WormControlComponent)?.stateMachine {
+            if stateMachine.currentState == stateMachine.stateForClass(WormHappyState) {
+                self.shitCount++
+            }
+        }
+    }
+    
+    private func _digest(trigger: TriggerEntity) {
         
     }
     
     func shit() {
-        
+        if let worm = entity as? WormEntity {
+            let grubby = GrubbyTriggerEntity(location: worm.tailLocation())
+            if let game = game {
+                if game.addTrigger(grubby) {
+                    shitCount--
+                }
+            }
+        }
     }
 }

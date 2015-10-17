@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B004D8A71BD29CEE00D0FB79 /* WormFreeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B004D8A61BD29CEE00D0FB79 /* WormFreeState.swift */; settings = {ASSET_TAGS = (); }; };
 		B00B8E851BC1436E00B1FDA7 /* Stiff Staff.otf in Resources */ = {isa = PBXBuildFile; fileRef = B00B8E841BC1436E00B1FDA7 /* Stiff Staff.otf */; settings = {ASSET_TAGS = (); }; };
 		B0589B391BC4256000800875 /* Tile.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0589B381BC4256000800875 /* Tile.swift */; settings = {ASSET_TAGS = (); }; };
 		B0589B3B1BC4295400800875 /* Playground.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0589B3A1BC4295400800875 /* Playground.swift */; settings = {ASSET_TAGS = (); }; };
@@ -64,6 +65,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B004D8A61BD29CEE00D0FB79 /* WormFreeState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WormFreeState.swift; sourceTree = "<group>"; };
 		B00B8E841BC1436E00B1FDA7 /* Stiff Staff.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Stiff Staff.otf"; sourceTree = "<group>"; };
 		B0589B381BC4256000800875 /* Tile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tile.swift; sourceTree = "<group>"; };
 		B0589B3A1BC4295400800875 /* Playground.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Playground.swift; sourceTree = "<group>"; };
@@ -220,6 +222,7 @@
 				B07F40DD1BB8F88F008F053E /* UIPauseState.swift */,
 				B07F40DC1BB8F88F008F053E /* UIGameOverState.swift */,
 				B07F40E41BB8F88F008F053E /* WormState.swift */,
+				B004D8A61BD29CEE00D0FB79 /* WormFreeState.swift */,
 				B07F40E31BB8F88F008F053E /* WormHappyState.swift */,
 				B07F40E11BB8F88F008F053E /* WormCrazyState.swift */,
 				B07F40E21BB8F88F008F053E /* WormDefeatedState.swift */,
@@ -379,6 +382,7 @@
 				B073D4C11BCB6C68003D8420 /* GrubbyTriggerEntity.swift in Sources */,
 				B073D4BF1BCB6C44003D8420 /* SugarTriggerEntity.swift in Sources */,
 				B0A6CF311BC2DE64002DCBC8 /* Logo.swift in Sources */,
+				B004D8A71BD29CEE00D0FB79 /* WormFreeState.swift in Sources */,
 				B07F40DA1BB8F889008F053E /* GameScene.swift in Sources */,
 				B0589B3B1BC4295400800875 /* Playground.swift in Sources */,
 				B07F40EB1BB8F88F008F053E /* WormDefeatedState.swift in Sources */,

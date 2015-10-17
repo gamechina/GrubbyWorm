@@ -38,6 +38,21 @@ enum TriggerSugarStyle: UInt32 {
         let rand = arc4random_uniform(_count)
         return TriggerSugarStyle(rawValue: rand)!
     }
+    
+    func color() -> SKColor {
+        switch self {
+        case .Maltose:
+            return Theme.sugar_color_maltose
+        case .Praline:
+            return Theme.sugar_color_praline
+        case .Fondant:
+            return Theme.sugar_color_fondant
+        case .Crispy:
+            return Theme.sugar_color_crispy
+        case .Chocolate:
+            return Theme.sugar_color_chocolate
+        }
+    }
 }
 
 class TriggerSpriteComponent: GKComponent {
@@ -73,6 +88,9 @@ class TriggerSpriteComponent: GKComponent {
             })
             break
         case .Grubby:
+            if let trigger = entity as? TriggerEntity {
+                trigger.born = true
+            }
             renderDisplay()
             break
         }

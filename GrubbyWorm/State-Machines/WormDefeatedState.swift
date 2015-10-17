@@ -6,8 +6,15 @@
 //  Copyright © 2015年 GAME-CHINA.ORG. All rights reserved.
 //
 
-import UIKit
+import GameplayKit
 
 class WormDefeatedState: WormState {
 
+    override func didEnterWithPreviousState(previousState: GKState?) {
+        super.didEnterWithPreviousState(previousState)
+        
+        if previousState == self {
+            
+        }
+    }
 }

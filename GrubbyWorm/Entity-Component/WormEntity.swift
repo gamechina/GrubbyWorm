@@ -61,4 +61,36 @@ class WormEntity : Entity {
             controlComponent.stateMachine?.enterState(WormCrazyState)
         }
     }
+    
+    func headLocation() -> Location {
+        if let spriteComponent = componentForClass(WormSpriteComponent) {
+            return spriteComponent.locations[0]
+        }
+        
+        return Location(row: 0, col: 0)
+    }
+    
+    func tailLocation() -> Location {
+        if let spriteComponent = componentForClass(WormSpriteComponent) {
+            return spriteComponent.locations[spriteComponent.locations.count - 1]
+        }
+        
+        return Location(row: 0, col: 0)
+    }
+    
+    func eat(trigger: TriggerEntity) {
+        fireTrigger(trigger)
+        
+        if let digestiveComponent = componentForClass(WormDigestiveComponent) {
+            digestiveComponent.eat(trigger)
+        }
+    }
+    
+    func shit() {
+        if let digestiveComponent = componentForClass(WormDigestiveComponent) {
+            if digestiveComponent.haveShit() {
+                digestiveComponent.shit()
+            }
+        }
+    }
 }

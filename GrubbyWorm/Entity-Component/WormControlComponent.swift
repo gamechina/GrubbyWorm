@@ -10,13 +10,14 @@ import GameplayKit
 
 class WormControlComponent: GKComponent {
     
-    weak var _game: Game?
-    var _ui: UIEntity?
+    weak var game: Game?
+    weak var worm: WormEntity?
+    
     var stateMachine: GKStateMachine?
     
-    init(game: Game?, ui: UIEntity?) {
-        self._game = game
-        self._ui = ui
+    init(game: Game?, worm: WormEntity?) {
+        self.game = game
+        self.worm = worm
         
         super.init()
         
@@ -24,12 +25,13 @@ class WormControlComponent: GKComponent {
     }
     
     func initStates() {
-        let happy = WormHappyState(game: _game, ui: _ui)
-        let crazy = WormCrazyState(game: _game, ui: _ui)
-        let defeated = WormDefeatedState(game: _game, ui: _ui)
+        let free = WormFreeState(game: game, worm: worm)
+        let happy = WormHappyState(game: game, worm: worm)
+        let crazy = WormCrazyState(game: game, worm: worm)
+        let defeated = WormDefeatedState(game: game, worm: worm)
         
-        stateMachine = GKStateMachine(states: [happy, crazy, defeated])
-        stateMachine?.enterState(WormHappyState)
+        stateMachine = GKStateMachine(states: [free, happy, crazy, defeated])
+        stateMachine?.enterState(WormFreeState)
     }
     
     override func updateWithDeltaTime(seconds: NSTimeInterval) {

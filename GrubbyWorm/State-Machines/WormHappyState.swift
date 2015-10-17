@@ -11,7 +11,10 @@ import GameplayKit
 class WormHappyState: WormState {
     
     override func didEnterWithPreviousState(previousState: GKState?) {
-        
         super.didEnterWithPreviousState(previousState)
+        
+        if previousState == self {
+            
+        }
     }
 }

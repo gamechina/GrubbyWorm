@@ -66,6 +66,20 @@ class WormSpriteComponent: GKComponent {
                 somites.append(node)
             }
         }
+        
+        renderSomitesStyle()
+    }
+    
+    func renderSomitesStyle() {
+        if let digest = entity?.componentForClass(WormDigestiveComponent) {
+            if let worm = entity as? WormEntity {
+                if digest.wantEat.count == worm.info.foot {
+                    for i in 0..<digest.wantEat.count {
+                        somites[i].color = digest.wantEat[i].color()
+                    }
+                }
+            }
+        }
     }
     
     func renderNodesPosition() {
@@ -130,6 +144,11 @@ class WormSpriteComponent: GKComponent {
             for i in 1..<worm.info.foot {
                 loc.append(locations[i - 1])
             }
+        }
+        
+        // shit
+        if let worm = entity as? WormEntity {
+            worm.shit()
         }
         
         locations = loc
