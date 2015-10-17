@@ -116,20 +116,20 @@ class Playground: SKNode {
 
             var moveTo = CGPointMake(-loc.x, -loc.y) + center
             
-            if moveTo.x < (Theme.tile_interval * 26) + 38 {
-                moveTo.x = (Theme.tile_interval * 26) + 38
+            if moveTo.x < 88 {
+                moveTo.x = 88
             }
             
             if moveTo.x > 580 {
                 moveTo.x = 580
             }
             
-            if moveTo.y < -240 {
-                moveTo.y = -240
+            if moveTo.y < -238 {
+                moveTo.y = -238
             }
             
-            if moveTo.y > 500 {
-                moveTo.y = 500
+            if moveTo.y > 584 {
+                moveTo.y = 584
             }
             
 //            print(moveTo)

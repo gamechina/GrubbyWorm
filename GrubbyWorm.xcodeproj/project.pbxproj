@@ -18,7 +18,7 @@
 		B073D4BF1BCB6C44003D8420 /* SugarTriggerEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B073D4BE1BCB6C44003D8420 /* SugarTriggerEntity.swift */; settings = {ASSET_TAGS = (); }; };
 		B073D4C11BCB6C68003D8420 /* GrubbyTriggerEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B073D4C01BCB6C68003D8420 /* GrubbyTriggerEntity.swift */; settings = {ASSET_TAGS = (); }; };
 		B073D4C91BCB95F5003D8420 /* CandyTriggerEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B073D4C81BCB95F5003D8420 /* CandyTriggerEntity.swift */; settings = {ASSET_TAGS = (); }; };
-		B073D4CD1BCBA1BB003D8420 /* SKSpriteNode-Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B073D4CC1BCBA1BB003D8420 /* SKSpriteNode-Extensions.swift */; settings = {ASSET_TAGS = (); }; };
+		B073D4CD1BCBA1BB003D8420 /* SKNode-Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B073D4CC1BCBA1BB003D8420 /* SKNode-Extensions.swift */; settings = {ASSET_TAGS = (); }; };
 		B073D4CF1BCCBADE003D8420 /* WormDigestiveComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B073D4CE1BCCBADE003D8420 /* WormDigestiveComponent.swift */; settings = {ASSET_TAGS = (); }; };
 		B073D4D11BCCBC58003D8420 /* GWSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = B073D4D01BCCBC58003D8420 /* GWSwitch.swift */; settings = {ASSET_TAGS = (); }; };
 		B07F40BB1BB8F824008F053E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07F40BA1BB8F824008F053E /* AppDelegate.swift */; };
@@ -75,7 +75,7 @@
 		B073D4BE1BCB6C44003D8420 /* SugarTriggerEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SugarTriggerEntity.swift; sourceTree = "<group>"; };
 		B073D4C01BCB6C68003D8420 /* GrubbyTriggerEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GrubbyTriggerEntity.swift; sourceTree = "<group>"; };
 		B073D4C81BCB95F5003D8420 /* CandyTriggerEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CandyTriggerEntity.swift; sourceTree = "<group>"; };
-		B073D4CC1BCBA1BB003D8420 /* SKSpriteNode-Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SKSpriteNode-Extensions.swift"; sourceTree = "<group>"; };
+		B073D4CC1BCBA1BB003D8420 /* SKNode-Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SKNode-Extensions.swift"; sourceTree = "<group>"; };
 		B073D4CE1BCCBADE003D8420 /* WormDigestiveComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WormDigestiveComponent.swift; sourceTree = "<group>"; };
 		B073D4D01BCCBC58003D8420 /* GWSwitch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GWSwitch.swift; sourceTree = "<group>"; };
 		B07F40B71BB8F824008F053E /* GrubbyWorm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GrubbyWorm.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -182,7 +182,7 @@
 				B0E590BC1BB9289A00FB98CC /* GWButton.swift */,
 				B073D4D01BCCBC58003D8420 /* GWSwitch.swift */,
 				B0A148511BC7807700BA5F43 /* GameScene+ScreenRecording.swift */,
-				B073D4CC1BCBA1BB003D8420 /* SKSpriteNode-Extensions.swift */,
+				B073D4CC1BCBA1BB003D8420 /* SKNode-Extensions.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -363,7 +363,7 @@
 				B0589B3D1BC42E8B00800875 /* WormControlComponent.swift in Sources */,
 				B0A148501BC6430E00BA5F43 /* UIEntity.swift in Sources */,
 				B0A6CF291BC16512002DCBC8 /* TriggerEntity.swift in Sources */,
-				B073D4CD1BCBA1BB003D8420 /* SKSpriteNode-Extensions.swift in Sources */,
+				B073D4CD1BCBA1BB003D8420 /* SKNode-Extensions.swift in Sources */,
 				B0A6CF2D1BC16B7C002DCBC8 /* Level.swift in Sources */,
 				B088712B1BC2ED6800E82AA5 /* SpriteKit-Spring.swift in Sources */,
 				B0A6CF2F1BC2555E002DCBC8 /* Tip.swift in Sources */,

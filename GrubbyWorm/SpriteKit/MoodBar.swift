@@ -51,12 +51,12 @@ class MoodBar: SKNode {
         self.addChild(_up)
         
         _mark = SKNode()
-        _mark.position = CGPointMake(width, Theme.mood_bar_height + 10)
+        _mark.position = CGPointMake(width, Theme.mood_bar_height + 14)
         _mark.hidden = true
         self.addChild(_mark)
         
         _value = Tip(text: "")
-        _value.fontColor = SKColor.blackColor()
+        _value.fontColor = Theme.primary_color
         _mark.addChild(_value)
     }
 

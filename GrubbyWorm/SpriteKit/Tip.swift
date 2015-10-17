@@ -34,7 +34,7 @@ class Tip: SKNode {
     init(text: String) {
         self.text = text
         self.fontColor = SKColor.whiteColor()
-        self.fontSize = 13
+        self.fontSize = 14
         
         super.init()
         
@@ -45,7 +45,7 @@ class Tip: SKNode {
         // "San Francisco"
         _label = SKLabelNode(fontNamed: "San Francisco")
         _label.text = text
-        _label.fontSize = 13
+        _label.fontSize = 14
         _label.verticalAlignmentMode = .Center
         _label.horizontalAlignmentMode = .Center
         
@@ -62,6 +62,6 @@ class Tip: SKNode {
         _label.text = text
         
         let size = _label.frame.size
-        _board.size = CGSizeMake(size.width + 10, size.height + 4)
+        _board.size = CGSizeMake(size.width + 12, size.height + 6)
     }
 }

@@ -92,7 +92,7 @@ class UISpriteComponent: GKComponent, MoodBarDelegate, EnergyBarDelegate {
         energyBar = EnergyBar(width: sceneSize.width)
         
         // pause button
-        pauseButton = GWButton(normalTexture: SKTexture(imageNamed: "tip"))
+        pauseButton = GWButton(normalTexture: SKTexture(imageNamed: "pause"))
         pauseButton.size = CGSizeMake(24, 24)
         pauseButton.position = CGPointMake(sceneSize.width - Theme.energy_bar_margin / 2, Theme.top_bar_board_height / 2)
         
@@ -331,6 +331,9 @@ class UISpriteComponent: GKComponent, MoodBarDelegate, EnergyBarDelegate {
     }
     
     func moveOutButtons(handler: (Void -> ())) {
+        let posLogo = logo.position + CGPointMake(0, 300)
+        logo.quickMoveTo(posLogo)
+        
         let posA = playButton.position - CGPointMake(0, 300)
         playButton.quickMoveTo(posA)
         

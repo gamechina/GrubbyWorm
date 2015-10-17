@@ -27,9 +27,6 @@ extension SKNode {
             return CGPointZero
         }
     }
-}
-
-extension SKSpriteNode {
     
     func quickMoveTo(point: CGPoint) {
         let action = SKAction.moveTo(point, duration: 1.5, delay: 0, usingSpringWithDamping: 0.55, initialSpringVelocity: 0.3)
