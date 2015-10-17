@@ -51,9 +51,15 @@ class Game: NSObject, GameSceneDelegate {
     var prevUpdateTime: NSTimeInterval = 0
     
     // score
-    var score = 0 {
+    var score: Int {
         didSet {
             ui.renderScore(score)
+        }
+    }
+    
+    var energy: EnergyInfo {
+        didSet {
+            ui.renderEnergy(energy)
         }
     }
     
@@ -66,6 +72,8 @@ class Game: NSObject, GameSceneDelegate {
         ui = UIEntity()
         level = Level(size: _view.bounds.size)
         triggers = []
+        score = 0
+        energy = EnergyInfo(total: 0, current: 0, round: 0)
         
         super.init()
         
@@ -196,7 +204,8 @@ class Game: NSObject, GameSceneDelegate {
     func addRandomTrigger() {
         let loc = getRandomLocation()
         
-        let t = SugarTriggerEntity(location: loc, style: .Maltose)
+        let t = SugarTriggerEntity(location: loc, style: TriggerSugarStyle.randomStyle())
+//        let t = GrubbyTriggerEntity(location: loc)
         
         addTrigger(t)
     }

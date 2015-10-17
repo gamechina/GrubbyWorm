@@ -31,7 +31,6 @@ class EnergyBar: SKNode {
     
     var delegate: EnergyBarDelegate?
     
-    private var _score: SKLabelNode!
     private var _down: SKSpriteNode!
     private var _up: SKSpriteNode!
     
@@ -54,6 +53,10 @@ class EnergyBar: SKNode {
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func renderEnergy(energy: EnergyInfo) {
+        
     }
     
     func renderProgress() {

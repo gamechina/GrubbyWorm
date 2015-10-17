@@ -19,12 +19,25 @@ enum TriggerType {
 
 // MARK: Trigger Sugar Style
 
-enum TriggerSugarStyle {
+enum TriggerSugarStyle: UInt32 {
     case Maltose
     case Praline
     case Fondant
     case Crispy
     case Chocolate
+    
+    private static let _count: TriggerSugarStyle.RawValue = {
+        // find the maximum enum value
+        var maxValue: UInt32 = 0
+        while let _ = TriggerSugarStyle(rawValue: ++maxValue) { }
+        return maxValue
+    }()
+    
+    static func randomStyle() -> TriggerSugarStyle {
+        // pick and return a new value
+        let rand = arc4random_uniform(_count)
+        return TriggerSugarStyle(rawValue: rand)!
+    }
 }
 
 class TriggerSpriteComponent: GKComponent {
@@ -71,8 +84,9 @@ class TriggerSpriteComponent: GKComponent {
         
         switch type {
         case .Sugar:
-            let display = SKSpriteNode(imageNamed: "sugar")
+            let display = SKSpriteNode(imageNamed: "sugar_gray")
             display.size = size
+            display.setScale(0.93)
             
             renderSugarStyle(display)
             sugarRotate(display)
@@ -82,6 +96,7 @@ class TriggerSpriteComponent: GKComponent {
         case .Candy:
             let display = SKSpriteNode(imageNamed: "big_sugar")
             display.size = size
+            display.setScale(0.93)
             
             sugarRotate(display)
             
@@ -93,6 +108,7 @@ class TriggerSpriteComponent: GKComponent {
             display.setScale(0.8)
             display.position = CGPointMake(0, -8)
             
+            grubbyShake(display)
             grubbySmell(display)
             
             root.addChild(display)
@@ -104,46 +120,63 @@ class TriggerSpriteComponent: GKComponent {
         if let style = style {
             switch style {
             case .Maltose:
-                display.color = SKColor.grayColor()
+                display.color = Theme.sugar_color_maltose
                 display.colorBlendFactor = 1
                 
                 break
             case .Praline:
-                display.color = Theme.temp_color
-                display.colorBlendFactor = 0.5
+                display.color = Theme.sugar_color_praline
+                display.colorBlendFactor = 1
                 
                 break
             case .Fondant:
-                display.color = SKColor.grayColor()
+                display.color = Theme.sugar_color_fondant
                 display.colorBlendFactor = 0.8
                 
                 break
             case .Crispy:
+                display.color = Theme.sugar_color_crispy
+                display.colorBlendFactor = 1
+                
                 break
             case .Chocolate:
+                display.color = Theme.sugar_color_chocolate
+                display.colorBlendFactor = 1
+                
                 break
             }
         }
     }
     
     private func sugarRotate(display: SKSpriteNode) {
-        let action = SKAction.rotateByAngle(5, duration: 5.0)
+        let action = SKAction.rotateByAngle(5, duration: 15.0)
+        display.runAction(SKAction.repeatActionForever(action))
+    }
+    
+    private func grubbyShake(display: SKSpriteNode) {
+        display.setScale(0.84)
+        let action = SKAction.scaleXBy(0.115, y: 0.075, duration: 4.6, delay: 0, usingSpringWithDamping: 0.1, initialSpringVelocity: 0.3)
+        
         display.runAction(SKAction.repeatActionForever(action))
     }
     
     private func grubbySmell(display: SKSpriteNode) {
         let smell = SKSpriteNode(imageNamed: "smell")
         smell.size = display.size
-        smell.position = CGPointMake(0, 25)
+        smell.position = CGPointMake(0, 15)
         smell.zPosition = 1
-        smell.setScale(0.7)
-        display.addChild(smell)
+        smell.setScale(0.45)
+        root.addChild(smell)
         
-//        let fadeOut = SKAction.fadeOutWithDuration(1.8, delay: 5, usingSpringWithDamping: 1, initialSpringVelocity: 1)
-        let moveUp = SKAction.moveToY(50, duration: 2.4)
-//        let action = SKAction.sequence([fadeOut, moveUp])
+        let fadeOut = SKAction.fadeOutWithDuration(2.6)
+        let moveUp = SKAction.moveBy(CGVectorMake(0, 5), duration: 4.6)
+
+        let action = SKAction.sequence([SKAction.group([fadeOut, moveUp]), SKAction.runBlock({ () -> Void in
+            smell.position = CGPointMake(0, 15)
+            smell.alpha = 1
+        })])
         
-        smell.runAction(SKAction.repeatActionForever(moveUp))
+        smell.runAction(SKAction.repeatActionForever(action))
     }
     
     private func sugarBorn(handler: (Void -> ())) {
@@ -153,7 +186,7 @@ class TriggerSpriteComponent: GKComponent {
         root.addChild(born)
         
         let scale = SKAction.scaleXTo(0.8, y: 0.8,
-            duration: 2.0, delay: 0,
+            duration: 1.5, delay: 0,
             usingSpringWithDamping: 0.2, initialSpringVelocity: 0)
         
         born.runAction(scale) { () -> Void in

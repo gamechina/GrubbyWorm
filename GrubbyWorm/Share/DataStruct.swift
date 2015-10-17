@@ -103,3 +103,9 @@ struct WormInfo {
     var foot: Int
     var type: WormType
 }
+
+struct EnergyInfo {
+    var total: Int
+    var current: Int
+    var round: Int
+}

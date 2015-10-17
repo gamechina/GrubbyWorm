@@ -31,6 +31,12 @@ struct Theme {
     static let tile_normal_color = SKColorWithRGB(250, g: 250, b: 250)
     static let tile_marble_color = SKColorWithRGB(245, g: 245, b: 245)
     
+    static let sugar_color_maltose = SKColor(hex: "#1e6823")
+    static let sugar_color_praline = SKColor(hex: "#44a340")
+    static let sugar_color_fondant = SKColor(hex: "#8cc665")
+    static let sugar_color_crispy = SKColor(hex: "#d6e685")
+    static let sugar_color_chocolate = SKColor(hex: "#eeeeee")
+    
     // --------- Config ---------
     
     static let mini_margin: CGFloat = 2

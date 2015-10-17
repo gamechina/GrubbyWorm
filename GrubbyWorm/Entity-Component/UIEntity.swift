@@ -15,4 +15,10 @@ class UIEntity: Entity {
             spriteComponent.score.text = String(score)
         }
     }
+    
+    func renderEnergy(energy: EnergyInfo) {
+        if let spriteComponent = componentForClass(UISpriteComponent) {
+            spriteComponent.energyBar.renderEnergy(energy)
+        }
+    }
 }

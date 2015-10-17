@@ -13,7 +13,7 @@ class Logo: SKNode {
     override init() {
         super.init()
         
-        let mark = SKSpriteNode(imageNamed: "Spaceship")
+        let mark = SKSpriteNode(imageNamed: "logo")
         mark.position = CGPointMake(0, -100)
         mark.size = CGSizeMake(140, 80)
         self.addChild(mark)

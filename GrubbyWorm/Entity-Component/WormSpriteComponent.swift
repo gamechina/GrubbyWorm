@@ -60,8 +60,8 @@ class WormSpriteComponent: GKComponent {
             for _ in 0..<worm.info.foot {
                 let node = SKSpriteNode(imageNamed: "somite")
                 node.size = size
-                node.color = SKColor.blackColor()
-                node.colorBlendFactor = 0.8
+                node.color = Theme.temp_color
+                node.colorBlendFactor = 1
                 root.addChild(node)
                 somites.append(node)
             }
