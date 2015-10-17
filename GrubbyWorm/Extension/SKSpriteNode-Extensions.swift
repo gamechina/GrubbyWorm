@@ -8,19 +8,7 @@
 
 import SpriteKit
 
-extension SKSpriteNode {
-    
-    func quickMoveTo(point: CGPoint) {
-        let action = SKAction.moveTo(point, duration: 1.5, delay: 0, usingSpringWithDamping: 0.55, initialSpringVelocity: 0.3)
-        
-        self.runAction(action)
-    }
-    
-    func slowMoveTo(point: CGPoint) {
-        let action = SKAction.moveTo(point, duration: 1.5, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0.55)
-        
-        self.runAction(action)
-    }
+extension SKNode {
     
     func setRawPosition() {
         let value = NSValue(CGPoint: self.position)
@@ -38,6 +26,21 @@ extension SKSpriteNode {
         } else {
             return CGPointZero
         }
+    }
+}
+
+extension SKSpriteNode {
+    
+    func quickMoveTo(point: CGPoint) {
+        let action = SKAction.moveTo(point, duration: 1.5, delay: 0, usingSpringWithDamping: 0.55, initialSpringVelocity: 0.3)
+        
+        self.runAction(action)
+    }
+    
+    func slowMoveTo(point: CGPoint) {
+        let action = SKAction.moveTo(point, duration: 1.5, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0.55)
+        
+        self.runAction(action)
     }
     
     func shake() {

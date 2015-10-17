@@ -8,6 +8,7 @@
 
 import SpriteKit
 import GameplayKit
+import CoreMotion
 
 class Game: NSObject, GameSceneDelegate {
     
@@ -15,6 +16,8 @@ class Game: NSObject, GameSceneDelegate {
     
     // application view for running skscene.
     private var _view: SKView
+    
+    private var _motionManager: CMMotionManager!
     
     // MARK: Public Properties
     
@@ -67,6 +70,7 @@ class Game: NSObject, GameSceneDelegate {
     
     init(view: SKView) {
         _view = view
+        _motionManager = CMMotionManager()
         
         scene = GameScene(size: _view.bounds.size)
         ui = UIEntity()
@@ -159,6 +163,7 @@ class Game: NSObject, GameSceneDelegate {
     func initLevel() {
         let playground = level.playground
         playground.position = CGPointMake(_view.frame.midX, _view.frame.midY)
+        playground.setRawPosition()
         scene.addChild(level.playground)
     }
     
@@ -232,6 +237,34 @@ class Game: NSObject, GameSceneDelegate {
             if stateMachine.currentState == stateMachine.stateForClass(UIPlayingState) {
                 stateMachine.enterState(UIPauseState)
             }
+        }
+    }
+    
+    func startGyroUpdate() {
+        if _motionManager.gyroAvailable {
+            _motionManager.gyroUpdateInterval = 0.1
+            _motionManager.startGyroUpdatesToQueue(NSOperationQueue.currentQueue()!) { [weak self] (data: CMGyroData?, error: NSError?) in
+                self?.outputGyroData(data?.rotationRate)
+            }
+        }
+    }
+    
+    func stopGyroUpdate() {
+        _motionManager.stopGyroUpdates()
+    }
+    
+    func outputGyroData(rotationRate: CMRotationRate?) {
+        
+        //set playground position
+        if let rotationRate = rotationRate {
+            
+            level.playground.removeActionForKey(Constant.action_key_playground)
+            let rawPos = level.playground.getRawPosition()
+            let moveToPos = CGPointMake(rawPos.x + CGFloat(rotationRate.x * 10), rawPos.y + CGFloat(rotationRate.y * 10))
+            
+            let action = SKAction.moveTo(moveToPos, duration: 0.1)
+            
+            level.playground.runAction(action, withKey: Constant.action_key_playground)
         }
     }
 }

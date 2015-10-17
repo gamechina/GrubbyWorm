@@ -13,6 +13,8 @@ class UIPlayingState: UIState {
     
     override func didEnterWithPreviousState(previousState: GKState?) {
         if previousState != self {
+            game?.stopGyroUpdate()
+            
             let spriteComponent = ui?.componentForClass(UISpriteComponent)
             spriteComponent?.usePlayingAppearance()
             

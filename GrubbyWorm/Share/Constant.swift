@@ -14,4 +14,6 @@ struct Constant {
     static let user_data_key_raw_position = "raw position"
     
     static let user_data_key_auto_recording = "auto recording"
+    
+    static let action_key_playground = "action key playground"
 }

@@ -12,8 +12,14 @@ import GameplayKit
 class UITitleState: UIState {
     
     override func didEnterWithPreviousState(previousState: GKState?) {
-        let spriteComponent = ui?.componentForClass(UISpriteComponent)
-        spriteComponent?.useTitleAppearance()
+        super.didEnterWithPreviousState(previousState)
+        
+        if previousState != self {
+            let spriteComponent = ui?.componentForClass(UISpriteComponent)
+            spriteComponent?.useTitleAppearance()
+            
+            game?.startGyroUpdate()
+        }
     }
     
     override func updateWithDeltaTime(seconds: NSTimeInterval) {

@@ -14,9 +14,11 @@ class Logo: SKNode {
         super.init()
         
         let mark = SKSpriteNode(imageNamed: "logo")
-        mark.position = CGPointMake(0, -100)
-        mark.size = CGSizeMake(140, 80)
+        mark.position = CGPointMake(0, 0)
         self.addChild(mark)
+        
+        let action = SKAction.moveBy(CGVectorMake(0, -100), duration: 3.6, delay: 0, usingSpringWithDamping: 0.3, initialSpringVelocity: 1.5)
+        mark.runAction(action)
     }
 
     required init?(coder aDecoder: NSCoder) {
