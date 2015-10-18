@@ -73,7 +73,7 @@ class WormEntity : Entity {
             
             info.current = 0
             info.round++
-            info.total = (info.round + 1) * 100
+            info.total = (info.round * 10) + 100
             
             game?.energy = info
         }
