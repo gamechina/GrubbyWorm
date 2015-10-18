@@ -13,6 +13,8 @@ class TriggerEntity : Entity {
     var location: Location
     var born: Bool
     
+    var energy: Int = 0
+    
     init(location: Location) {
         self.location = location
         self.born = false

@@ -48,6 +48,10 @@ class Tile: SKSpriteNode {
         }
     }
     
+    func renderCrazyTile() {
+        color = Theme.primary_color
+    }
+    
     func renderLocation() {
         let label = SKLabelNode(text: "\(location.row), \(location.col)")
         label.fontColor = UIColor.blackColor()

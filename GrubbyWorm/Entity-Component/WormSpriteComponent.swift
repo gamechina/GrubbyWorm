@@ -177,4 +177,21 @@ class WormSpriteComponent: GKComponent {
             }
         }
     }
+    
+    func useCrazyAppearance() {
+        for i in 0..<somites.count {
+            somites[i].color = SKColor.whiteColor()
+            somites[i].colorBlendFactor = 1
+        }
+        
+        if let tiles = playground?.tiles {
+            for i in 0..<tiles.count {
+                tiles[i].renderCrazyTile()
+            }
+        }
+    }
+    
+    func useNormalAppearance() {
+        
+    }
 }

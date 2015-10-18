@@ -13,6 +13,8 @@ class SugarTriggerEntity: TriggerEntity {
     init(location: Location, style: TriggerSugarStyle) {
         super.init(location: location)
         
+        energy = 10
+        
         let display = TriggerSpriteComponent(type: .Sugar, style: style)
         addComponent(display)
     }

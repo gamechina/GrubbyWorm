@@ -13,6 +13,8 @@ class GrubbyTriggerEntity: TriggerEntity {
     override init(location: Location) {
         super.init(location: location)
         
+        born = true
+        
         let display = TriggerSpriteComponent(type: .Grubby)
         addComponent(display)
     }

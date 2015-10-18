@@ -46,6 +46,31 @@ class WormDigestiveComponent: GKComponent {
     
     private func _digest(trigger: TriggerEntity) {
         
+        if let stateMachine = entity?.componentForClass(WormControlComponent)?.stateMachine {
+            if stateMachine.currentState == stateMachine.stateForClass(WormCrazyState) {
+                return
+            }
+        }
+        
+        if let energyInfo = game?.energy {
+            
+            var info = energyInfo
+            info.round = energyInfo.round
+            
+            if energyInfo.current + trigger.energy > energyInfo.total {
+                info.current = energyInfo.total
+                info.round++
+                
+                if let stateMachine = entity?.componentForClass(WormControlComponent)?.stateMachine {
+                    stateMachine.enterState(WormCrazyState)
+                }
+                
+            } else {
+                info.current += trigger.energy
+            }
+            
+            game?.energy = info
+        }
     }
     
     func shit() {

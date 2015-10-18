@@ -77,7 +77,7 @@ class Game: NSObject, GameSceneDelegate {
         level = Level(size: _view.bounds.size)
         triggers = []
         score = 0
-        energy = EnergyInfo(total: 0, current: 0, round: 0)
+        energy = EnergyInfo(total: 100, current: 0, round: 0)
         
         super.init()
         

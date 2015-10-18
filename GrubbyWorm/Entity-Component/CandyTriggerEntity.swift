@@ -13,6 +13,8 @@ class CandyTriggerEntity: TriggerEntity {
     override init(location: Location) {
         super.init(location: location)
         
+        energy = 50
+        
         let display = TriggerSpriteComponent(type: .Candy)
         addComponent(display)
     }

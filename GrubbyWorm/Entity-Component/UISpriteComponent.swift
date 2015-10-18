@@ -264,6 +264,11 @@ class UISpriteComponent: GKComponent, MoodBarDelegate, EnergyBarDelegate {
         howButton.position = posC - CGPointMake(-200, 300)
         howButton.slowMoveTo(posC)
         
+        let triggerTime = (Int64(NSEC_PER_MSEC) * 2000)
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, triggerTime), dispatch_get_main_queue(), { () -> Void in
+            self.logo.showOutAction()
+        })
+        
         restartButton.hidden = true
         moodBar.hidden = true
         topRoot.hidden = true

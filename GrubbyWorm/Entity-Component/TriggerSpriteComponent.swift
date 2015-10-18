@@ -88,9 +88,6 @@ class TriggerSpriteComponent: GKComponent {
             })
             break
         case .Grubby:
-            if let trigger = entity as? TriggerEntity {
-                trigger.born = true
-            }
             renderDisplay()
             break
         }
@@ -149,7 +146,7 @@ class TriggerSpriteComponent: GKComponent {
                 break
             case .Fondant:
                 display.color = Theme.sugar_color_fondant
-                display.colorBlendFactor = 0.8
+                display.colorBlendFactor = 1
                 
                 break
             case .Crispy:

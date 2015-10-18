@@ -56,7 +56,8 @@ class EnergyBar: SKNode {
     }
     
     func renderEnergy(energy: EnergyInfo) {
-        
+        print(energy)
+        percent = CGFloat(energy.current) * 100 / CGFloat(energy.total)
     }
     
     func renderProgress() {
