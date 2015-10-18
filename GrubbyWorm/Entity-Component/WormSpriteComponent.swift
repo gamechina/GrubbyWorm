@@ -179,6 +179,8 @@ class WormSpriteComponent: GKComponent {
     }
     
     func useCrazyAppearance() {
+        _game.scene.backgroundColor = Theme.primary_color
+        
         for i in 0..<somites.count {
             somites[i].color = SKColor.whiteColor()
             somites[i].colorBlendFactor = 1
@@ -192,6 +194,14 @@ class WormSpriteComponent: GKComponent {
     }
     
     func useNormalAppearance() {
+        _game.scene.backgroundColor = Theme.scene_background_color
         
+        renderSomitesStyle()
+        
+        if let tiles = playground?.tiles {
+            for i in 0..<tiles.count {
+                tiles[i].renderStyle()
+            }
+        }
     }
 }

@@ -35,7 +35,7 @@ struct Theme {
     static let sugar_color_praline = SKColor(hex: "#44a340")
     static let sugar_color_fondant = SKColor(hex: "#8cc665")
     static let sugar_color_crispy = SKColor(hex: "#d6e685")
-    static let sugar_color_chocolate = SKColor(hex: "#eeeeee")
+    static let sugar_color_chocolate = SKColor(hex: "#cccccc")
     
     // --------- Config ---------
     

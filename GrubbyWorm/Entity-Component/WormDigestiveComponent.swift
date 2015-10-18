@@ -57,7 +57,7 @@ class WormDigestiveComponent: GKComponent {
             var info = energyInfo
             info.round = energyInfo.round
             
-            if energyInfo.current + trigger.energy > energyInfo.total {
+            if energyInfo.current + trigger.energy >= energyInfo.total {
                 info.current = energyInfo.total
                 info.round++
                 
