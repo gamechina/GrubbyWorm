@@ -37,7 +37,9 @@ class UIPlayingState: UIState {
             spriteComponent?.moodBar.percent -= CGFloat(seconds) * (100 / 6)
         }
 
-//        spriteComponent?.energyBar.percent += CGFloat(seconds) * (100 / 10)
+        if spriteComponent!.energyBar.dropping {
+            spriteComponent?.energyBar.percent -= CGFloat(seconds) * (100 / 10)
+        }
         
         if game?.locationRandomSplit < 0 {
             game?.locationRandomSplit = 0.5

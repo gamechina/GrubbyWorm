@@ -13,8 +13,11 @@ class WormHappyState: WormState {
     override func didEnterWithPreviousState(previousState: GKState?) {
         super.didEnterWithPreviousState(previousState)
         
-        if previousState == self {
+        if previousState != self {
             
+            if let wormSprite = worm?.componentForClass(WormSpriteComponent) {
+                wormSprite.useNormalAppearance()
+            }
         }
     }
 }

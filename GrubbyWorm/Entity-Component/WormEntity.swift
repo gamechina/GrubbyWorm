@@ -56,10 +56,26 @@ class WormEntity : Entity {
         comboCount = 0
     }
     
-    func crazy() {
+    func happy() {
         if let controlComponent = componentForClass(WormControlComponent) {
-            controlComponent.stateMachine?.enterState(WormCrazyState)
+            controlComponent.stateMachine?.enterState(WormHappyState)
         }
+        
+        if let energyInfo = game?.energy {
+            var info = energyInfo
+            
+            info.current = 0
+            info.round++
+            info.total = (info.round + 1) * 100
+            
+            game?.energy = info
+        }
+    }
+    
+    func crazy() {
+//        if let controlComponent = componentForClass(WormControlComponent) {
+//            controlComponent.stateMachine?.enterState(WormCrazyState)
+//        }
     }
     
     func headLocation() -> Location {

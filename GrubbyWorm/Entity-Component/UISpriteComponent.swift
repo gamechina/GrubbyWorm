@@ -181,6 +181,7 @@ class UISpriteComponent: GKComponent, MoodBarDelegate, EnergyBarDelegate {
     func registerEvent() {
         
         moodBar.delegate = self
+        energyBar.delegate = self
         
         pauseButton.actionTouchUpInside = GWButtonTarget.aBlock({ () -> Void in
             print("click pause")
@@ -328,7 +329,7 @@ class UISpriteComponent: GKComponent, MoodBarDelegate, EnergyBarDelegate {
     }
     
     func onEnergyProgressEmpty(bar: EnergyBar) {
-        
+        _game.worm?.happy()
     }
     
     func onEnergyProgressFull(bar: EnergyBar) {

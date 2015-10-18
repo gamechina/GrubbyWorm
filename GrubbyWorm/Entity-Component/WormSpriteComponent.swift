@@ -188,7 +188,8 @@ class WormSpriteComponent: GKComponent {
         
         if let tiles = playground?.tiles {
             for i in 0..<tiles.count {
-                tiles[i].renderCrazyTile()
+                let action = SKAction.colorizeWithColor(Theme.primary_color, colorBlendFactor: 1, duration: 0.3)
+                tiles[i].runAction(action)
             }
         }
     }

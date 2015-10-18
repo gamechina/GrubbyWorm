@@ -19,10 +19,6 @@ class EnergyBar: SKNode {
     
     var percent: CGFloat {
         didSet {
-            if percent >= 100 {
-                percent = 0
-            }
-            
             renderProgress()
         }
     }
@@ -56,8 +52,11 @@ class EnergyBar: SKNode {
     }
     
     func renderEnergy(energy: EnergyInfo) {
-        print(energy)
-        percent = CGFloat(energy.current) * 100 / CGFloat(energy.total)
+        
+        if !dropping {
+            print(energy)
+            percent = CGFloat(energy.current) * 100 / CGFloat(energy.total)
+        }
     }
     
     func renderProgress() {
@@ -69,7 +68,7 @@ class EnergyBar: SKNode {
             delegate?.onEnergyProgressFull(self)
         }
         
-        if percent == 0 {
+        if percent < 0 {
             dropping = false
             delegate?.onEnergyProgressEmpty(self)
         }
