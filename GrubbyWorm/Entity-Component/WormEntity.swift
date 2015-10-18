@@ -25,7 +25,7 @@ class WormEntity : Entity {
         self.game = game
         self.ui = ui
         
-        info = WormInfo(name: "Grubby Worm", speed: 0.35, foot: 5, type: .Grubby)
+        info = WormInfo(name: "Grubby Worm", speed: Constant.worm_normal_speed, foot: 5, type: .Grubby)
         
         super.init()
     }
