@@ -39,14 +39,13 @@ class WormEntity : Entity {
             comboCount++
         } else {
             willCombo = true
+            if info.speed > Constant.worm_combo_speed {
+                info.speed = Constant.worm_combo_speed
+            }
         }
         
         let addScore = (comboCount == 0 ? 1 : comboCount)
         game?.score += addScore
-        
-        if info.speed >= 0.12 {
-            info.speed -= 0.01
-        }
     }
     
     func comboFail() {
@@ -54,6 +53,8 @@ class WormEntity : Entity {
         
         willCombo = false
         comboCount = 0
+        
+        info.speed = Constant.worm_normal_speed
     }
     
     func happy() {
@@ -70,9 +71,16 @@ class WormEntity : Entity {
             
             game?.energy = info
         }
+        
+        if willCombo {
+            info.speed = Constant.worm_combo_speed
+        } else {
+            info.speed = Constant.worm_normal_speed
+        }
     }
     
     func crazy() {
+        info.speed = Constant.worm_crazy_speed
 //        if let controlComponent = componentForClass(WormControlComponent) {
 //            controlComponent.stateMachine?.enterState(WormCrazyState)
 //        }
