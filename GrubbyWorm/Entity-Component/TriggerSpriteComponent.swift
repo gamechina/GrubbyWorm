@@ -219,7 +219,8 @@ class TriggerSpriteComponent: GKComponent {
             tip.removeFromParent()
         }
         
-        let tip = SKLabelNode(text: "吃我")
+        let tip = SKLabelNode(text: "吃我!")
+        tip.fontSize = 12
         tip.name = Constant.tip_name_eat_me
         
         root.addChild(tip)
