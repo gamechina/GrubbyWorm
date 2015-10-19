@@ -1,5 +1,7 @@
 # Grubby Worm
 
+![Logo](./Grubby/Assets.xcassets/logo.imageset/logo.png)
+
 A simple digital worm game made with latest iOS 9, SpriteKit, GameplayKit and ReplayKit, written in Swift 2.
 
 **QQ交流群(Swift 游戏开发交流组)：453564812**
