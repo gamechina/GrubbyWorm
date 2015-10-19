@@ -1,4 +1,4 @@
-# 🐛 Grubby Worm
+# Grubby Worm
 
 <p align="center">
 <img src="./GrubbyWorm/Screen/logo.png" alt="Logo" />
