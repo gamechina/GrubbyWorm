@@ -126,5 +126,7 @@ class WormDigestiveComponent: GKComponent {
         if let wormSprite = entity?.componentForClass(WormSpriteComponent) {
             wormSprite.renderSomitesStyle()
         }
+        
+        game?.showSugarTips()
     }
 }

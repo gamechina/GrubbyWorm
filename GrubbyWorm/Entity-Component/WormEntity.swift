@@ -131,6 +131,8 @@ class WormEntity : Entity {
     }
     
     func die() {
+        comboFail()
+        
         info.alive = false
         delegate?.wormDead(self)
     }

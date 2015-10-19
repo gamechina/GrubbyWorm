@@ -18,6 +18,8 @@ struct Constant {
     
     static let action_key_playground = "action key playground"
     
+    static let tip_name_eat_me = "tip eat me"
+    
     static let worm_normal_speed: NSTimeInterval = 0.65
     static let worm_combo_speed: NSTimeInterval = 0.32
     static let worm_crazy_speed: NSTimeInterval = 0.08

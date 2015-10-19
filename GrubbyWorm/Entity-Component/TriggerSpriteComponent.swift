@@ -213,4 +213,21 @@ class TriggerSpriteComponent: GKComponent {
             }
         }
     }
+    
+    func showEatMe() {
+        if let tip = root.childNodeWithName(Constant.tip_name_eat_me) {
+            tip.removeFromParent()
+        }
+        
+        let tip = SKLabelNode(text: "吃我")
+        tip.name = Constant.tip_name_eat_me
+        
+        root.addChild(tip)
+    }
+    
+    func hideEatMe() {
+        if let tip = root.childNodeWithName(Constant.tip_name_eat_me) {
+            tip.removeFromParent()
+        }
+    }
 }

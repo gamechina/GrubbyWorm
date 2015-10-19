@@ -24,11 +24,15 @@ class SugarTriggerEntity: TriggerEntity {
     }
     
     func showTip() {
-        
+        if let display = componentForClass(TriggerSpriteComponent) {
+            display.showEatMe()
+        }
     }
     
     func hideTip() {
-        
+        if let display = componentForClass(TriggerSpriteComponent) {
+            display.hideEatMe()
+        }
     }
     
     func sugarStyle() -> TriggerSugarStyle {

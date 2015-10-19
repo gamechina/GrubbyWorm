@@ -161,16 +161,22 @@ class Game: NSObject, GameSceneDelegate, WormDelegate {
         scene.startScreenRecording()
         
         level.playground.playSound()
+        
+        showSugarTips()
     }
     
     func resumeGame() {
         scene.startScreenRecording()
+        
+        showSugarTips()
     }
     
     func restartGame() {
         if let wormStateMachine = worm?.componentForClass(WormControlComponent)?.stateMachine {
             wormStateMachine.enterState(WormHappyState)
         }
+        
+        removeAllTriggers()
         
         score = 0
         energy = EnergyInfo(total: 100, current: 0, round: 0)
@@ -181,6 +187,20 @@ class Game: NSObject, GameSceneDelegate, WormDelegate {
         playground.position = CGPointMake(_view.frame.midX, _view.frame.midY)
         playground.setRawPosition()
         scene.addChild(level.playground)
+    }
+    
+    func removeAllTriggers() {
+        for trigger in triggers {
+            trigger.fired()
+            
+            if let index = triggers.indexOf(trigger) {
+                triggers.removeAtIndex(index)
+            }
+            
+            if let tile = level.playground.tileByLocation(trigger.location) {
+                tile.hasTrigger = false
+            }
+        }
     }
     
     func addTrigger(trigger: TriggerEntity) -> Bool {
