@@ -1,6 +1,8 @@
 # Grubby Worm
 
-->![Logo](./GrubbyWorm/Screen/logo.png)<-
+<p align="center">
+<img src="./GrubbyWorm/Screen/logo.png" alt="Logo" />
+</p>
 
 A simple digital worm game made with latest iOS 9, SpriteKit, GameplayKit and ReplayKit, written in Swift 2.
 
