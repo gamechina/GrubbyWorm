@@ -151,6 +151,8 @@ class Game: NSObject, GameSceneDelegate, WormDelegate {
                 }
             }
         }
+        
+        showSugarTips()
     }
     
     func startGame() {
@@ -161,14 +163,10 @@ class Game: NSObject, GameSceneDelegate, WormDelegate {
         scene.startScreenRecording()
         
         level.playground.playSound()
-        
-        showSugarTips()
     }
     
     func resumeGame() {
         scene.startScreenRecording()
-        
-        showSugarTips()
     }
     
     func restartGame() {
