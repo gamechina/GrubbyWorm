@@ -10,7 +10,7 @@ import SpriteKit
 import GameplayKit
 import CoreMotion
 
-class Game: NSObject, GameSceneDelegate {
+class Game: NSObject, GameSceneDelegate, WormDelegate {
     
     // MARK: Private Properties
     
@@ -108,6 +108,7 @@ class Game: NSObject, GameSceneDelegate {
     
     func initWorm() {
         worm = WormEntity(game: self, ui: ui)
+        worm?.delegate = self
         worm?.addComponent(WormDigestiveComponent(game: self))
         worm?.addComponent(WormControlComponent(game: self, worm: worm))
         worm?.addComponent(WormSpriteComponent(game: self, ui: ui))
@@ -158,10 +159,21 @@ class Game: NSObject, GameSceneDelegate {
         }
         
         scene.startScreenRecording()
+        
+        level.playground.playSound()
     }
     
     func resumeGame() {
         scene.startScreenRecording()
+    }
+    
+    func restartGame() {
+        if let wormStateMachine = worm?.componentForClass(WormControlComponent)?.stateMachine {
+            wormStateMachine.enterState(WormHappyState)
+        }
+        
+        score = 0
+        energy = EnergyInfo(total: 100, current: 0, round: 0)
     }
     
     func initLevel() {
@@ -216,8 +228,12 @@ class Game: NSObject, GameSceneDelegate {
     func addRandomTrigger() {
         let loc = getRandomLocation()
         
-        let t = SugarTriggerEntity(location: loc, style: TriggerSugarStyle.randomStyle())
-//        let t = GrubbyTriggerEntity(location: loc)
+        var t: TriggerEntity
+        if triggers.count % 10 == 0 {
+            t = CandyTriggerEntity(location: loc)
+        } else {
+            t = SugarTriggerEntity(location: loc, style: TriggerSugarStyle.randomStyle())
+        }
         
         addTrigger(t)
     }
@@ -272,6 +288,30 @@ class Game: NSObject, GameSceneDelegate {
             let action = SKAction.moveTo(moveToPos, duration: 0.1)
             
             level.playground.runAction(action, withKey: Constant.action_key_playground)
+        }
+    }
+    
+    func wormDead(worm: WormEntity) {
+        if let uiStateMachine = ui.componentForClass(UIControlComponent)?.stateMachine {
+            uiStateMachine.enterState(UIGameOverState)
+        }
+    }
+    
+    func showSugarTips() {
+        if let wormDigestive = worm?.componentForClass(WormDigestiveComponent) {
+            let wormWantEatNow = wormDigestive.wantEatNow()
+            
+            for trigger in triggers {
+                if trigger.type() == .Sugar {
+                    if let sugar = trigger as? SugarTriggerEntity {
+                        if sugar.sugarStyle() == wormWantEatNow {
+                            sugar.showTip()
+                        } else {
+                            sugar.hideTip()
+                        }
+                    }
+                }
+            }
         }
     }
 }

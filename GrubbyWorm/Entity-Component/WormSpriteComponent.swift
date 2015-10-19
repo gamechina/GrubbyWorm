@@ -41,11 +41,16 @@ class WormSpriteComponent: GKComponent {
             if let state = controlComponent.stateMachine?.currentState {
                 if controlComponent.stateMachine?.stateForClass(UIPlayingState) == state {
                     
-                    delta += seconds
-                    
                     if let worm = entity as? WormEntity {
-                        if delta >= worm.info.speed {
-                            doCrawl()
+                        
+                        if worm.info.alive {
+                            delta += seconds
+                            
+                            if let worm = entity as? WormEntity {
+                                if delta >= worm.info.speed {
+                                    doCrawl()
+                                }
+                            }
                         }
                     }
                 }
@@ -156,6 +161,9 @@ class WormSpriteComponent: GKComponent {
         
         // make playground focus the worm
         playground!.focusWorm()
+        
+        // play sound
+        root.runAction(SKAction.playSoundFileNamed("step.mp3", waitForCompletion: false))
     }
     
     func turn(target: Direction) {
@@ -202,6 +210,21 @@ class WormSpriteComponent: GKComponent {
         if let tiles = playground?.tiles {
             for i in 0..<tiles.count {
                 tiles[i].renderStyle()
+            }
+        }
+    }
+    
+    func useDeadAppearance() {
+        _game.scene.backgroundColor = SKColor.whiteColor()
+        
+        for i in 0..<somites.count {
+            somites[i].color = SKColor.blackColor()
+            somites[i].colorBlendFactor = 1
+        }
+        
+        if let tiles = playground?.tiles {
+            for i in 0..<tiles.count {
+                tiles[i].color = SKColor.whiteColor()
             }
         }
     }

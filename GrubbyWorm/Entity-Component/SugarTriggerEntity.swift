@@ -22,4 +22,20 @@ class SugarTriggerEntity: TriggerEntity {
     override func fired() {
         super.fired()
     }
+    
+    func showTip() {
+        
+    }
+    
+    func hideTip() {
+        
+    }
+    
+    func sugarStyle() -> TriggerSugarStyle {
+        if let style = componentForClass(TriggerSpriteComponent)?.style {
+            return style
+        }
+        
+        return .Maltose
+    }
 }

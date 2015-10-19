@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		B004D8A71BD29CEE00D0FB79 /* WormFreeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B004D8A61BD29CEE00D0FB79 /* WormFreeState.swift */; settings = {ASSET_TAGS = (); }; };
-		B004D8AA1BD3A2DD00D0FB79 /* background.wav in Resources */ = {isa = PBXBuildFile; fileRef = B004D8A91BD3A2DD00D0FB79 /* background.wav */; settings = {ASSET_TAGS = (); }; };
 		B00B8E851BC1436E00B1FDA7 /* Stiff Staff.otf in Resources */ = {isa = PBXBuildFile; fileRef = B00B8E841BC1436E00B1FDA7 /* Stiff Staff.otf */; settings = {ASSET_TAGS = (); }; };
 		B0589B391BC4256000800875 /* Tile.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0589B381BC4256000800875 /* Tile.swift */; settings = {ASSET_TAGS = (); }; };
 		B0589B3B1BC4295400800875 /* Playground.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0589B3A1BC4295400800875 /* Playground.swift */; settings = {ASSET_TAGS = (); }; };
@@ -45,6 +44,9 @@
 		B07F40F61BB8F8E4008F053E /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07F40F31BB8F8E4008F053E /* Entity.swift */; settings = {ASSET_TAGS = (); }; };
 		B07F40F71BB8F8E4008F053E /* UIControlComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07F40F41BB8F8E4008F053E /* UIControlComponent.swift */; settings = {ASSET_TAGS = (); }; };
 		B07F40F81BB8F8E4008F053E /* UISpriteComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07F40F51BB8F8E4008F053E /* UISpriteComponent.swift */; settings = {ASSET_TAGS = (); }; };
+		B084F5981BD4EACD00C142E0 /* step.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B084F5971BD4EACD00C142E0 /* step.mp3 */; settings = {ASSET_TAGS = (); }; };
+		B084F59A1BD4ED2E00C142E0 /* shit.wav in Resources */ = {isa = PBXBuildFile; fileRef = B084F5991BD4ED2E00C142E0 /* shit.wav */; settings = {ASSET_TAGS = (); }; };
+		B084F59C1BD4EF6200C142E0 /* background.wav in Resources */ = {isa = PBXBuildFile; fileRef = B084F59B1BD4EF6200C142E0 /* background.wav */; settings = {ASSET_TAGS = (); }; };
 		B088712B1BC2ED6800E82AA5 /* SpriteKit-Spring.swift in Sources */ = {isa = PBXBuildFile; fileRef = B088712A1BC2ED6800E82AA5 /* SpriteKit-Spring.swift */; settings = {ASSET_TAGS = (); }; };
 		B0A1484E1BC6426000BA5F43 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = B0A1484C1BC6263F00BA5F43 /* README.md */; };
 		B0A148501BC6430E00BA5F43 /* UIEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A1484F1BC6430E00BA5F43 /* UIEntity.swift */; settings = {ASSET_TAGS = (); }; };
@@ -67,7 +69,6 @@
 
 /* Begin PBXFileReference section */
 		B004D8A61BD29CEE00D0FB79 /* WormFreeState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WormFreeState.swift; sourceTree = "<group>"; };
-		B004D8A91BD3A2DD00D0FB79 /* background.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = background.wav; sourceTree = "<group>"; };
 		B00B8E841BC1436E00B1FDA7 /* Stiff Staff.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Stiff Staff.otf"; sourceTree = "<group>"; };
 		B0589B381BC4256000800875 /* Tile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tile.swift; sourceTree = "<group>"; };
 		B0589B3A1BC4295400800875 /* Playground.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Playground.swift; sourceTree = "<group>"; };
@@ -106,6 +107,9 @@
 		B07F40F31BB8F8E4008F053E /* Entity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
 		B07F40F41BB8F8E4008F053E /* UIControlComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIControlComponent.swift; sourceTree = "<group>"; };
 		B07F40F51BB8F8E4008F053E /* UISpriteComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UISpriteComponent.swift; sourceTree = "<group>"; };
+		B084F5971BD4EACD00C142E0 /* step.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = step.mp3; sourceTree = "<group>"; };
+		B084F5991BD4ED2E00C142E0 /* shit.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = shit.wav; sourceTree = "<group>"; };
+		B084F59B1BD4EF6200C142E0 /* background.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = background.wav; sourceTree = "<group>"; };
 		B088712A1BC2ED6800E82AA5 /* SpriteKit-Spring.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SpriteKit-Spring.swift"; sourceTree = "<group>"; };
 		B0A1484C1BC6263F00BA5F43 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		B0A1484F1BC6430E00BA5F43 /* UIEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIEntity.swift; sourceTree = "<group>"; };
@@ -145,7 +149,9 @@
 		B004D8A81BD3A2DD00D0FB79 /* Sound */ = {
 			isa = PBXGroup;
 			children = (
-				B004D8A91BD3A2DD00D0FB79 /* background.wav */,
+				B084F59B1BD4EF6200C142E0 /* background.wav */,
+				B084F5991BD4ED2E00C142E0 /* shit.wav */,
+				B084F5971BD4EACD00C142E0 /* step.mp3 */,
 			);
 			path = Sound;
 			sourceTree = "<group>";
@@ -351,8 +357,10 @@
 			files = (
 				B0A1484E1BC6426000BA5F43 /* README.md in Resources */,
 				B07F40C91BB8F824008F053E /* LaunchScreen.storyboard in Resources */,
-				B004D8AA1BD3A2DD00D0FB79 /* background.wav in Resources */,
+				B084F59C1BD4EF6200C142E0 /* background.wav in Resources */,
+				B084F5981BD4EACD00C142E0 /* step.mp3 in Resources */,
 				B07F40C61BB8F824008F053E /* Assets.xcassets in Resources */,
+				B084F59A1BD4ED2E00C142E0 /* shit.wav in Resources */,
 				B00B8E851BC1436E00B1FDA7 /* Stiff Staff.otf in Resources */,
 				B07F40C41BB8F824008F053E /* Main.storyboard in Resources */,
 			);

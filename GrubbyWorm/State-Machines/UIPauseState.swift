@@ -11,6 +11,8 @@ import GameplayKit
 class UIPauseState: UIState {
     
     override func didEnterWithPreviousState(previousState: GKState?) {
+        super.didEnterWithPreviousState(previousState)
+        
         if previousState != self {
             let spriteComponent = ui?.componentForClass(UISpriteComponent)
             spriteComponent?.usePauseAppearance()
@@ -18,7 +20,5 @@ class UIPauseState: UIState {
             game?.reportScore()
             game?.stopRecord()
         }
-        
-        super.didEnterWithPreviousState(previousState)
     }
 }

@@ -92,16 +92,11 @@ struct GridSizeRange {
     var to: GridSize
 }
 
-enum WormType {
-    case Normal
-    case Grubby
-}
-
 struct WormInfo {
     var name: String?
     var speed: NSTimeInterval
     var foot: Int
-    var type: WormType
+    var alive: Bool
 }
 
 struct EnergyInfo {

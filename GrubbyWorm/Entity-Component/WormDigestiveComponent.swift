@@ -7,6 +7,7 @@
 //
 
 import GameplayKit
+import SpriteKit
 
 class WormDigestiveComponent: GKComponent {
 
@@ -39,7 +40,27 @@ class WormDigestiveComponent: GKComponent {
         // if state is happy
         if let stateMachine = entity?.componentForClass(WormControlComponent)?.stateMachine {
             if stateMachine.currentState == stateMachine.stateForClass(WormHappyState) {
-                self.shitCount++
+                
+                switch trigger.type() {
+                case .Sugar:
+                    let firstWantEat = wantEatNow()
+                    if let sugarSprite = trigger.componentForClass(TriggerSpriteComponent) {
+                        if sugarSprite.style == firstWantEat {
+                            shitCount++
+                            
+                            addWantEat()
+                        } else {
+                            stomachache()
+                        }
+                    }
+                    break
+                case .Candy:
+                    shitCount += 5
+                    break
+                case .Grubby:
+                    stomachache()
+                    break
+                }
             }
         }
     }
@@ -81,6 +102,29 @@ class WormDigestiveComponent: GKComponent {
                     shitCount--
                 }
             }
+            
+            if let wormSprite = worm.componentForClass(WormSpriteComponent) {
+                wormSprite.root.runAction(SKAction.playSoundFileNamed("shit.wav", waitForCompletion: false))
+            }
+        }
+    }
+    
+    func stomachache() {
+        if let stateMachine = entity?.componentForClass(WormControlComponent)?.stateMachine {
+            stateMachine.enterState(WormDefeatedState)
+        }
+    }
+    
+    func wantEatNow() -> TriggerSugarStyle {
+        return wantEat[0]
+    }
+    
+    func addWantEat() {
+        wantEat.removeFirst()
+        wantEat.append(TriggerSugarStyle.randomStyle())
+        
+        if let wormSprite = entity?.componentForClass(WormSpriteComponent) {
+            wormSprite.renderSomitesStyle()
         }
     }
 }

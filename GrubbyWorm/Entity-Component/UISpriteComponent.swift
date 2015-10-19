@@ -209,6 +209,7 @@ class UISpriteComponent: GKComponent, MoodBarDelegate, EnergyBarDelegate {
         restartButton.actionTouchUpInside = GWButtonTarget.aBlock({ () -> Void in
             print("click restart")
             
+            self.entity?.componentForClass(UIControlComponent)?.stateMachine?.enterState(UIPlayingState)
         })
         
         recordSwitch.onChange = { (sender: GWSwitch) -> Void in
@@ -312,12 +313,33 @@ class UISpriteComponent: GKComponent, MoodBarDelegate, EnergyBarDelegate {
         let posD = restartButton.getRawPosition()
         restartButton.position = posD - CGPointMake(0, -300)
         restartButton.slowMoveTo(posD)
+        restartButton.size = howButton.size
         
         pauseMask.hidden = false
     }
     
     func useGameOverAppearance() {
+        playButton.hidden = true
+        gameCenterButton.hidden = false
+        howButton.hidden = false
+        restartButton.hidden = false
+        recordSwitch.hidden = false
+        replayButton.hidden = true
         
+        let posB = gameCenterButton.getRawPosition()
+        gameCenterButton.position = posB - CGPointMake(200, 300)
+        gameCenterButton.slowMoveTo(posB)
+        
+        let posC = howButton.getRawPosition()
+        howButton.position = posC - CGPointMake(-200, 300)
+        howButton.slowMoveTo(posC)
+        
+        let posD = playButton.getRawPosition()
+        restartButton.position = posD - CGPointMake(0, -500)
+        restartButton.slowMoveTo(posD)
+        restartButton.size = playButton.size
+        
+        pauseMask.hidden = false
     }
     
     func onMoodProgressEmpty(bar: MoodBar) {

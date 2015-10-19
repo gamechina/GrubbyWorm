@@ -27,4 +27,12 @@ class TriggerEntity : Entity {
             display.root.removeFromParent()
         }
     }
+    
+    func type() -> TriggerType {
+        if let type = componentForClass(TriggerSpriteComponent)?.type {
+            return type
+        }
+        
+        return TriggerType.Sugar
+    }
 }

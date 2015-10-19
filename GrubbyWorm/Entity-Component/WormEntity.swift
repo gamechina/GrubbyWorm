@@ -9,6 +9,10 @@
 import GameplayKit
 import SpriteKit
 
+protocol WormDelegate: NSObjectProtocol {
+    func wormDead(worm: WormEntity)
+}
+
 class WormEntity : Entity {
     
     weak var game: Game?
@@ -21,11 +25,13 @@ class WormEntity : Entity {
     
     var comboCount = 0
     
+    var delegate: WormDelegate?
+    
     init(game: Game?, ui: UIEntity?) {
         self.game = game
         self.ui = ui
         
-        info = WormInfo(name: "Grubby Worm", speed: Constant.worm_normal_speed, foot: 5, type: .Grubby)
+        info = WormInfo(name: "Grubby Worm", speed: Constant.worm_normal_speed, foot: 5, alive: true)
         
         super.init()
     }
@@ -122,5 +128,10 @@ class WormEntity : Entity {
                 digestiveComponent.shit()
             }
         }
+    }
+    
+    func die() {
+        info.alive = false
+        delegate?.wormDead(self)
     }
 }

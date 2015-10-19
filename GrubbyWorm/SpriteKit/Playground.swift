@@ -138,4 +138,11 @@ class Playground: SKNode {
             self.runAction(action, withKey: focusMoveActionKey)
         }
     }
+    
+    func playSound() {
+        
+        // play sound
+        let sound = SKAction.playSoundFileNamed("background.wav", waitForCompletion: true)
+        runAction(SKAction.repeatActionForever(sound))
+    }
 }

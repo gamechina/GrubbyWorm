@@ -12,6 +12,11 @@ import SpriteKit
 class UIPlayingState: UIState {
     
     override func didEnterWithPreviousState(previousState: GKState?) {
+        
+        if previousState == stateMachine?.stateForClass(UIGameOverState) {
+            game?.restartGame()
+        }
+        
         if previousState != self {
             game?.stopGyroUpdate()
             
