@@ -99,12 +99,12 @@ class TriggerSpriteComponent: GKComponent {
         
         switch type {
         case .Sugar:
-            let display = SKSpriteNode(imageNamed: "sugar_gray")
+            let display = SKSpriteNode(imageNamed: "cuit_star")
             display.size = size
-            display.setScale(0.93)
             
             renderSugarStyle(display)
             sugarRotate(display)
+            grubbyShake(display)
             
             root.addChild(display)
             break
