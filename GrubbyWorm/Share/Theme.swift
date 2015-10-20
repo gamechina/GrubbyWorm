@@ -37,6 +37,8 @@ struct Theme {
     static let sugar_color_crispy = SKColor(hex: "#d6e685")
     static let sugar_color_chocolate = SKColor(hex: "#cccccc")
     
+    static let born_color = SKColorWithRGB(180, g: 180, b: 180)
+    
     // --------- Config ---------
     
     static let mini_margin: CGFloat = 2
