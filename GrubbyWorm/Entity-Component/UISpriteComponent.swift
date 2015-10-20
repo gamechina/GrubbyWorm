@@ -209,6 +209,7 @@ class UISpriteComponent: GKComponent, MoodBarDelegate, EnergyBarDelegate {
         restartButton.actionTouchUpInside = GWButtonTarget.aBlock({ () -> Void in
             print("click restart")
             
+            self._game.restartGame()
             self.entity?.componentForClass(UIControlComponent)?.stateMachine?.enterState(UIPlayingState)
         })
         

@@ -178,6 +178,9 @@ class Game: NSObject, GameSceneDelegate, WormDelegate {
         
         score = 0
         energy = EnergyInfo(total: 100, current: 0, round: 0)
+        
+        // reset worm's combo
+        worm?.resetCombo()
     }
     
     func initLevel() {

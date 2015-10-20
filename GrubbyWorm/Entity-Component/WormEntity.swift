@@ -50,7 +50,6 @@ class WormEntity : Entity {
         let addScore = (comboCount == 0 ? 1 : comboCount)
         game?.score += addScore
         
-        
         if comboCount > 0 && info.speed != Constant.worm_combo_speed {
             if let wormStateMachine = componentForClass(WormControlComponent)?.stateMachine {
                 if wormStateMachine.currentState == wormStateMachine.stateForClass(WormHappyState) {
@@ -60,13 +59,26 @@ class WormEntity : Entity {
         }
     }
     
+    func resetCombo() {
+        if let uiSprite = ui?.componentForClass(UISpriteComponent) {
+            uiSprite.moodBar.percent = 0
+            uiSprite.moodBar.comboCount = 0
+        }
+        
+        comboFail()
+    }
+    
     func comboFail() {
         print("combo fail.")
         
         willCombo = false
         comboCount = 0
         
-        info.speed = Constant.worm_normal_speed
+        if let wormStateMachine = componentForClass(WormControlComponent)?.stateMachine {
+            if wormStateMachine.currentState == wormStateMachine.stateForClass(WormHappyState) {
+                info.speed = Constant.worm_normal_speed
+            }
+        }
     }
     
     func happy() {
