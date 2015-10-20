@@ -197,7 +197,7 @@ class TriggerSpriteComponent: GKComponent {
     private func sugarBorn(handler: (Void -> ())) {
         let born = SKSpriteNode(imageNamed: "somite")
         born.size = TriggerSpriteComponent.triggerSize
-        born.color = Theme.born_color
+        born.color = Theme.primary_color
         born.colorBlendFactor = 1
         born.setScale(0.35)
         root.addChild(born)
