@@ -101,6 +101,7 @@ class TriggerSpriteComponent: GKComponent {
         case .Sugar:
             let display = SKSpriteNode(imageNamed: "cuit_star")
             display.size = size
+            display.name = Constant.trigger_display_name
             
             renderSugarStyle(display)
             sugarRotate(display)
@@ -111,6 +112,7 @@ class TriggerSpriteComponent: GKComponent {
         case .Candy:
             let display = SKSpriteNode(imageNamed: "big_sugar")
             display.size = size
+            display.name = Constant.trigger_display_name
             display.setScale(0.93)
             
             sugarRotate(display)
@@ -120,6 +122,7 @@ class TriggerSpriteComponent: GKComponent {
         case .Grubby:
             let display = SKSpriteNode(imageNamed: "bb")
             display.size = size
+            display.name = Constant.trigger_display_name
             display.setScale(0.8)
             display.position = CGPointMake(0, -8)
             
@@ -217,20 +220,24 @@ class TriggerSpriteComponent: GKComponent {
     }
     
     func showEatMe() {
-        if let tip = root.childNodeWithName(Constant.tip_name_eat_me) {
-            tip.removeFromParent()
+        if let display = root.childNodeWithName(Constant.trigger_display_name) {
+            if display.actionForKey(Constant.action_key_eat_me) != nil {
+                return
+            }
+            
+            let changeWhite = SKAction.colorizeWithColor(SKColor.whiteColor(), colorBlendFactor: 1, duration: 0.2)
+            let changeBack = SKAction.colorizeWithColor(style!.color(), colorBlendFactor: 1, duration: 0.5)
+            
+            let action = SKAction.sequence([changeWhite, changeBack])
+            display.runAction(SKAction.repeatActionForever(action), withKey: Constant.action_key_eat_me)
         }
-        
-        let tip = SKLabelNode(text: "吃我!")
-        tip.fontSize = 12
-        tip.name = Constant.tip_name_eat_me
-        
-        root.addChild(tip)
     }
     
     func hideEatMe() {
-        if let tip = root.childNodeWithName(Constant.tip_name_eat_me) {
-            tip.removeFromParent()
+        if let display = root.childNodeWithName(Constant.trigger_display_name) as? SKSpriteNode {
+            display.removeActionForKey(Constant.action_key_eat_me)
+            
+            display.color = style!.color()
         }
     }
 }
