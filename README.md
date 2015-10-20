@@ -1,10 +1,14 @@
 # Grubby Worm
 
+[![Platform](http://img.shields.io/badge/platform-ios-blue.svg?style=flat)](https://developer.apple.com/iphone/index.action)
+[![Language](http://img.shields.io/badge/language-swift-brightgreen.svg?style=flat)](https://developer.apple.com/swift)
+[![License](http://img.shields.io/badge/license-MIT-lightgrey.svg?style=flat)](http://mit-license.org)
+
+A simple digital worm game made with latest iOS 9, SpriteKit, GameplayKit and ReplayKit, written in Swift 2.
+
 <p align="center">
 <img src="./GrubbyWorm/Screen/logo.png" alt="Logo" />
 </p>
-
-A simple digital worm game made with latest iOS 9, SpriteKit, GameplayKit and ReplayKit, written in Swift 2.
 
 **QQ交流群(Swift 游戏开发交流组)：453564812**
 
