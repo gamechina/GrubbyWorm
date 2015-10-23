@@ -72,6 +72,10 @@ class GWButton: SKSpriteNode {
         }
     }
     
+    func playTapSound() {
+        self.runAction(SKAction.playSoundFileNamed(Constant.button_tap_sound, waitForCompletion: false))
+    }
+    
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         if !isEnabled {
             return
@@ -113,6 +117,7 @@ class GWButton: SKSpriteNode {
             if CGRectContainsPoint(frame, touchLocation) {
                 if let act = actionTouchUpInside {
                     shake()
+                    playTapSound()
                     callTarget(act)
                 }
             }

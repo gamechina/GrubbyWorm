@@ -94,6 +94,7 @@ class UISpriteComponent: GKComponent, MoodBarDelegate, EnergyBarDelegate {
         // pause button
         pauseButton = GWButton(normalTexture: SKTexture(imageNamed: "pause"))
         pauseButton.size = CGSizeMake(24, 24)
+        pauseButton.setRawScale()
         pauseButton.position = CGPointMake(sceneSize.width - Theme.energy_bar_margin / 2, Theme.top_bar_board_height / 2)
         
         pauseMask = SKSpriteNode(color: Theme.mask_color, size: sceneSize)
@@ -122,6 +123,7 @@ class UISpriteComponent: GKComponent, MoodBarDelegate, EnergyBarDelegate {
         playButton.position = CGPointMake(sceneSize.width / 2, sceneSize.height / 2 - 110)
         playButton.zPosition = 2
         playButton.setRawPosition()
+        playButton.setRawScale()
         root.addChild(playButton)
         
         let howNormalTexture = SKTexture(imageNamed: "icon_how")
@@ -130,6 +132,7 @@ class UISpriteComponent: GKComponent, MoodBarDelegate, EnergyBarDelegate {
         howButton.position = playButton.position + CGPointMake(110, 0)
         howButton.zPosition = 2
         howButton.setRawPosition()
+        howButton.setRawScale()
         root.addChild(howButton)
         
         let gameCenterNormalTexture = SKTexture(imageNamed: "icon_game_center_normal")
@@ -140,6 +143,7 @@ class UISpriteComponent: GKComponent, MoodBarDelegate, EnergyBarDelegate {
         gameCenterButton.isEnabled = false
         gameCenterButton.zPosition = 2
         gameCenterButton.setRawPosition()
+        gameCenterButton.setRawScale()
         root.addChild(gameCenterButton)
         
         restartButton = GWButton(normalTexture: SKTexture(imageNamed: "icon_restart"))
@@ -147,6 +151,7 @@ class UISpriteComponent: GKComponent, MoodBarDelegate, EnergyBarDelegate {
         restartButton.position = playButton.position + CGPointMake(0, 110)
         restartButton.zPosition = 2
         restartButton.setRawPosition()
+        restartButton.setRawScale()
         root.addChild(restartButton)
         
         let openSwitch = SKTexture(imageNamed: "icon_record_on")
@@ -170,6 +175,7 @@ class UISpriteComponent: GKComponent, MoodBarDelegate, EnergyBarDelegate {
         replayButton.size = CGSizeMake(70, 70)
         replayButton.position = recordSwitch.position - CGPointMake(0, 60)
         replayButton.zPosition = 2
+        replayButton.setRawScale()
         root.addChild(replayButton)
         
         super.init()

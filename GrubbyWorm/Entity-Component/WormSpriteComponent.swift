@@ -163,7 +163,7 @@ class WormSpriteComponent: GKComponent {
         playground!.focusWorm()
         
         // play sound
-        root.runAction(SKAction.playSoundFileNamed("step.mp3", waitForCompletion: false))
+        root.runAction(SKAction.playSoundFileNamed(Constant.worm_step_sound, waitForCompletion: false))
     }
     
     func turn(target: Direction) {

@@ -142,7 +142,7 @@ class Playground: SKNode {
     func playSound() {
         
         // play sound
-        let sound = SKAction.playSoundFileNamed("tworoguesonemark.mp3", waitForCompletion: true)
+        let sound = SKAction.playSoundFileNamed(Constant.background_sound, waitForCompletion: true)
         runAction(SKAction.repeatActionForever(sound))
     }
 }

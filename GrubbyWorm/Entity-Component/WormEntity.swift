@@ -147,5 +147,10 @@ class WormEntity : Entity {
         
         info.alive = false
         delegate?.wormDead(self)
+        
+        // play the sound 
+        if let wormSprite = componentForClass(WormSpriteComponent) {
+            wormSprite.root.runAction(SKAction.playSoundFileNamed(Constant.lose_sound, waitForCompletion: false))
+        }
     }
 }

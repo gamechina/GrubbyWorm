@@ -104,7 +104,7 @@ class WormDigestiveComponent: GKComponent {
             }
             
             if let wormSprite = worm.componentForClass(WormSpriteComponent) {
-                wormSprite.root.runAction(SKAction.playSoundFileNamed("shit.wav", waitForCompletion: false))
+                wormSprite.root.runAction(SKAction.playSoundFileNamed(Constant.worm_shit_sound, waitForCompletion: false))
             }
         }
     }
