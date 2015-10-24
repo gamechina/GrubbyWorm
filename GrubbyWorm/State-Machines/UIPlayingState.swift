@@ -13,10 +13,6 @@ class UIPlayingState: UIState {
     
     override func didEnterWithPreviousState(previousState: GKState?) {
         
-//        if previousState == stateMachine?.stateForClass(UIGameOverState) {
-//            game?.restartGame()
-//        }
-        
         if previousState != self {
             game?.stopGyroUpdate()
             
@@ -39,11 +35,11 @@ class UIPlayingState: UIState {
         
         // moodbar progress
         if spriteComponent?.moodBar.percent != 0 {
-            spriteComponent?.moodBar.percent -= CGFloat(seconds) * (100 / 6)
+            spriteComponent?.moodBar.percent -= CGFloat(seconds) * (100 / Constant.combo_continue_time)
         }
 
         if spriteComponent!.energyBar.dropping {
-            spriteComponent?.energyBar.percent -= CGFloat(seconds) * (100 / 10)
+            spriteComponent?.energyBar.percent -= CGFloat(seconds) * (100 / Constant.energy_drop_time)
         }
         
         if game?.locationRandomSplit < 0 {

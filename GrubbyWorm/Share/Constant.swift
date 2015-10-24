@@ -29,6 +29,9 @@ struct Constant {
     static let worm_combo_speed: NSTimeInterval = 0.23
     static let worm_crazy_speed: NSTimeInterval = 0.12
     
+    static let combo_continue_time: CGFloat = 10
+    static let energy_drop_time: CGFloat = 10
+    
     // sound file name
     static let background_sound = "playwithme.mp3"
     static let lose_sound = "lose.wav"

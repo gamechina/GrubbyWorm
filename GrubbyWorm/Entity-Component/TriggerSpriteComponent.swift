@@ -110,12 +110,13 @@ class TriggerSpriteComponent: GKComponent {
             root.addChild(display)
             break
         case .Candy:
-            let display = SKSpriteNode(imageNamed: "big_sugar")
+            let display = SKSpriteNode(imageNamed: "sugar_mixin")
             display.size = size
             display.name = Constant.trigger_display_name
             display.setScale(0.93)
             
             sugarRotate(display)
+            grubbyShake(display)
             
             root.addChild(display)
             break
@@ -198,9 +199,9 @@ class TriggerSpriteComponent: GKComponent {
     }
     
     private func sugarBorn(handler: (Void -> ())) {
-        let born = SKSpriteNode(imageNamed: "somite")
+        let born = SKSpriteNode(imageNamed: "born")
         born.size = TriggerSpriteComponent.triggerSize
-        born.color = Theme.primary_color
+        born.color = Theme.born_color
         born.colorBlendFactor = 1
         born.setScale(0.35)
         root.addChild(born)

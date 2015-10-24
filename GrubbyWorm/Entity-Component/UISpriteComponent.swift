@@ -84,10 +84,13 @@ class UISpriteComponent: GKComponent, MoodBarDelegate, EnergyBarDelegate {
         topBoard.anchorPoint = CGPointMake(0, 0)
         
         score = SKLabelNode(fontNamed: "Stiff Staff")
-        score.fontSize = 26
+        score.fontSize = 116
+        score.setScale(0.2)
         score.text = "0"
         score.verticalAlignmentMode = .Center
         score.position = CGPointMake(Theme.energy_bar_margin / 2, Theme.top_bar_board_height / 2)
+        score.zPosition = 2
+        score.setRawPosition()
         
         energyBar = EnergyBar(width: sceneSize.width)
         
@@ -295,6 +298,11 @@ class UISpriteComponent: GKComponent, MoodBarDelegate, EnergyBarDelegate {
         moodBar.hidden = false
         topRoot.hidden = false
         pauseMask.hidden = true
+        
+        let scoreRawPos = score.getRawPosition()
+        score.quickMoveTo(scoreRawPos)
+        let scale = SKAction.scaleTo(0.2, duration: 0.5)
+        score.runAction(scale)
     }
     
     func usePauseAppearance() {
@@ -345,6 +353,13 @@ class UISpriteComponent: GKComponent, MoodBarDelegate, EnergyBarDelegate {
         restartButton.position = posD - CGPointMake(0, -500)
         restartButton.slowMoveTo(posD)
         restartButton.size = playButton.size
+        
+        // show score
+        let scoreRawPos = score.getRawPosition()
+        let scorePos = scoreRawPos + CGPointMake(sceneSize.width / 2 - scoreRawPos.x, -100)
+        score.quickMoveTo(scorePos)
+        let scale = SKAction.scaleTo(1.0, duration: 0.5)
+        score.runAction(scale)
         
         pauseMask.hidden = false
     }

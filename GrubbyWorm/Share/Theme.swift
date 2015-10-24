@@ -28,16 +28,16 @@ struct Theme {
     
     static let mask_color = SKColorWithRGBA(0, g: 0, b: 0, a: 190)
     
-    static let tile_normal_color = SKColorWithRGB(250, g: 250, b: 250)
-    static let tile_marble_color = SKColorWithRGB(245, g: 245, b: 245)
+    static let tile_normal_color = SKColorWithRGB(255, g: 255, b: 255)
+    static let tile_marble_color = SKColorWithRGB(253, g: 253, b: 253) //SKColorWithRGB(245, g: 245, b: 245)
     
     static let sugar_color_maltose = SKColor(hex: "#1e6823")
     static let sugar_color_praline = SKColor(hex: "#44a340")
     static let sugar_color_fondant = SKColor(hex: "#8cc665")
     static let sugar_color_crispy = SKColor(hex: "#d6e685")
-    static let sugar_color_chocolate = SKColor(hex: "#cccccc")
+    static let sugar_color_chocolate = SKColor(hex: "#cecece")
     
-    static let born_color = SKColorWithRGB(180, g: 180, b: 180)
+    static let born_color = SKColorWithRGB(200, g: 200, b: 200)
     
     // --------- Config ---------
     
