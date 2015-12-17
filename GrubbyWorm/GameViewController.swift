@@ -26,6 +26,7 @@ class GameViewController: UIViewController, EasyGameCenterDelegate {
         skView.showsDrawCount = true
         
         // in iOS 9.2 this will cause memory issue.
+        // https://github.com/gamechina/GrubbyWorm/issues/7
 //        skView.showsFields = true
         
         
