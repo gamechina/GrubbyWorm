@@ -24,7 +24,11 @@ class GameViewController: UIViewController, EasyGameCenterDelegate {
         skView.showsFPS = true
         skView.showsNodeCount = true
         skView.showsDrawCount = true
-        skView.showsFields = true
+        
+        // in iOS 9.2 this will cause memory issue.
+//        skView.showsFields = true
+        
+        
         skView.showsQuadCount = true
         
         game = Game(view: skView)
